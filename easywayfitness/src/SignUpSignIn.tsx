@@ -2,19 +2,19 @@ import { Component } from "react";
 import './SignUpSignIn.css';
 
 interface State {
-    user_name: string;
-    name: string;
-    user_email: string;
-    user_password: string;
-    user_password_again: string;
+    regUsername: string;
+    regName: string;
+    regEmail: string;
+    regPassword: string;
+    users: Users[];
 }
 
-interface User {
+interface Users {
     id: number;
     name: string;
-    user_email: string;
-    user_password: string;
-    user_password_again: string;
+    username: string;
+    email: string;
+    password: string;
 }
 
 class SignUpSignIn extends Component<{}, State> {
@@ -22,77 +22,79 @@ class SignUpSignIn extends Component<{}, State> {
         super(props)
 
         this.state = {
-            user_name: '',
-            name: '',
-            user_email: '',
-            user_password: '',
-            user_password_again: ''
+            regUsername: '',
+            regName: '',
+            regEmail: '',
+            regPassword: '',
+            users: [],
         }
     }
 
-    
-
-    handleRegister = async () => {
-        const { user_email, user_name, name, user_password, user_password_again } = this.state;
-        if(user_password != user_password_again){
-            alert('hiba, a két jelszó nem egyezik!')
-        }
-
-        const adat = {
-            name: name,
-            user_email: user_email,
-            user_name: user_name,
-            user_password: user_password,
-            user_password_again: user_password_again,
-        }
-
-        let response = await fetch('http://localhost:3000/register', {
-            method: 'POST',
-            headers:{
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(adat),
-        });
-
+    async usersLoad() {
+        let response = await fetch('http://localhost:3000/register');
+        let data = await response.json();
         this.setState({
-            user_name: '',
-            name: '',
-            user_email: '',
-            user_password: '',
-            user_password_again: ''
+            users: data,
         })
     }
 
-    
-    
+    componentDidMount() {
+        this.usersLoad();
+    }    
+
+    handlerRegister = async () => {
+        const { regEmail, regUsername, regName, regPassword} = this.state;
+
+        const data = {
+            name: regName,
+            email: regEmail,
+            username: regUsername,
+            password: regPassword,
+        };
+
+        let response = await fetch('http://localhost:3000/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+            },
+            body: JSON.stringify(data),
+        });
+
+        this.setState({
+            regUsername: '',
+            regName: '',
+            regEmail: '',
+            regPassword: '',
+        });
+        await this.usersLoad();
+    };
+   
     render(){
-        const { user_email, user_name, name, user_password, user_password_again } = this.state;
+        const { regEmail, regUsername, regName, regPassword} = this.state;
  
         return <div>
             <body>
                 <h2 id="teamName">EasyWay Fitness</h2>
-                <div className="container SignUpSignInForm">
+                <div className="container SignUpForm">
                     <div className="col-lg-12">
                         <div className="container">
                             <div className="SignUpSignInButton">
-                                <span id="toggleButton">Regisztráció</span>
-                                <span id="toggleButton">Belépés</span>
+                                <span className="toggleButton">Regisztráció</span>
+                                <span className="toggleButton">Belépés</span>
                             </div>
                             <br />
-                            <form id="" method="post">
+                            <form id="" method="post" action="http://localhost:3000/register">
                                 <div className="container inputGroup">
                                     <label htmlFor="user_email"></label>
-                                    <input type="text" name="user_eamil" id="user_email" value={user_email} onChange={e=> this.setState({user_email: e.currentTarget.value})} placeholder="Email" required /> <br />
+                                    <input type="text" name="user_eamil" id="user_email" value={regEmail} onChange={e=> this.setState({regEmail: e.currentTarget.value})} placeholder="Email" required /> <br />
                                     <label htmlFor="user_name"></label>
-                                    <input type="text" name="user_name" id="user_name" value={user_name} onChange={e=> this.setState({user_name: e.currentTarget.value})} placeholder="Felhasználónév" required /> <br />
+                                    <input type="text" name="user_name" id="user_name" value={regUsername} onChange={e=> this.setState({regUsername: e.currentTarget.value})} placeholder="Felhasználónév" required /> <br />
                                     <label htmlFor="name"></label>
-                                    <input type="text" name="name" id="name" value={name} onChange={e=> this.setState({name: e.currentTarget.value})} placeholder="Teljes név" required /> <br />
+                                    <input type="text" name="name" id="name" value={regName} onChange={e=> this.setState({regName: e.currentTarget.value})} placeholder="Teljes név" required /> <br />
                                     <label htmlFor="user_password"></label>
-                                    <input type="password" name="user_password" id="user_password" value={user_password} onChange={e=> this.setState({user_password: e.currentTarget.value})} placeholder="jelszó" required /><br />
-                                    <label htmlFor="user_password_again"></label>
-                                    <input type="password" name="user_password_again" id="user_password_again" value={user_password_again} onChange={e=> this.setState({user_password_again: e.currentTarget.value})} placeholder="jelszó megint" required /> <br />
+                                    <input type="password" name="user_password" id="user_password" value={regPassword} onChange={e=> this.setState({regPassword: e.currentTarget.value})} placeholder="jelszó" required /><br />
                                 </div>
-                                <button className="btn btn-success" onClick={this.handleRegister}>Regisztráció</button>
+                                <button className="btn btn-success" onClick={this.handlerRegister}>Regisztráció</button>
                             </form>
                         </div>     
                     </div>

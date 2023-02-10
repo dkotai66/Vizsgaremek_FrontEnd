@@ -4,24 +4,29 @@
 }
 
 body {
-    background-color: #1c170a;
+    background-color: #1E1B1B;
 }
 
 #teamName {
     text-align: center;
-    color: #4fd633;
+    color: #8BCC58;
 }
 
-.SignUpSignInForm {
+.SignUpForm {
+    width: 400px;
+    height: 500px;
     padding-top: 2rem;
+    padding: 5px;
     margin-top: 4rem;
-    background-color: #4fd633;
+    background-color: #8BCC58;
 }
 
 .SignUpSignInButton {
-    text-align: center;
+    width: 220px;
+    margin: 35px auto;
     position: relative;
     border-radius: 30px;
+    box-shadow: 0 0 20px 9px #1E1B1B;
 }
 
 #toggleButton {
