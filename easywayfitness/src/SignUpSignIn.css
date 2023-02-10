@@ -8,17 +8,22 @@ body {
 }
 
 #teamName {
+    padding-top: 10px;
     text-align: center;
-    color: #8BCC58;
+    color: #1E1B1B;
 }
 
 .SignUpForm {
     width: 400px;
     height: 500px;
-    padding-top: 2rem;
     padding: 5px;
-    margin-top: 4rem;
+    margin-top: 5rem;
     background-color: #8BCC58;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .SignUpSignInButton {
@@ -26,15 +31,65 @@ body {
     margin: 35px auto;
     position: relative;
     border-radius: 30px;
+    background-color:#1E1B1B;
     box-shadow: 0 0 20px 9px #1E1B1B;
 }
 
-#toggleButton {
-    padding: 10px 30px;
-    color: #4fd633;
-    background-color: #1c170a;
-    padding: 0.5rem;
+.toggleButton {
+    padding: 10px 20px;
+    background: transparent;
+    border: none;
     cursor: pointer;
     position: relative;
 }
 
+#invisibleButton {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 120px;
+    height: 100%;
+    background: white;
+    border-radius: 30px;
+    transition: .4s;
+}
+
+.inputGroup {
+    transition: .5s;
+    text-align: center;
+    margin: 0;
+}
+
+.inputField:hover {
+    width: 100%;
+    transition-duration: 1s;
+}
+
+.inputField {
+    text-align: center;
+    width: 70%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid white;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+input::placeholder {
+    color: white;
+}
+
+.inputs {
+    padding-bottom: 2rem;
+}
+
+#login {
+    display: none;
+}
+
+#logButton {
+    color: green;
+}
