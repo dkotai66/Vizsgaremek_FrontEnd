@@ -1,0 +1,88 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.body {
+  color: white;
+  background-color: #1E1B1B;
+}
+
+#teamName {
+  font-size: 1.6rem;
+}
+
+nav {
+  padding-top: 1rem;
+  display: flex;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 0.8rem;
+}
+
+ul li {
+  padding-left: 1rem;
+  cursor: pointer;
+}
+
+li a {
+  text-decoration: none;
+  color: white;
+}
+
+li a:hover {
+  color: #8BCC58;
+  transition: 0.8s;
+}
+
+#registration {
+  margin-top: 0.3rem;
+  padding: 10px;
+  background: #8BCC58;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  color: white;
+}
+
+hr {
+  width: 30%;
+}
+
+.findTheWay {
+  line-height: 2rem;
+  width: 400px;
+  height: 440px;
+  margin-top: 14rem;
+  background-color: #8BCC58;
+  padding: 4rem;
+  border-radius: 20px;
+}
+
+#go {
+  border: 1px solid white;
+  border-radius: 20px;
+  background-color: transparent;
+  color: white;
+  margin-top: 4rem;
+  width: 5rem;
+}
+
+#go:hover {
+  width: 6rem;
+  transition: 0.6s;
+}
+
+.educators {
+  margin-top: 16rem;
+}
+
+.educators h3 {
+  text-align: center;
+}
+
