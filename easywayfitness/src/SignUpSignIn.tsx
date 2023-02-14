@@ -42,8 +42,13 @@ class SignUpSignIn extends Component<{}, State> {
         this.usersLoad();
     }    
 
-    handlerRegister = async () => {
+    handlerRegister = async (e:any) => {
         const { regEmail, regUsername, regName, regPassword} = this.state;
+        e.preventDefault()
+        if(regEmail === '' || regUsername === '' || regName === '' || regPassword === ''){
+            alert('Hiba, egyik mező sem lehet üres!')
+            return;
+        }
 
         const data = {
             name: regName,
@@ -110,7 +115,7 @@ class SignUpSignIn extends Component<{}, State> {
                                 <button className="toggleButton" id="logButton" onClick={this.Login}>Belépés</button>
                             </div>
                             <br />
-                            <form id="login" className="inputGroup" method="post" action="http://localhost:3000/register">
+                            <form id="login" className="inputGroup" method="post">
                                 <div className="container inputs">
                                     <label htmlFor="user_email"></label>
                                     <input type="text" name="user_eamil" className="inputField" value={regEmail} onChange={e=> this.setState({regEmail: e.currentTarget.value})} placeholder="Email" required /> <br />
@@ -119,7 +124,7 @@ class SignUpSignIn extends Component<{}, State> {
                                 </div>
                                 <button className="btn btn-success" onClick={this.handlerRegister}>Belépés</button>
                             </form>
-                            <form id="register" className="inputGroup" method="post" action="http://localhost:3000/register">
+                            <form id="register" className="inputGroup" method="post">
                                 <div className="container inputs">
                                     <label htmlFor="user_email"></label>
                                     <input type="text" name="user_eamil" className="inputField" value={regEmail} onChange={e=> this.setState({regEmail: e.currentTarget.value})} placeholder="Email" required /> <br />
