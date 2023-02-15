@@ -55,13 +55,18 @@ hr {
 }
 
 .findTheWay {
-  line-height: 2rem;
-  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  width: 81rem;
   height: 440px;
   margin-top: 14rem;
   background-color: #8BCC58;
-  padding: 4rem;
-  border-radius: 20px;
+  padding-top: 4rem;
+  border-radius: 80px;
+}
+
+.findTheWayContent {
+  padding-left: 5rem;
 }
 
 #go {
@@ -70,7 +75,7 @@ hr {
   background-color: transparent;
   color: white;
   margin-top: 4rem;
-  width: 5rem;
+  width: 6rem;
 }
 
 #go:hover {
@@ -78,11 +83,56 @@ hr {
   transition: 0.6s;
 }
 
+#pullupImage {
+  margin-top: -160px;
+  width: 30rem;
+  height: 40rem;
+  border-radius: 40px;
+}
+
 .educators {
-  margin-top: 16rem;
+  margin-top: 30rem;
+  background-color: #8BCC58;
+  height: 45rem;
+  border-radius: 40px;
+  padding-top: 2rem;
 }
 
 .educators h3 {
   text-align: center;
+  padding-bottom: 5rem;
 }
 
+.dropdown {
+  padding-left: 3rem;
+}
+
+.dropdown:hover {
+  cursor: pointer;
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.dropdownContent p:hover {
+  text-decoration: underline;
+}
+
+.dropdown:hover .dropdownContent {
+  display: block;
+  cursor: pointer;
+  background-color: #1E1B1B;
+  text-align: center;
+  border-radius: 2px;
+  padding: 1rem;
+}
+
+.contentInformation {
+  padding-top: 5rem;
+  line-height: 2rem;
+  font-size: 1.1rem;
+  text-align: center;
+}
