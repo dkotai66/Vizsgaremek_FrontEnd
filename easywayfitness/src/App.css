@@ -103,8 +103,8 @@ hr {
   padding-bottom: 5rem;
 }
 
-.dropdown {
-  padding-left: 3rem;
+.dropdowntitle {
+  text-align: center;
 }
 
 .dropdown:hover {
@@ -121,6 +121,11 @@ hr {
   text-decoration: underline;
 }
 
+.dropdownContent p::after {
+  display: none;
+}
+
+
 .dropdown:hover .dropdownContent {
   display: block;
   cursor: pointer;
@@ -128,6 +133,7 @@ hr {
   text-align: center;
   border-radius: 2px;
   padding: 1rem;
+  width: 90%;
 }
 
 .contentInformation {
@@ -136,3 +142,12 @@ hr {
   font-size: 1.1rem;
   text-align: center;
 }
+
+#informationHr {
+  width: 80%;
+  background-color: white;
+  height: 2px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
