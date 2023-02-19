@@ -1,5 +1,9 @@
 import { Component } from 'react';
 import './App.css';
+import { GoArrowUp } from "react-icons/go";//react-icons octions icons
+import { GoCheck } from "react-icons/go"; 
+import { GoThreeBars } from "react-icons/go"; 
+
 
 class App extends Component<{}>{
 
