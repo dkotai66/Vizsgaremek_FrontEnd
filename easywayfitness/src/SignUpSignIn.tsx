@@ -72,6 +72,12 @@ class SignUpSignIn extends Component<{}, State> {
             regPassword: '',
         });
         await this.usersLoad();
+
+        const signUpForm = document.getElementById('SignUpForm') as HTMLDivElement;
+        const popUp = document.getElementById('popUp') as HTMLDivElement;
+        
+        signUpForm.style.display = 'none';
+        popUp.style.display = 'block';
     };
 
     Registration = async () => {
@@ -99,13 +105,21 @@ class SignUpSignIn extends Component<{}, State> {
         regButn.style.color = "green";
         logButn.style.color = "black";
     }
+
+    Close = async () => {
+        const signUpForm = document.getElementById('SignUpForm') as HTMLDivElement;
+        const popUp = document.getElementById('popUp') as HTMLDivElement;
+        
+        signUpForm.style.display = 'block';
+        popUp.style.display = 'none';
+    }
    
     render(){
         const { regEmail, regUsername, regName, regPassword} = this.state;
  
         return <div>      
             <body>
-                <div className="container SignUpForm">
+                <div className="container SignUpForm" id="SignUpForm">
                 <h2 id="teamName">EasyWay Fitness</h2>
                     <div className="col-lg-12">
                         <div className="container">
@@ -140,6 +154,12 @@ class SignUpSignIn extends Component<{}, State> {
                         </div>     
                     </div>
                 </div>
+                <div className="succesPopup" id="popUp">
+                    <h2>Sikeres regisztráció!</h2>
+                    <span>Az adataid sikeresen bekerültek a rendszerbe.</span> <br />
+                    <span>Mostmár beléphetsz a fiókoddal az oldalra.</span>
+                    <button onClick={this.Close}>Ok</button>
+                </div>             
             </body>            
         </div>
     }

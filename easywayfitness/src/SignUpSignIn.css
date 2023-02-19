@@ -15,6 +15,7 @@ body {
 
 .SignUpForm {
     width: 400px;
+    border-radius: 2rem;
     height: 500px;
     padding: 5px;
     margin-top: 5rem;
@@ -92,4 +93,36 @@ input::placeholder {
 
 #logButton {
     color: green;
+}
+
+.succesPopup {
+    width: 400px;
+    border-radius: 2rem;
+    background-color: #8BCC58;
+    height: 300px;
+    padding: 5px;
+    margin-top: 5rem;
+    background-color: white;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: none;
+}
+
+.succesPopup button {
+    width: 60%;
+    border: none;
+    background-color: #8BCC58;
+    border-radius: 2rem;
+    color: white;
+    padding: 4px 20px;
+    margin-top: 4rem;
+}
+
+.succesPopup h2 {
+    padding-bottom: 2rem;
+    padding-top: 1rem;
 }
