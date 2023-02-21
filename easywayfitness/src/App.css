@@ -151,3 +151,51 @@ hr {
   margin-right: auto;
 }
 
+.exercises {
+  margin-top: 20rem;
+  background-color: #8BCC58;
+  border-radius: 40px;
+  padding: 2rem;
+  height: 52rem;
+}
+
+.exercises h2 {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+#video {
+  width: 100%;
+}
+
+.exercises video {
+  width: 70%;
+}
+
+.videoTitle {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.videoList {
+  background-color: #1E1B1B;
+  border-radius: 40px;
+  height: 620px;
+  overflow-y: scroll;
+  padding: 2rem 2rem 2rem 2rem;
+}
+
+.videoList::-webkit-scrollbar {
+  width: 5px;
+  background-color: none;
+}
+
+.vid video {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.vid:hover {
+  background-color: #8acc587a;
+  cursor: pointer;
+}

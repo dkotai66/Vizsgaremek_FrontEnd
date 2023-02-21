@@ -330,6 +330,52 @@ class App extends Component<{}>{
     creatin.style.color = 'white';
   }
 
+  handleVideoBenchPress =async () => {
+    let video = document.getElementById('video') as HTMLVideoElement;
+    let excercisesDetails = document.getElementById('excercisesDetails') as HTMLSpanElement;
+    let videoTitle = document.getElementById('videoTitle') as HTMLHeadingElement;
+    video.src = './video/fekvenyomas.mp4';
+    excercisesDetails.textContent = 'Fontos, hogy legyen elég hely a fekvenyomáshoz, gyakorlat közben ne ütközz bele semmibe. Feküdj hanyatt egy fekve nyomó padon, találd meg azt a magasságot a rúdhoz, hogy kényelmesen nyújtott kézzel ki tudd emelni. A gyakorlat stabil fekvést igényel, talajon lévő talpakat, és padon tartott fejet. A kiemelt rudat lassan engedd lefelé a mellbimbók vonalába, egészen a szegycsontodig, majd emeld vissza a kiinduló helyzetbe! A kézfej végig egyenes, a hátadban legyen egy kis domborulat, a lapockádat pedig told össze teljesen addig amíg már csak egy kis labdának maradna hely. Ezzel elősegíted a nagyobb erőkifejtést, és jobban terheled a mellizmokat. ';
+    videoTitle.textContent = 'Fekvenyomás'
+  }
+
+  handleVideoDeadlift =async () => {
+    let video = document.getElementById('video') as HTMLVideoElement;
+    let excercisesDetails = document.getElementById('excercisesDetails') as HTMLSpanElement;
+    let videoTitle = document.getElementById('videoTitle') as HTMLHeadingElement;
+    video.src = './video/felhuzas.mp4';
+    excercisesDetails.textContent = 'Állj csípőszéles terpeszbe, törzsed előtt tartva a tudat, vagy súlyzókat. Húzd ki magad, majd hajlítsd a csípődet a medence hátra nyomásával, a láb mentén engedd lefele a súlyt. A hát végig egyenes, és a fejed ne lógjon, csak addig engedd a súlyt amíg a hátad egyenes tud maradni. ';
+    videoTitle.textContent = 'Felhúzás'
+  }
+
+  handleVideoSquat =async () => {
+    let video = document.getElementById('video') as HTMLVideoElement;
+    let excercisesDetails = document.getElementById('excercisesDetails') as HTMLSpanElement;
+    let videoTitle = document.getElementById('videoTitle') as HTMLHeadingElement;
+    video.src = './video/guggolas.mp4';
+    excercisesDetails.textContent = 'Állj csípőszéles terpeszbe, kifelé néző lábfejekkel, süllyeszd a medencédet a talaj irányába (mintha székre ülnél), és próbálj minél mélyebbre ereszkedni. Kinyomásnál (felállásnál) a sarkadat nyomd a talajba, feszítsd meg far és combizmodat. A gyakorlat során végig egyenes a láb, a térd egyenesen előre néz. A súlyt tartsd a válladon, vagy a kezedben. ';
+    videoTitle.textContent = 'Guggolás súllyal'
+  }
+
+  handleVideoShoulderPress =async () => {
+    let video = document.getElementById('video') as HTMLVideoElement;
+    let excercisesDetails = document.getElementById('excercisesDetails') as HTMLSpanElement;
+    let videoTitle = document.getElementById('videoTitle') as HTMLHeadingElement;
+    video.src = './video/vallbolnyomas.mp4';
+    excercisesDetails.textContent = 'Végezhető ülve, vagy állva. Emeld a súlyokat a vállad vonalába, a tenyerek előrefele néznek. A kar kinyújtásával nyomd ki a súlyokat a fejed fölé, majd engedd vissza kiinduló helyzetbe.';
+    videoTitle.textContent = 'Vállból nyomás'
+  }
+
+  handleVideoPullDown =async () => {
+    let video = document.getElementById('video') as HTMLVideoElement;
+    let excercisesDetails = document.getElementById('excercisesDetails') as HTMLSpanElement;
+    let videoTitle = document.getElementById('videoTitle') as HTMLHeadingElement;
+    video.src = './video/lehuzas.mp4';
+    excercisesDetails.textContent = 'Fogd meg a rudat vállszélesen, akaszd be a combjaidat a párna alá, majd húzd le a rudat a szegycsontodig. A könyökök a törzs vonalát követik, lehúzásnál enyhén dőlj hátra. A fejed végig maradjon a gerinc vonalában. ';
+    videoTitle.textContent = 'Lehúzás mellhez'
+  }
+
+
   render() {
     return <div>
       <div className='body'> 
@@ -410,12 +456,48 @@ class App extends Component<{}>{
                 <div className='container contentInformation'>
                   <div className='row'>
                     <div className='col-lg-12'>
-                      <span id='description'></span>
+                      <span id='description'>Válassz ki egy megismerni kívánt táplálékkiegészítőt</span>
                     </div>
                   </div>
                 </div>
             </div>
 
+            <div className='container exercises'>
+            <h2>Súlyzós edzések</h2>
+            <div className='row'>
+              <div className='col-lg-6 mainvideo'>
+                <div className='video'>
+                  <video src="./video/fekvenyomas.mp4" id='video' controls muted autoPlay></video>
+                  <h3 id='videoTitle'>Fekvenyomás</h3>
+                  <span id='excercisesDetails'>Fontos, hogy legyen elég hely a fekvenyomáshoz, gyakorlat közben ne ütközz bele semmibe. Feküdj hanyatt egy fekve nyomó padon, találd meg azt a magasságot a rúdhoz, hogy kényelmesen nyújtott kézzel ki tudd emelni. A gyakorlat stabil fekvést igényel, talajon lévő talpakat, és padon tartott fejet. A kiemelt rudat lassan engedd lefelé a mellbimbók vonalába, egészen a szegycsontodig, majd emeld vissza a kiinduló helyzetbe! A kézfej végig egyenes, a hátadban legyen egy kis domborulat, a lapockádat pedig told össze teljesen addig amíg már csak egy kis labdának maradna hely. Ezzel elősegíted a nagyobb erőkifejtést, és jobban terheled a mellizmokat. </span>
+                </div>
+              </div>
+              <div className='col-lg-6'>
+                <div className='videoList'>
+                  <div className='vid'>
+                    <video src="./video/fekvenyomas.mp4" onClick={this.handleVideoBenchPress} muted></video>
+                    <h3 className='videoTitle' onClick={this.handleVideoBenchPress}>Fekvenyomás</h3>
+                  </div>
+                  <div className='vid'>
+                    <video src="./video/felhuzas.mp4" onClick={this.handleVideoDeadlift} muted></video>
+                    <h3 className='videoTitle' onClick={this.handleVideoDeadlift}>Felhúzás</h3>
+                  </div>
+                  <div className='vid'>
+                    <video src="./video/guggolas.mp4" onClick={this.handleVideoSquat} muted></video>
+                    <h3 className='videoTitle' onClick={this.handleVideoSquat}>Guggolás súllyal</h3>
+                  </div>
+                  <div className='vid'>
+                    <video src="./video/vallbolnyomas.mp4" onClick={this.handleVideoShoulderPress} muted></video>
+                    <h3 className='videoTitle' onClick={this.handleVideoShoulderPress}>Vállból nyomás</h3>
+                  </div>
+                  <div className='vid'>
+                    <video src="./video/lehuzas.mp4" onClick={this.handleVideoPullDown} muted></video>
+                    <h3 className='videoTitle' onClick={this.handleVideoPullDown}>Lehúzás mellhez</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
 
           </div>
       </div>
