@@ -420,8 +420,8 @@ class App extends Component<{}>{
             <span id='teamName'>EasyWay Fitness</span>
               <ul className='nav justify-content-center'>
                 <li><a href='#'>Főoldal</a></li>
-                <li><a href='#'>Ismeretterjesztők</a></li>
-                <li><a href='#'>Gyakorlatok</a></li>
+                <li><a href='#ismeretterjesztok'>Ismeretterjesztők</a></li>
+                <li><a href='#gyakorlatok'>Gyakorlatok</a></li>
                 <li><a href='#'>Kalkulátor</a></li>
               </ul>
                 <button id='registration'>Regisztráció</button>
