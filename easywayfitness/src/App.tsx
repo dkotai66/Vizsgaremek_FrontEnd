@@ -562,6 +562,8 @@ class App extends Component<{}>{
                 <span>Vizsgaremek</span>
             </div>
           </footer>
+
+          <a href="#" id='goUp'><GoArrowUp /></a>
       </div>
     </div>
   }
