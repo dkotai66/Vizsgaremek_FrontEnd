@@ -179,7 +179,7 @@ class App extends Component<{}>{
 
   handleWeightGainer = async () => {
     const description = document.getElementById('description') as HTMLSpanElement;
-    description.textContent = 'A tömegnövelő szerek főképp szénhidrátban, aminosavakban a leggazdagabbak, de természetesen fehérje is van bennük. Tömegnövelő által extra kalória mennyiséget vihetünk be. Ajánlott nehéz fizikai munkát végzők számára, ektomorf (nehezen hízó vékony testalkatú) embereknek, és azoknak akik gyorsítani kívánják a regenerációt, vagy tömeget szeretnének növelni.';
+    description.textContent = 'A tömegnövelő szerek főképp szénhidrátban, kretainban a leggazdagabbak, de természetesen fehérje is van bennük. Tömegnövelő által extra kalória mennyiséget vihetünk be. Ajánlott nehéz fizikai munkát végzők számára, ektomorf (nehezen hízó vékony testalkatú) embereknek, és azoknak akik gyorsítani kívánják a regenerációt, vagy tömeget szeretnének növelni.';
     const amino = document.getElementById('amino') as HTMLParagraphElement;
     const wheys = document.getElementById('wheys') as HTMLParagraphElement;
     const vitamins = document.getElementById('vitamins') as HTMLParagraphElement;
@@ -375,6 +375,42 @@ class App extends Component<{}>{
     videoTitle.textContent = 'Lehúzás mellhez'
   }
 
+  handleVideoPushup =async () => {
+    let video = document.getElementById('video') as HTMLVideoElement;
+    let excercisesDetails = document.getElementById('excercisesDetails') as HTMLSpanElement;
+    let videoTitle = document.getElementById('videoTitle') as HTMLHeadingElement;
+    video.src = './video/fekvotamasz.mp4';
+    excercisesDetails.textContent = 'Vedd fel a plank testtartást a földön, nyújtott karokkal. A tenyerek a válladdal egy vonalban legyenek. Nyomd le a vállaidat, minél távolabb a füledtől, a lapockáidat is le és hátra. A könyök 45 fokos szöget zár a testeddel, a tested legyen egyenes. Fújd ki a levegőt, ereszkedj le, és próbáld a padlóhoz érinteni a mellkasodat. Belégzés közben nyomd vissza magad a kezdő helyzetbe. ';
+    videoTitle.textContent = 'Fekvőtámasz'
+  }
+
+  handleVideoPullup =async () => {
+    let video = document.getElementById('video') as HTMLVideoElement;
+    let excercisesDetails = document.getElementById('excercisesDetails') as HTMLSpanElement;
+    let videoTitle = document.getElementById('videoTitle') as HTMLHeadingElement;
+    video.src = './video/huzodzkodas.mp4';
+    excercisesDetails.textContent = 'Ugorj fel a rúdra, vállszélességnél egy kicsit szélesebben ragadd meg a rudat, lógj kinyújtott végtagokkal. Szorítsd, és told lefelé a lapockádat, ahogy megfeszíted a hátad, a törzsed és a farizmod. Húzd fel magad addig amíg, az állad a rúd fölé nem ér. A könyököket tartsd a törzsed mellet, a derekad őrizze a természetes ívét. Húzásnál képzeljük el, mintha a rudat a mellkasunkhoz húznánk. Ereszkedj vissza kezdő pozícióba. ';
+    videoTitle.textContent = 'Húzódzkodás'
+  }
+
+  handleVideoSquatWithoutWeight =async () => {
+    let video = document.getElementById('video') as HTMLVideoElement;
+    let excercisesDetails = document.getElementById('excercisesDetails') as HTMLSpanElement;
+    let videoTitle = document.getElementById('videoTitle') as HTMLHeadingElement;
+    video.src = './video/guggolassulynelkul.mp4';
+    excercisesDetails.textContent = 'Állj csípőszéles terpeszbe, kifelé néző lábfejekkel, süllyeszd a medencédet a talaj irányába (mintha székre ülnél), és próbálj minél mélyebbre ereszkedni. Kinyomásnál (felállásnál) a sarkadat nyomd a talajba, feszítsd meg far és combizmodat. A gyakorlat során végig egyenes a láb, a térd egyenesen előre néz.';
+    videoTitle.textContent = 'Guggolás súly nélkül'
+  }
+
+  handleVideoPlank =async () => {
+    let video = document.getElementById('video') as HTMLVideoElement;
+    let excercisesDetails = document.getElementById('excercisesDetails') as HTMLSpanElement;
+    let videoTitle = document.getElementById('videoTitle') as HTMLHeadingElement;
+    video.src = './video/plank.mp4';
+    excercisesDetails.textContent = 'Térdelj le, plankelj nyújtott karokkal. A tenyerek a válladdal egy vonalban legyenek.  Nyomd le a vállaidat, minél távolabb a füledtől, a lapockáidat is le és hátra. A könyök 45 fokos szöget zár a testeddel, a tested legyen egyenes. Feszítsd a törzset, és tartsd egyenesen a testet. Nyugodt a légzés, és tartsd mozdulatlanul a testedet, és tartsd ezt a pozíciót a kitűzött ideig.';
+    videoTitle.textContent = 'Plank'
+  }
+
 
   render() {
     return <div>
@@ -463,7 +499,7 @@ class App extends Component<{}>{
             </div>
 
             <div className='container exercises'>
-            <h2>Súlyzós edzések</h2>
+            <h2>Gyakorlatok</h2>
             <div className='row'>
               <div className='col-lg-6 mainvideo'>
                 <div className='video'>
@@ -474,25 +510,44 @@ class App extends Component<{}>{
               </div>
               <div className='col-lg-6'>
                 <div className='videoList'>
+                  <h3 className='exercisestitles'>Súlyzós Gyakorlatok</h3>
                   <div className='vid'>
                     <video src="./video/fekvenyomas.mp4" onClick={this.handleVideoBenchPress} muted></video>
-                    <h3 className='videoTitle' onClick={this.handleVideoBenchPress}>Fekvenyomás</h3>
+                    <h4 className='videoTitle' onClick={this.handleVideoBenchPress}>Fekvenyomás</h4>
                   </div>
                   <div className='vid'>
                     <video src="./video/felhuzas.mp4" onClick={this.handleVideoDeadlift} muted></video>
-                    <h3 className='videoTitle' onClick={this.handleVideoDeadlift}>Felhúzás</h3>
+                    <h4 className='videoTitle' onClick={this.handleVideoDeadlift}>Felhúzás</h4>
                   </div>
                   <div className='vid'>
                     <video src="./video/guggolas.mp4" onClick={this.handleVideoSquat} muted></video>
-                    <h3 className='videoTitle' onClick={this.handleVideoSquat}>Guggolás súllyal</h3>
+                    <h4 className='videoTitle' onClick={this.handleVideoSquat}>Guggolás súllyal</h4>
                   </div>
                   <div className='vid'>
                     <video src="./video/vallbolnyomas.mp4" onClick={this.handleVideoShoulderPress} muted></video>
-                    <h3 className='videoTitle' onClick={this.handleVideoShoulderPress}>Vállból nyomás</h3>
+                    <h4 className='videoTitle' onClick={this.handleVideoShoulderPress}>Vállból nyomás</h4>
                   </div>
                   <div className='vid'>
                     <video src="./video/lehuzas.mp4" onClick={this.handleVideoPullDown} muted></video>
-                    <h3 className='videoTitle' onClick={this.handleVideoPullDown}>Lehúzás mellhez</h3>
+                    <h4 className='videoTitle' onClick={this.handleVideoPullDown}>Lehúzás mellhez</h4>
+                  </div>
+                  <hr id='exercisesHr'/>
+                  <h3 className='exercisestitles'>Saját testsúlyos gyakorlatok</h3>
+                  <div className='vid'>
+                    <video src="./video/fekvotamasz.mp4" onClick={this.handleVideoPushup} muted></video>
+                    <h4 className='videoTitle' onClick={this.handleVideoPushup}>Fekvőtámasz</h4>
+                  </div>
+                  <div className='vid'>
+                    <video src="./video/guggolassulynelkul.mp4" onClick={this.handleVideoSquatWithoutWeight} muted></video>
+                    <h4 className='videoTitle' onClick={this.handleVideoSquatWithoutWeight}>Guggolás súly nélkül</h4>
+                  </div>
+                  <div className='vid'>
+                    <video src="./video/huzodzkodas.mp4" onClick={this.handleVideoPullup} muted></video>
+                    <h4 className='videoTitle' onClick={this.handleVideoPullup}>Húzódzkodás</h4>
+                  </div>
+                  <div className='vid'>
+                    <video src="./video/plank.mp4" onClick={this.handleVideoPlank} muted></video>
+                    <h4 className='videoTitle' onClick={this.handleVideoPlank}>Plank</h4>
                   </div>
                 </div>
               </div>

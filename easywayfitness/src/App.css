@@ -198,4 +198,19 @@ hr {
 .vid:hover {
   background-color: #8acc587a;
   cursor: pointer;
+  transition: 0.6s;
+}
+
+#exercisesHr {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+
+.exercisestitles {
+  padding-bottom: 2rem;
+  text-align: center;
 }
