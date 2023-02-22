@@ -414,7 +414,7 @@ class App extends Component<{}>{
 
   render() {
     return <div>
-      <div className='body'> 
+      <div className='mainContainer'> 
         <div className='container'>
           <nav>
             <span id='teamName'>EasyWay Fitness</span>
@@ -553,8 +553,15 @@ class App extends Component<{}>{
               </div>
             </div>
             </div>
-
           </div>
+
+          <footer>
+            <div className='footerContainer'>
+                <h3>EasyWay Fitness</h3>
+                <span>BMSZC Petrik Lajos Két tanítási Nyelvű Technikum</span><br />
+                <span>Vizsgaremek</span>
+            </div>
+          </footer>
       </div>
     </div>
   }
