@@ -413,8 +413,7 @@ class App extends Component<{}>{
 
 
   render() {
-    return <div>
-      <div className='mainContainer'> 
+    return <div className='mainContainer'>
         <div className='container'>
           <nav>
             <span id='teamName'>EasyWay Fitness</span>
@@ -564,7 +563,6 @@ class App extends Component<{}>{
           </footer>
 
           <a href="#" id='goUp'><GoArrowUp /></a>
-      </div>
     </div>
   }
 }

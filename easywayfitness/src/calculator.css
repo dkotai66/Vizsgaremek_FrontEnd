@@ -1,0 +1,90 @@
+body {
+    color: white;
+    background-color: #1E1B1B;
+}
+
+h2 {
+    text-align: center;
+    padding-top: 5rem;
+}
+
+#ageTitle {
+    margin-top: 2rem;
+}
+
+#birthDateTitle {
+    margin-top: 5rem;
+}
+
+.formContainer {
+    background-color: #8BCC58;
+    width: 30%;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding-top: 1rem;
+    border-radius: 2rem;
+}
+
+.genderButton {
+    margin-top: 2rem;
+    border: none;
+    background-color: white;
+    height: 3rem;
+    width: 10rem;
+    border-radius: 2rem;
+}
+
+#dateInput {
+    width: 50%;
+    margin-top: 2rem;
+    background-color: white;
+    border: none;
+    border-radius: 2rem;
+    padding: .5rem;
+    text-align: center;
+}
+
+.buttonContainer {
+    margin-top: 50px;
+}
+
+.buttonContainer button {
+    border: none;
+    border-radius: 2rem;
+    padding: .3rem;
+    width: 7rem;
+    background-color: #1E1B1B;
+    color: white;
+}
+
+.genderContainer label {
+    margin-top: .8rem;
+    height: 80px;
+    width: 240px;
+    border: 6px solid none;
+    border-radius: 2rem;
+    color: white;
+    background-color: white;
+    color: black;
+}
+
+.genderContainer span {
+    line-height: 80px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.genderContainer input[type="radio"] {
+    display: none;
+}
+
+.genderContainer input:checked + label {
+    background-color: #332f2f;
+    transition: .50s;
+    color: white;
+}
+
