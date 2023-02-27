@@ -47,30 +47,48 @@ class Calculator extends Component<{}, State> {
         const personalInformationsForm = document.getElementById('personalInformations') as HTMLFormElement;
         const bodyInformationsForm = document.getElementById('bodyInformations') as HTMLFormElement;
         const lifeStyleInformationsFrom = document.getElementById('lifeStyleInformations') as HTMLFormElement;
+        const otherInformationsFrom = document.getElementById('otherInformations') as HTMLFormElement;
 
         personalInformationsForm.style.display = "block";
         bodyInformationsForm.style.display = "none";
         lifeStyleInformationsFrom.style.display = "none";
+        otherInformationsFrom.style.display = "none";
     }
 
     handleSecondForm = async ()  => {
         const personalInformationsForm = document.getElementById('personalInformations') as HTMLFormElement;
         const bodyInformationsForm = document.getElementById('bodyInformations') as HTMLFormElement;
         const lifeStyleInformationsFrom = document.getElementById('lifeStyleInformations') as HTMLFormElement;
+        const otherInformationsFrom = document.getElementById('otherInformations') as HTMLFormElement;
 
         personalInformationsForm.style.display = "none";
         bodyInformationsForm.style.display = "block";
         lifeStyleInformationsFrom.style.display = "none";
+        otherInformationsFrom.style.display = "none";
     }
 
     handleThirdForm = async ()  => {
         const personalInformationsForm = document.getElementById('personalInformations') as HTMLFormElement;
         const bodyInformationsForm = document.getElementById('bodyInformations') as HTMLFormElement;
         const lifeStyleInformationsFrom = document.getElementById('lifeStyleInformations') as HTMLFormElement;
+        const otherInformationsFrom = document.getElementById('otherInformations') as HTMLFormElement;
 
         personalInformationsForm.style.display = "none";
         bodyInformationsForm.style.display = "none";
         lifeStyleInformationsFrom.style.display = "block";
+        otherInformationsFrom.style.display = "none";
+    }
+
+    handleFourthForm = async ()  => {
+        const personalInformationsForm = document.getElementById('personalInformations') as HTMLFormElement;
+        const bodyInformationsForm = document.getElementById('bodyInformations') as HTMLFormElement;
+        const lifeStyleInformationsFrom = document.getElementById('lifeStyleInformations') as HTMLFormElement;
+        const otherInformationsFrom = document.getElementById('otherInformations') as HTMLFormElement;
+
+        personalInformationsForm.style.display = "none";
+        bodyInformationsForm.style.display = "none";
+        lifeStyleInformationsFrom.style.display = "none";
+        otherInformationsFrom.style.display = "block";
     }
 
     render() {
@@ -142,11 +160,34 @@ class Calculator extends Component<{}, State> {
                                         <span className="nextpreviousBtn" id='previousBtn'onClick={this.handleSecondForm}>Előző</span>
                                     </div>
                                     <div className="col-lg-6">
-                                        <span className="nextpreviousBtn" onClick={this.handleThirdForm}>Következő</span>
+                                        <span className="nextpreviousBtn" onClick={this.handleFourthForm}>Következő</span>
                                     </div>
                                 </div>
                             </div>   
                         </form> 
+                        <form id="otherInformations">
+                            <h4>Add meg az álomsúlyodat</h4>
+                            <input type="number" id="dreamWeight" placeholder="kg"/>
+                            <h4>Add meg a testtípusodat</h4>
+                            <select name="bodyType" id="bodyType">
+                                <option value="nehezenhizo">Nehezen hízó</option>
+                                <option value="normalis">Normális</option>
+                                <option value="nehezenfogyo">Nehezen fogyó</option>
+                            </select>  
+                            <br />
+                            <h4>Kalkulálás után ezen az oldalon olvashatod egyből az eredményt</h4>
+                            <br />
+                            <div className="buttonContainer">
+                                <div className="row">
+                                    <div className="col-lg-6">
+                                        <span className="nextpreviousBtn" id='previousBtn'onClick={this.handleThirdForm}>Előző</span>
+                                    </div>
+                                    <div className="col-lg-6">
+                                        <button id="calculateBtn" onClick={this.handleThirdForm}>Kalkulál</button>
+                                    </div>
+                                </div>
+                            </div>   
+                        </form>  
                     </div>
                 </div>
 
