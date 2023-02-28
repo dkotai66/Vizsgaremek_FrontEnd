@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.css'
 import SignUpSignIn from './SignUpSignIn';
-import Calculator from './Calculator';
+import Calculator from './calculator';
 import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(

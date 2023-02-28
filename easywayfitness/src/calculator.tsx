@@ -1,5 +1,5 @@
 import { Component, ReactNode } from "react";
-import './Calculator.css'
+import './calculator.css'
 
 interface State {
     regGender: string;
