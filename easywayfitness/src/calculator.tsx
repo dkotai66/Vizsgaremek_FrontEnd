@@ -6,7 +6,7 @@ interface State {
     regHeight: number;
     regWeight: number;
     regAge: number;
-    regWater_consume: number;
+    regWater_consume: string;
     regLifestyle: string;
     regDiet_plan: string;
     regWeight_goal: number;
@@ -19,7 +19,7 @@ interface Form {
     height: number;
     weight: number;
     age: number;
-    water_consume: number;
+    water_consume: string;
     lifestyle: string;
     diet_plan: string;
     weight_goal: number;
@@ -35,7 +35,7 @@ class Calculator extends Component<{}, State> {
             regHeight: 0,
             regWeight: 0,
             regAge: 0,
-            regWater_consume: 0,
+            regWater_consume: '',
             regLifestyle: '',
             regDiet_plan: '',
             regWeight_goal: 0,
@@ -91,7 +91,46 @@ class Calculator extends Component<{}, State> {
         otherInformationsFrom.style.display = "block";
     }
 
+    handleCalculating =  async (e:any) => {
+        const {regGender, regAge, regHeight, regWeight, regWeight_goal, regLook, regDiet_plan, regLifestyle, regWater_consume} = this.state;
+        e.preventDefault()
+
+        const data = {
+            gender: regGender,
+            age: regAge,
+            weight: regWeight,
+            height: regHeight,
+            water_consume: regWater_consume,
+            lifestle: regLifestyle,
+            diet_plan: regDiet_plan,
+            weight_goal: regWeight_goal,
+            look: regLook,
+        }
+
+        let response = await fetch('http://localhost:3000/calculator', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+            },
+            body: JSON.stringify(data),
+        });
+
+        this.setState({
+            regAge: 0,
+            regGender: "",
+            regHeight: 0,
+            regWeight: 0,
+            regDiet_plan: "",
+            regLifestyle: "",
+            regLook: "",
+            regWater_consume: "",
+            regWeight_goal: 0,
+        });
+    }
+
     render() {
+        const {regGender, regAge, regHeight, regWeight, regWeight_goal, regLook, regDiet_plan, regLifestyle, regWater_consume} = this.state;
+
         return <div>
             <body>
                 <div className="container">
@@ -101,27 +140,27 @@ class Calculator extends Component<{}, State> {
                             <h4 id="ageTitle">Add meg a nemed</h4>
                                 <div className="row">
                                     <div className="col-lg-6 genderContainer">
-                                        <input type="radio" name={'gender'} className="genderButton" id="man" />
+                                        <input type="radio" name={'gender'} value={regGender} onChange={e=> this.setState({regGender: e.currentTarget.value})} className="genderButton" id="man" />
                                         <label htmlFor="man"><span>Férfi</span></label>                                            
                                     </div>
                                     <div className="col-lg-6 genderContainer">
-                                        <input type="radio" name={'gender'} className="genderButton" id="woman" />
+                                        <input type="radio" name={'gender'} value={regGender} onChange={e=> this.setState({regGender: e.currentTarget.value})} className="genderButton" id="woman" />
                                         <label htmlFor="woman"><span>Nő</span></label>                                            
                                     </div>
                                 </div>
                             <h4 id="birthDateTitle">Add meg a születésed</h4>
-                            <input type="date" id="dateInput" />  
+                            <input type="date" id="dateInput" value={regAge} onChange={e=> this.setState({regAge: parseInt(e.currentTarget.value)})}/>  
                             <div className="buttonContainer">
                                 <span className="nextpreviousBtn" onClick={this.handleSecondForm}>Következő</span>
                             </div>  
                         </form> 
                         <form id="bodyInformations">
                             <h4>Add meg a magasságod</h4>
-                            <input type="number" id="height" placeholder="cm"/>
+                            <input type="number" id="height" value={regHeight} onChange={e=> this.setState({regHeight: parseInt(e.currentTarget.value)})} placeholder="cm"/>
                             <h4>Add meg a súlyodat</h4>
-                            <input type="number" id="weight" placeholder="kg"/>  
+                            <input type="number" id="weight" value={regWeight} onChange={e=> this.setState({regWeight: parseInt(e.currentTarget.value)})} placeholder="kg"/>  
                             <h4>Add meg az álom súlyodat</h4>
-                            <input type="number" id="weightGoal" placeholder="kg" />  
+                            <input type="number" id="weightGoal" value={regWeight_goal} onChange={e=> this.setState({regWeight_goal: parseInt(e.currentTarget.value)})} placeholder="kg" />  
                             <div className="buttonContainer">
                                 <div className="row">
                                     <div className="col-lg-6">
@@ -136,23 +175,23 @@ class Calculator extends Component<{}, State> {
                         <form id="lifeStyleInformations">
                             <h4>Add meg a célodat</h4>
                             <select name="goals" id="goals">
-                                <option value="tomegnoveles">Tömegnövelés</option>
-                                <option value="fogyas">Fogyás</option>
-                                <option value="szalkasitas">Szálkásítás</option>
+                                <option value={regDiet_plan} onChange={e=> this.setState({regDiet_plan: e.currentTarget.value})}>Tömegnövelés</option>
+                                <option value={regDiet_plan} onChange={e=> this.setState({regDiet_plan: e.currentTarget.value})}>Fogyás</option>
+                                <option value={regDiet_plan} onChange={e=> this.setState({regDiet_plan: e.currentTarget.value})}>Szálkásítás</option>
                             </select>
                             <h4>Add meg a testmozgás típusodat</h4>
                             <select name="activity" id="activity">
-                                <option value="mozgasmentes">Mozgás mentes napok</option>
-                                <option value="mersekelt">Mérsékelt mozgású napok</option>
-                                <option value="aktiv">Aktív napok</option>
-                                <option value="nehez">Nehéz fizikai aktivitású napok</option>
+                                <option value={regLifestyle} onChange={e=> this.setState({regLifestyle: e.currentTarget.value})}>Mozgás mentes napok</option>
+                                <option value={regLifestyle} onChange={e=> this.setState({regLifestyle: e.currentTarget.value})}>Mérsékelt mozgású napok</option>
+                                <option value={regLifestyle} onChange={e=> this.setState({regLifestyle: e.currentTarget.value})}>Aktív napok</option>
+                                <option value={regLifestyle} onChange={e=> this.setState({regLifestyle: e.currentTarget.value})}>Nehéz fizikai aktivitású napok</option>
                             </select>  
                             <h4>Add meg a napi vízfogyasztásodat</h4>
                             <select name="water" id="water">
-                                <option value="egynelkevesebb">Kevesebb, mint 1 liter</option>
-                                <option value="egyketliter">1 - 2 liter</option>
-                                <option value="haromnegyliter">3 - 4 liter</option>
-                                <option value="negyneltobbliter">Több, mint 4 liter</option>
+                                <option value={regWater_consume} onChange={e=> this.setState({regWater_consume: e.currentTarget.value})}>Kevesebb, mint 1 liter</option>
+                                <option value={regWater_consume} onChange={e=> this.setState({regWater_consume: e.currentTarget.value})}>1 - 2 liter</option>
+                                <option value={regWater_consume} onChange={e=> this.setState({regWater_consume: e.currentTarget.value})}>3 - 4 liter</option>
+                                <option value={regWater_consume} onChange={e=> this.setState({regWater_consume: e.currentTarget.value})}>Több, mint 4 liter</option>
                             </select> 
                             <div className="buttonContainer">
                                 <div className="row">
@@ -170,9 +209,9 @@ class Calculator extends Component<{}, State> {
                             <input type="number" id="dreamWeight" placeholder="kg"/>
                             <h4>Add meg a testtípusodat</h4>
                             <select name="bodyType" id="bodyType">
-                                <option value="nehezenhizo">Nehezen hízó</option>
-                                <option value="normalis">Normális</option>
-                                <option value="nehezenfogyo">Nehezen fogyó</option>
+                                <option value={regLook} onChange={e=> this.setState({regLook: e.currentTarget.value})}>Nehezen hízó</option>
+                                <option value={regLook} onChange={e=> this.setState({regLook: e.currentTarget.value})}>Normális</option>
+                                <option value={regLook} onChange={e=> this.setState({regLook: e.currentTarget.value})}>Nehezen fogyó</option>
                             </select>  
                             <br />
                             <h4>Kalkulálás után ezen az oldalon olvashatod egyből az eredményt</h4>
@@ -183,7 +222,7 @@ class Calculator extends Component<{}, State> {
                                         <span className="nextpreviousBtn" id='previousBtn'onClick={this.handleThirdForm}>Előző</span>
                                     </div>
                                     <div className="col-lg-6">
-                                        <button id="calculateBtn" onClick={this.handleThirdForm}>Kalkulál</button>
+                                        <button id="calculateBtn" onClick={this.handleCalculating}>Kalkulál</button>
                                     </div>
                                 </div>
                             </div>   
