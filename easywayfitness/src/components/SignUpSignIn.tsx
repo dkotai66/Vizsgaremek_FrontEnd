@@ -17,7 +17,7 @@ interface Users {
     password: string;
 }
 
-class SignUpSignIn extends Component<{}, State> {
+export default class SignUpSignIn extends Component<{}, State> {
     constructor(props: {}){
         super(props)
 
@@ -159,10 +159,18 @@ class SignUpSignIn extends Component<{}, State> {
                     <span>Az adataid sikeresen bekerültek a rendszerbe.</span> <br />
                     <span>Mostmár beléphetsz a fiókoddal az oldalra.</span>
                     <button onClick={this.Close}>Ok</button>
-                </div>             
+                </div>  
+
+                <footer>
+                    <div className='footerContainer'>
+                        <h3>EasyWay Fitness</h3>
+                        <span>BMSZC Petrik Lajos Két tanítási Nyelvű Technikum</span><br />
+                        <span>Vizsgaremek</span>
+                    </div>
+                </footer>           
             </body>            
         </div>
     }
 }
 
-export default SignUpSignIn;
+

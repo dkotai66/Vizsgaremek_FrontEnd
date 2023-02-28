@@ -26,7 +26,7 @@ interface Form {
     look: string;
 }
 
-class Calculator extends Component<{}, State> {
+export default class Calculator extends Component<{}, State> {
     constructor(props: {}){
         super(props) 
 
@@ -242,5 +242,3 @@ class Calculator extends Component<{}, State> {
     }
    
 }
-
-export default Calculator;
