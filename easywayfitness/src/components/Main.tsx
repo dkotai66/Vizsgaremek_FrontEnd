@@ -5,28 +5,45 @@ import { GoCheck } from "react-icons/go";
 import { GoThreeBars } from "react-icons/go"; 
 import { Link } from 'react-router-dom';
 
-/*
-[
-    {
-        kategorianev: 'Fehérjék',
-        menupontok: [
-
-        ]
-    },
-    
-]
-
-*/
-
 interface VideoGalleryElement {
-    videoSrc: string;
-    videoTitle: string;
-    videoDetails: string;
+  videoSrc: string;
+  videoTitle: string;
+  videoDetails: string;
 }
 
-interface EducatorsElement {
-    description: string;
+interface WheyEducatorsElement {
+  description: string;
+  descriptionTitle: string;
+}
 
+interface AminoEducatorsElement {
+  description: string;
+  descriptionTitle: string;
+}
+
+interface CreatinEducatorsElement {
+  description: string;
+  descriptionTitle: string;
+}
+
+interface WeightGanerEducatorsElement {
+  description: string;
+  descriptionTitle: string;
+}
+
+interface VitaminEducatorsElement {
+  description: string;
+  descriptionTitle: string;
+}
+
+interface JointEducatorsElement {
+  description: string;
+  descriptionTitle: string;
+}
+
+interface currentEducatorElement {
+  description: string;
+  descriptionTitle: string;
 }
 
 const videoGallery: VideoGalleryElement[] = [
@@ -77,72 +94,197 @@ const videoGallery: VideoGalleryElement[] = [
     },
 ];
 
-const Educators: EducatorsElement[] =[
+const WheyEducators: WheyEducatorsElement[] =[
   {
-    description: 'A tejsavó fehérjét tejből technológiai eljárásokkal állítják elő. A tejsavó fehérje porok mindegyiké kissé eltér az összetevők emészthetőségében, emésztési sebességében, és persze az árában. Ezért célnak és igénynek megfelelően lehet választani tejsavó koncentrátumom, izolátumot, hidrolizátumot'
+    description: 'A tejsavó fehérjét tejből technológiai eljárásokkal állítják elő. A tejsavó fehérje porok mindegyiké kissé eltér az összetevők emészthetőségében, emésztési sebességében, és persze az árában. Ezért célnak és igénynek megfelelően lehet választani tejsavó koncentrátumom, izolátumot, hidrolizátumot',
+    descriptionTitle: 'Tejsavú fehérjék',
   },
   {
-    description: 'Tejsavófehérje izolátumként is ismert, tejből gyártják, és hasznos aminosav spektrummal rendelkezik. Előállításnál a tejsavó koncentrátumot állítják elő, melyet ezután szűréssel tejsavó fehérje izolátum előállításra használnak fel. Tisztább port vihetünk be, a fehérje tartalma átlagosan 80% feletti, kevesebb zsírt tartalmaz, ami miatt könnyebben szívódik fel, és könnyebben emészthető.'
+    description: 'Tejsavófehérje izolátumként is ismert, tejből gyártják, és hasznos aminosav spektrummal rendelkezik. Előállításnál a tejsavó koncentrátumot állítják elő, melyet ezután szűréssel tejsavó fehérje izolátum előállításra használnak fel. Tisztább port vihetünk be, a fehérje tartalma átlagosan 80% feletti, kevesebb zsírt tartalmaz, ami miatt könnyebben szívódik fel, és könnyebben emészthető.',
+    descriptionTitle: 'Fehérje izolátum',
   }, 
   {
-    description: 'Tejsavófehérje izolátumként is ismert, előnyük a magas fehérjekoncentráció 70-85%, ezeknek a fehérjéknek a leggyorsabb felszívódási sebessége. Hidrolízissel nyerik ki tejsavóból, vagy izolátumból. A folyamat közben a keverék vegyületekkel gazdagodik, amelyek enzimatikusan bontják le a fehérjeláncokat rövidebb peptidekre.'
+    description: 'Tejsavófehérje izolátumként is ismert, előnyük a magas fehérjekoncentráció 70-85%, ezeknek a fehérjéknek a leggyorsabb felszívódási sebessége. Hidrolízissel nyerik ki tejsavóból, vagy izolátumból. A folyamat közben a keverék vegyületekkel gazdagodik, amelyek enzimatikusan bontják le a fehérjeláncokat rövidebb peptidekre.',
+    descriptionTitle: 'Hidrolizált fehérjék',
   },
   {
-    description: 'Növényi eredetű, kenderből, hüvelyesekből (szójából, borsból), gabonafélékből (rizsből) állítják elő. A laktózintoleranciában szenvedő emberek is fogyaszthatják. Hátránya, hogy az esszenciális aminosavak spektrumát tekintve kevésbé kedvező.'
+    description: 'Növényi eredetű, kenderből, hüvelyesekből (szójából, borsból), gabonafélékből (rizsből) állítják elő. A laktózintoleranciában szenvedő emberek is fogyaszthatják. Hátránya, hogy az esszenciális aminosavak spektrumát tekintve kevésbé kedvező.',
+    descriptionTitle: 'Növényalapú fehérjék',
   },
   {
-    description: 'Aki kerüli a laktózt, vagy a tehéntejből származó fehérjét, annak tökéletes megoldást nyújt a marhahús fehérje. Ezek a porok leggyakrabban hidrolizált fehérjeporok formájában érhetőek el, jó felszívódású képességgel.'
+    description: 'Aki kerüli a laktózt, vagy a tehéntejből származó fehérjét, annak tökéletes megoldást nyújt a marhahús fehérje. Ezek a porok leggyakrabban hidrolizált fehérjeporok formájában érhetőek el, jó felszívódású képességgel.',
+    descriptionTitle: 'Állatifehérje',
+  },
+];
+
+const aminoEducators: AminoEducatorsElement[] =[
+  {
+    description: 'Ezek az aminosavak esszenciális amionosavak közé tartoznak, ami azt jelenti, hogy a szervezet nem tudja magától előállítani. Ezeket az aminosavakat fehérjévé alakítja át a szervezet, ami az izomszövet építőanyaga. A BCAA magukban is emészthetőek, emiatt fizikai aktivitás során szolgálhatnak energiaforrásként, ezzel lehetővé téve számunkra, hogy energia használat közben a szervezetünk ne az izomtömegünkhöz nyúljon hozzá.',
+    descriptionTitle: 'BCAA',
   },
   {
-    description: 'Ezek az aminosavak esszenciális amionosavak közé tartoznak, ami azt jelenti, hogy a szervezet nem tudja magától előállítani. Ezeket az aminosavakat fehérjévé alakítja át a szervezet, ami az izomszövet építőanyaga. A BCAA magukban is emészthetőek, emiatt fizikai aktivitás során szolgálhatnak energiaforrásként, ezzel lehetővé téve számunkra, hogy energia használat közben a szervezetünk ne az izomtömegünkhöz nyúljon hozzá.'
+    description: 'A szervezetben legnagyobb arányban lévő aminosavak közé tartozik. Izomtömeget létrehozó fehérjék alapköve, ezentúl immunrendszer és a bélnyálkahártya egyes sejtjeinek energiaforrása. A szervezetünk képes maga is előállítani a glutamint, de előfordul, hogy az előállítás mennyisége nem elegendő pl.: nehéz fizikai tevékenységnél, vagy stresszes időszakban.',
+    descriptionTitle: 'L-Glutamin',
   },
   {
-    description: 'A szervezetben legnagyobb arányban lévő aminosavak közé tartozik. Izomtömeget létrehozó fehérjék alapköve, ezentúl immunrendszer és a bélnyálkahártya egyes sejtjeinek energiaforrása. A szervezetünk képes maga is előállítani a glutamint, de előfordul, hogy az előállítás mennyisége nem elegendő pl.: nehéz fizikai tevékenységnél, vagy stresszes időszakban.'
+    description: 'Az EAA az izomtömeg regenerációjában és növekedésében játszik szerepet, emellett a hormonok, enzimek, és más vegyületek termelésének alapját képezi. A szervezet nem képes önmagam előállítani ezt, ezért csak táplálékkal, és táplálékkiegészítővel vagyunk képesek bejuttatni szervezetünkbe.',
+    descriptionTitle: 'EAA',
   },
   {
-    description: 'Az EAA az izomtömeg regenerációjában és növekedésében játszik szerepet, emellett a hormonok, enzimek, és más vegyületek termelésének alapját képezi. A szervezet nem képes önmagam előállítani ezt, ezért csak táplálékkal, és táplálékkiegészítővel vagyunk képesek bejuttatni szervezetünkbe.'
+    description: 'Kitágítja az ereket, ezáltal szabályozza az izmok vérellátását. Elősegíti az izmok oxigén és tápanyag ellátását edzés közben. Az arginin a kreatin alapvető építőeleme. Továbbá segít a természetes méregtelenítésben, késleltetheti a teljesítménycsökkenést. A szervezet képes maga is előállítani, de betegség vagy nehéz fizikai aktivitás során megnőhet a test igénye, emiatt fontos a külsőleges alkalmazás is.',
+    descriptionTitle: 'Arginin',
   },
+];
+
+const creatinEducators: CreatinEducatorsElement[] =[
   {
-    description: 'Kitágítja az ereket, ezáltal szabályozza az izmok vérellátását. Elősegíti az izmok oxigén és tápanyag ellátását edzés közben. Az arginin a kreatin alapvető építőeleme. Továbbá segít a természetes méregtelenítésben, késleltetheti a teljesítménycsökkenést. A szervezet képes maga is előállítani, de betegség vagy nehéz fizikai aktivitás során megnőhet a test igénye, emiatt fontos a külsőleges alkalmazás is.'
-  },
-  {
-    description: 'Kreatinok közül a monohidrát a legismertebb. A monohidrát társaihoz hasonlóan elősegíti az ATIP újra termelődését, ami gyors energiaforrásként ismert, ezáltal képes növelni a fizikai teljesítményt, elősegítheti a robbanékonyságot. A kreatin leginkább vázizomokban tárolódik. Vízzel épül be, emiatt fontos a sok folyadékbevitel. Napi 3gr kreatin bevitel ajánlott az eredmény érdekében.'
+    description: 'Kreatinok közül a monohidrát a legismertebb. A monohidrát társaihoz hasonlóan elősegíti az ATIP újra termelődését, ami gyors energiaforrásként ismert, ezáltal képes növelni a fizikai teljesítményt, elősegítheti a robbanékonyságot. A kreatin leginkább vázizomokban tárolódik. Vízzel épül be, emiatt fontos a sok folyadékbevitel. Napi 3gr kreatin bevitel ajánlott az eredmény érdekében.',
+    descriptionTitle: 'Monohidrát'
   }, 
   {
-    description: 'Kreatin egyéb formái a kreatin különböző formáit tartalmazó termékkategória, amelyek különböznek az összetevő profilban, oldhatóságban és felszívódási sebességben. Például a jobb oldhatóság és felszívódási sebesség miatt a kreatint nagyon finom porrá mikronizálják. A kreatin-monohidráthoz hasonlóan a kreatin más formái is elősegítik az ATP újratermelődését, amely gyors energiaforrásként ismert. Ezért képesek növelni a fizikai teljesítményt az intenzív, rövid, egymást követő edzésszakaszok során. A kreatin egyes formáit azzal a céllal fejlesztették ki, hogy javítsák felszívódási sebességüket és oldhatóságukat.'
+    description: 'Kreatin egyéb formái a kreatin különböző formáit tartalmazó termékkategória, amelyek különböznek az összetevő profilban, oldhatóságban és felszívódási sebességben. Például a jobb oldhatóság és felszívódási sebesség miatt a kreatint nagyon finom porrá mikronizálják. A kreatin-monohidráthoz hasonlóan a kreatin más formái is elősegítik az ATP újratermelődését, amely gyors energiaforrásként ismert. Ezért képesek növelni a fizikai teljesítményt az intenzív, rövid, egymást követő edzésszakaszok során. A kreatin egyes formáit azzal a céllal fejlesztették ki, hogy javítsák felszívódási sebességüket és oldhatóságukat.',
+    descriptionTitle: 'Egyébb formái',
+  },
+];
+
+const weightGanerEducators: WeightGanerEducatorsElement[] =[
+  {
+    description: 'A tömegnövelő szerek főképp szénhidrátban, kretainban a leggazdagabbak, de természetesen fehérje is van bennük. Tömegnövelő által extra kalória mennyiséget vihetünk be. Ajánlott nehéz fizikai munkát végzők számára, ektomorf (nehezen hízó vékony testalkatú) embereknek, és azoknak akik gyorsítani kívánják a regenerációt, vagy tömeget szeretnének növelni.',
+    descriptionTitle: 'Általánosság',
+  },
+];
+
+const vitaminEducators: VitaminEducatorsElement[] =[
+  {
+    description: 'Komplex táplálékkiegészítő kategória. A legtöbb esetben szervezetünk nem képes ezeket az anyagokat kellő mennyiségben előállítani, ezért fontos a rendszeres pótlásuk. Általában négy kategória létezik: Nőknek (pl.: hialuron savval, cinkkel kiegészítve) , Férfiaknak (pl.: emésztőenzimekkel, nootropikus anyokkal kiegészítve), sima multivitamin, 3 évnél idősebb gyermekek számára (rágótabletta formában, gyümölcsös ízben). A legtöbb esetben 8-15 vitamin tartalmaznak egyszerre, kevesebb mennyiségben.',
+    descriptionTitle: 'Multivitaminok',
   },
   {
-    description: 'A tömegnövelő szerek főképp szénhidrátban, kretainban a leggazdagabbak, de természetesen fehérje is van bennük. Tömegnövelő által extra kalória mennyiséget vihetünk be. Ajánlott nehéz fizikai munkát végzők számára, ektomorf (nehezen hízó vékony testalkatú) embereknek, és azoknak akik gyorsítani kívánják a regenerációt, vagy tömeget szeretnének növelni.'
+    description: 'Zsírban oldodó vitamin, táplálékon keresztül nyert zsírhoz kötődnek. Az A-vitamin a sejtek specializálódásában játszik szerepet, és a vasanyagcserében is. Emellett hozzájárul a nyálkahártyák egészségéhez, valamint bőr és látás megfelelő állapotához.',
+    descriptionTitle: 'A-vitamin',
   },
   {
-    description: 'Komplex táplálékkiegészítő kategória. A legtöbb esetben szervezetünk nem képes ezeket az anyagokat kellő mennyiségben előállítani, ezért fontos a rendszeres pótlásuk. Általában négy kategória létezik: Nőknek (pl.: hialuron savval, cinkkel kiegészítve) , Férfiaknak (pl.: emésztőenzimekkel, nootropikus anyokkal kiegészítve), sima multivitamin, 3 évnél idősebb gyermekek számára (rágótabletta formában, gyümölcsös ízben). A legtöbb esetben 8-15 vitamin tartalmaznak egyszerre, kevesebb mennyiségben.'
+    description: 'Ide tartoznak a B1, B2, B3, B5, B6, B7, B9, B12 vitaminok, melyek könnyen felszívódnak szervezetünkben. B1: Energia előállításához szükséges, illetve az idegrendszert támogatja. B2: Közérzetünkért felelős, illetve a megfelelő vasanyagcseréért, és csökkenti a fáradtság érzetet. B3: megfelelő anyagcserét biztosítja, csökkenti a fáradtság, és a kimerültség érzetet. B5: csökkenti a fáradtság, és a kimerültség érzetet, illetve segít az optimális szellemi teljesítményben. B6: Hozzájárul a hormonális aktivitás szabályozásához, megfelelő immunfunkciókhoz, csökkenti a fáradtság, és a kimerültség érzetet. B7: Részt vesz a mentális jóllét, és az idegrendszer támogatásában. B9: Különösen a terhes nőknek fontos a magzat fejlődési és növekedési szakaszban. B12: Hozzájárul a megfelelő mentális egészség megőrzéséhez és az idegrendszer működéséhez.',
+    descriptionTitle: 'B-vitamin',
   },
   {
-    description: 'Zsírban oldodó vitamin, táplálékon keresztül nyert zsírhoz kötődnek. Az A-vitamin a sejtek specializálódásában játszik szerepet, és a vasanyagcserében is. Emellett hozzájárul a nyálkahártyák egészségéhez, valamint bőr és látás megfelelő állapotához.'
+    description: 'A C vitamin vízben oldodó vitaminok közé tartozik, melyek az emberi szervezetben látják el funkciójukat. Többlet esetén a szervezet űríti ezt a vitamint. A C vitamin hatással van az immunrendszerre, idegrendszerre, és az elmére. Részt vesz a stresszel szembeni védelemben, és a fáradtáság csökkenésében.',
+    descriptionTitle: 'C-vitamin',
   },
   {
-    description: 'Ide tartoznak a B1, B2, B3, B5, B6, B7, B9, B12 vitaminok, melyek könnyen felszívódnak szervezetünkben. B1: Energia előállításához szükséges, illetve az idegrendszert támogatja. B2: Közérzetünkért felelős, illetve a megfelelő vasanyagcseréért, és csökkenti a fáradtság érzetet. B3: megfelelő anyagcserét biztosítja, csökkenti a fáradtság, és a kimerültség érzetet. B5: csökkenti a fáradtság, és a kimerültség érzetet, illetve segít az optimális szellemi teljesítményben. B6: Hozzájárul a hormonális aktivitás szabályozásához, megfelelő immunfunkciókhoz, csökkenti a fáradtság, és a kimerültség érzetet. B7: Részt vesz a mentális jóllét, és az idegrendszer támogatásában. B9: Különösen a terhes nőknek fontos a magzat fejlődési és növekedési szakaszban. B12: Hozzájárul a megfelelő mentális egészség megőrzéséhez és az idegrendszer működéséhez.'
+    description: 'A D vitaminnak két fő formája van, ergokalciferol, és kolekaciferol. A D vitamin főleg állati eredetű, az egyetlen kivétel összetevőjében a kolekarciferol mely zuzmóbol készül. A D vitamin feladata, a sejt osztódás, és ezenkívül az immunitás megfelelő működése. Segít az egészséges fogakat, csontokat, izmokat fenntartani.',
+    descriptionTitle: 'D-vitamin'
   },
   {
-    description: 'A C vitamin vízben oldodó vitaminok közé tartozik, melyek az emberi szervezetben látják el funkciójukat. Többlet esetén a szervezet űríti ezt a vitamint. A C vitamin hatással van az immunrendszerre, idegrendszerre, és az elmére. Részt vesz a stresszel szembeni védelemben, és a fáradtáság csökkenésében.'
+    description: '8 vegyületet foglal magába, 4 tokoferolt és 4 tokotrienolt. Zsírban oldodó vitamin, emaitt bélfalon jobban szívódik fel. Feladata, hogy megvédje a sejteket az ocidatív stressztől és a szabad gyököktől.',
+    descriptionTitle: 'E-vitamin'
+  },
+];
+
+const jointEducators: JointEducatorsElement[] =[
+  {
+    description: 'Feladata az ízületek, porcok, csontok, ínak és más kötőszövetek egészségének támogatása. Általában állati szövetekből állítják elő, elsősorban tengeri állatokéból.',
+    descriptionTitle: 'Kollagén',
   },
   {
-    description: 'A D vitaminnak két fő formája van, ergokalciferol, és kolekaciferol. A D vitamin főleg állati eredetű, az egyetlen kivétel összetevőjében a kolekarciferol mely zuzmóbol készül. A D vitamin feladata, a sejt osztódás, és ezenkívül az immunitás megfelelő működése. Segít az egészséges fogakat, csontokat, izmokat fenntartani.'
+    description: 'Elsősorban térdízület erősségének és ellenállásának, valamint a porcok rugalmasságának támogatása miatt ismert. Étrend-kiegészítőkben leggyakrabban glükozamin-szulfátként található meg, mivel hatékonyabban szívódik fel, mint a glükozamin-hidroklorid.',
+    descriptionTitle: 'Glükózamin',
+  },
+];
+
+const currentEducator: currentEducatorElement[] =[
+  {
+    description: 'A tejsavó fehérjét tejből technológiai eljárásokkal állítják elő. A tejsavó fehérje porok mindegyiké kissé eltér az összetevők emészthetőségében, emésztési sebességében, és persze az árában. Ezért célnak és igénynek megfelelően lehet választani tejsavó koncentrátumom, izolátumot, hidrolizátumot',
+    descriptionTitle: 'Tejsavú fehérjék',
   },
   {
-    description: '8 vegyületet foglal magába, 4 tokoferolt és 4 tokotrienolt. Zsírban oldodó vitamin, emaitt bélfalon jobban szívódik fel. Feladata, hogy megvédje a sejteket az ocidatív stressztől és a szabad gyököktől.'
+    description: 'Tejsavófehérje izolátumként is ismert, tejből gyártják, és hasznos aminosav spektrummal rendelkezik. Előállításnál a tejsavó koncentrátumot állítják elő, melyet ezután szűréssel tejsavó fehérje izolátum előállításra használnak fel. Tisztább port vihetünk be, a fehérje tartalma átlagosan 80% feletti, kevesebb zsírt tartalmaz, ami miatt könnyebben szívódik fel, és könnyebben emészthető.',
+    descriptionTitle: 'Fehérje izolátum',
+  }, 
+  {
+    description: 'Tejsavófehérje izolátumként is ismert, előnyük a magas fehérjekoncentráció 70-85%, ezeknek a fehérjéknek a leggyorsabb felszívódási sebessége. Hidrolízissel nyerik ki tejsavóból, vagy izolátumból. A folyamat közben a keverék vegyületekkel gazdagodik, amelyek enzimatikusan bontják le a fehérjeláncokat rövidebb peptidekre.',
+    descriptionTitle: 'Hidrolizált fehérjék',
   },
   {
-    description: 'Feladata az ízületek, porcok, csontok, ínak és más kötőszövetek egészségének támogatása. Általában állati szövetekből állítják elő, elsősorban tengeri állatokéból.'
+    description: 'Növényi eredetű, kenderből, hüvelyesekből (szójából, borsból), gabonafélékből (rizsből) állítják elő. A laktózintoleranciában szenvedő emberek is fogyaszthatják. Hátránya, hogy az esszenciális aminosavak spektrumát tekintve kevésbé kedvező.',
+    descriptionTitle: 'Növényalapú fehérjék',
   },
   {
-    description: 'Elsősorban térdízület erősségének és ellenállásának, valamint a porcok rugalmasságának támogatása miatt ismert. Étrend-kiegészítőkben leggyakrabban glükozamin-szulfátként található meg, mivel hatékonyabban szívódik fel, mint a glükozamin-hidroklorid.'
+    description: 'Aki kerüli a laktózt, vagy a tehéntejből származó fehérjét, annak tökéletes megoldást nyújt a marhahús fehérje. Ezek a porok leggyakrabban hidrolizált fehérjeporok formájában érhetőek el, jó felszívódású képességgel.',
+    descriptionTitle: 'Állatifehérje',
+  },
+  {
+    description: 'Ezek az aminosavak esszenciális amionosavak közé tartoznak, ami azt jelenti, hogy a szervezet nem tudja magától előállítani. Ezeket az aminosavakat fehérjévé alakítja át a szervezet, ami az izomszövet építőanyaga. A BCAA magukban is emészthetőek, emiatt fizikai aktivitás során szolgálhatnak energiaforrásként, ezzel lehetővé téve számunkra, hogy energia használat közben a szervezetünk ne az izomtömegünkhöz nyúljon hozzá.',
+    descriptionTitle: 'BCAA',
+  },
+  {
+    description: 'A szervezetben legnagyobb arányban lévő aminosavak közé tartozik. Izomtömeget létrehozó fehérjék alapköve, ezentúl immunrendszer és a bélnyálkahártya egyes sejtjeinek energiaforrása. A szervezetünk képes maga is előállítani a glutamint, de előfordul, hogy az előállítás mennyisége nem elegendő pl.: nehéz fizikai tevékenységnél, vagy stresszes időszakban.',
+    descriptionTitle: 'L-Glutamin',
+  },
+  {
+    description: 'Az EAA az izomtömeg regenerációjában és növekedésében játszik szerepet, emellett a hormonok, enzimek, és más vegyületek termelésének alapját képezi. A szervezet nem képes önmagam előállítani ezt, ezért csak táplálékkal, és táplálékkiegészítővel vagyunk képesek bejuttatni szervezetünkbe.',
+    descriptionTitle: 'EAA',
+  },
+  {
+    description: 'Kitágítja az ereket, ezáltal szabályozza az izmok vérellátását. Elősegíti az izmok oxigén és tápanyag ellátását edzés közben. Az arginin a kreatin alapvető építőeleme. Továbbá segít a természetes méregtelenítésben, késleltetheti a teljesítménycsökkenést. A szervezet képes maga is előállítani, de betegség vagy nehéz fizikai aktivitás során megnőhet a test igénye, emiatt fontos a külsőleges alkalmazás is.',
+    descriptionTitle: 'Arginin',
+  },
+  {
+    description: 'Kreatinok közül a monohidrát a legismertebb. A monohidrát társaihoz hasonlóan elősegíti az ATIP újra termelődését, ami gyors energiaforrásként ismert, ezáltal képes növelni a fizikai teljesítményt, elősegítheti a robbanékonyságot. A kreatin leginkább vázizomokban tárolódik. Vízzel épül be, emiatt fontos a sok folyadékbevitel. Napi 3gr kreatin bevitel ajánlott az eredmény érdekében.',
+    descriptionTitle: 'Monohidrát'
+  }, 
+  {
+    description: 'Kreatin egyéb formái a kreatin különböző formáit tartalmazó termékkategória, amelyek különböznek az összetevő profilban, oldhatóságban és felszívódási sebességben. Például a jobb oldhatóság és felszívódási sebesség miatt a kreatint nagyon finom porrá mikronizálják. A kreatin-monohidráthoz hasonlóan a kreatin más formái is elősegítik az ATP újratermelődését, amely gyors energiaforrásként ismert. Ezért képesek növelni a fizikai teljesítményt az intenzív, rövid, egymást követő edzésszakaszok során. A kreatin egyes formáit azzal a céllal fejlesztették ki, hogy javítsák felszívódási sebességüket és oldhatóságukat.',
+    descriptionTitle: 'Egyébb formái',
+  },
+  {
+    description: 'A tömegnövelő szerek főképp szénhidrátban, kretainban a leggazdagabbak, de természetesen fehérje is van bennük. Tömegnövelő által extra kalória mennyiséget vihetünk be. Ajánlott nehéz fizikai munkát végzők számára, ektomorf (nehezen hízó vékony testalkatú) embereknek, és azoknak akik gyorsítani kívánják a regenerációt, vagy tömeget szeretnének növelni.',
+    descriptionTitle: 'Általánosság',
+  },
+  {
+    description: 'Komplex táplálékkiegészítő kategória. A legtöbb esetben szervezetünk nem képes ezeket az anyagokat kellő mennyiségben előállítani, ezért fontos a rendszeres pótlásuk. Általában négy kategória létezik: Nőknek (pl.: hialuron savval, cinkkel kiegészítve) , Férfiaknak (pl.: emésztőenzimekkel, nootropikus anyokkal kiegészítve), sima multivitamin, 3 évnél idősebb gyermekek számára (rágótabletta formában, gyümölcsös ízben). A legtöbb esetben 8-15 vitamin tartalmaznak egyszerre, kevesebb mennyiségben.',
+    descriptionTitle: 'Multivitaminok',
+  },
+  {
+    description: 'Zsírban oldodó vitamin, táplálékon keresztül nyert zsírhoz kötődnek. Az A-vitamin a sejtek specializálódásában játszik szerepet, és a vasanyagcserében is. Emellett hozzájárul a nyálkahártyák egészségéhez, valamint bőr és látás megfelelő állapotához.',
+    descriptionTitle: 'A-vitamin',
+  },
+  {
+    description: 'Ide tartoznak a B1, B2, B3, B5, B6, B7, B9, B12 vitaminok, melyek könnyen felszívódnak szervezetünkben. B1: Energia előállításához szükséges, illetve az idegrendszert támogatja. B2: Közérzetünkért felelős, illetve a megfelelő vasanyagcseréért, és csökkenti a fáradtság érzetet. B3: megfelelő anyagcserét biztosítja, csökkenti a fáradtság, és a kimerültség érzetet. B5: csökkenti a fáradtság, és a kimerültség érzetet, illetve segít az optimális szellemi teljesítményben. B6: Hozzájárul a hormonális aktivitás szabályozásához, megfelelő immunfunkciókhoz, csökkenti a fáradtság, és a kimerültség érzetet. B7: Részt vesz a mentális jóllét, és az idegrendszer támogatásában. B9: Különösen a terhes nőknek fontos a magzat fejlődési és növekedési szakaszban. B12: Hozzájárul a megfelelő mentális egészség megőrzéséhez és az idegrendszer működéséhez.',
+    descriptionTitle: 'B-vitamin',
+  },
+  {
+    description: 'A C vitamin vízben oldodó vitaminok közé tartozik, melyek az emberi szervezetben látják el funkciójukat. Többlet esetén a szervezet űríti ezt a vitamint. A C vitamin hatással van az immunrendszerre, idegrendszerre, és az elmére. Részt vesz a stresszel szembeni védelemben, és a fáradtáság csökkenésében.',
+    descriptionTitle: 'C-vitamin',
+  },
+  {
+    description: 'A D vitaminnak két fő formája van, ergokalciferol, és kolekaciferol. A D vitamin főleg állati eredetű, az egyetlen kivétel összetevőjében a kolekarciferol mely zuzmóbol készül. A D vitamin feladata, a sejt osztódás, és ezenkívül az immunitás megfelelő működése. Segít az egészséges fogakat, csontokat, izmokat fenntartani.',
+    descriptionTitle: 'D-vitamin'
+  },
+  {
+    description: '8 vegyületet foglal magába, 4 tokoferolt és 4 tokotrienolt. Zsírban oldodó vitamin, emaitt bélfalon jobban szívódik fel. Feladata, hogy megvédje a sejteket az ocidatív stressztől és a szabad gyököktől.',
+    descriptionTitle: 'E-vitamin'
+  },
+  {
+    description: 'Feladata az ízületek, porcok, csontok, ínak és más kötőszövetek egészségének támogatása. Általában állati szövetekből állítják elő, elsősorban tengeri állatokéból.',
+    descriptionTitle: 'Kollagén',
+  },
+  {
+    description: 'Elsősorban térdízület erősségének és ellenállásának, valamint a porcok rugalmasságának támogatása miatt ismert. Étrend-kiegészítőkben leggyakrabban glükozamin-szulfátként található meg, mivel hatékonyabban szívódik fel, mint a glükozamin-hidroklorid.',
+    descriptionTitle: 'Glükózamin',
   },
 ]
 
+
 interface State {
     currentVideo: VideoGalleryElement;
-    currentDescription: EducatorsElement;
+    currentEducator: currentEducatorElement;
+    WheycurrentDescription: WheyEducatorsElement;
+    AminocurrentDescription: AminoEducatorsElement;
+    CreatincurrentDescription: CreatinEducatorsElement;
+    WeightGanercurrentDescription: WeightGanerEducatorsElement;
+    VitamincurrentDescription: VitaminEducatorsElement;
+    JointcurrentDescription: JointEducatorsElement;
 }
 
 export default class Main extends Component<{}, State> {
@@ -152,332 +294,15 @@ export default class Main extends Component<{}, State> {
 
         this.state = {
             currentVideo: videoGallery[0],
-            currentDescription: Educators[0],
+            currentEducator: currentEducator[0],
+            WheycurrentDescription: WheyEducators[0],
+            AminocurrentDescription: aminoEducators[0],
+            CreatincurrentDescription: creatinEducators[0],
+            WeightGanercurrentDescription: weightGanerEducators[0],
+            VitamincurrentDescription: vitaminEducators[0],
+            JointcurrentDescription: jointEducators[0],
         }
     }
-
-  handleIsoWhey = async () => {
-    const description = document.getElementById('description') as HTMLSpanElement;
-    description.textContent = 'A tejsavó fehérjét tejből technológiai eljárásokkal állítják elő. A tejsavó fehérje porok mindegyiké kissé eltér az összetevők emészthetőségében, emésztési sebességében, és persze az árában. Ezért célnak és igénynek megfelelően lehet választani tejsavó koncentrátumom, izolátumot, hidrolizátumot';
-    const amino = document.getElementById('amino') as HTMLParagraphElement;
-    const wheys = document.getElementById('wheys') as HTMLParagraphElement;
-    const vitamins = document.getElementById('vitamins') as HTMLParagraphElement;
-    const weightgainer = document.getElementById('weightgainer') as HTMLParagraphElement;
-    const joint = document.getElementById('joint') as HTMLParagraphElement;
-    const creatin = document.getElementById('creatin') as HTMLParagraphElement;
-    amino.style.color = 'white';
-    wheys.style.color = 'black';
-    vitamins.style.color = 'white';
-    weightgainer.style.color = 'white';
-    joint.style.color = 'white';
-    creatin.style.color = 'white';
-  }
-
-  handleWheyIsolate = async () => {
-    const description = document.getElementById('description') as HTMLSpanElement;
-    description.textContent = 'Tejsavófehérje izolátumként is ismert, tejből gyártják, és hasznos aminosav spektrummal rendelkezik. Előállításnál a tejsavó koncentrátumot állítják elő, melyet ezután szűréssel tejsavó fehérje izolátum előállításra használnak fel. Tisztább port vihetünk be, a fehérje tartalma átlagosan 80% feletti, kevesebb zsírt tartalmaz, ami miatt könnyebben szívódik fel, és könnyebben emészthető.';
-    const amino = document.getElementById('amino') as HTMLParagraphElement;
-    const wheys = document.getElementById('wheys') as HTMLParagraphElement;
-    const vitamins = document.getElementById('vitamins') as HTMLParagraphElement;
-    const weightgainer = document.getElementById('weightgainer') as HTMLParagraphElement;
-    const joint = document.getElementById('joint') as HTMLParagraphElement;
-    const creatin = document.getElementById('creatin') as HTMLParagraphElement;
-    amino.style.color = 'white';
-    wheys.style.color = 'black';
-    vitamins.style.color = 'white';
-    weightgainer.style.color = 'white';
-    joint.style.color = 'white';
-    creatin.style.color = 'white';
-  }
-
-  handleHydrolyzedWheys = async () => {
-    const description = document.getElementById('description') as HTMLSpanElement;
-    description.textContent = 'Tejsavófehérje izolátumként is ismert, előnyük a magas fehérjekoncentráció 70-85%, ezeknek a fehérjéknek a leggyorsabb felszívódási sebessége. Hidrolízissel nyerik ki tejsavóból, vagy izolátumból. A folyamat közben a keverék vegyületekkel gazdagodik, amelyek enzimatikusan bontják le a fehérjeláncokat rövidebb peptidekre.';
-    const amino = document.getElementById('amino') as HTMLParagraphElement;
-    const wheys = document.getElementById('wheys') as HTMLParagraphElement;
-    const vitamins = document.getElementById('vitamins') as HTMLParagraphElement;
-    const weightgainer = document.getElementById('weightgainer') as HTMLParagraphElement;
-    const joint = document.getElementById('joint') as HTMLParagraphElement;
-    const creatin = document.getElementById('creatin') as HTMLParagraphElement;
-    amino.style.color = 'white';
-    wheys.style.color = 'black';
-    vitamins.style.color = 'white';
-    weightgainer.style.color = 'white';
-    joint.style.color = 'white';
-    creatin.style.color = 'white';
-  }
-
-  handleVeganWhey = async () => {
-    const description = document.getElementById('description') as HTMLSpanElement;
-    description.textContent = 'Növényi eredetű, kenderből, hüvelyesekből (szójából, borsból), gabonafélékből (rizsből) állítják elő. A laktózintoleranciában szenvedő emberek is fogyaszthatják. Hátránya, hogy az esszenciális aminosavak spektrumát tekintve kevésbé kedvező.';
-    const amino = document.getElementById('amino') as HTMLParagraphElement;
-    const wheys = document.getElementById('wheys') as HTMLParagraphElement;
-    const vitamins = document.getElementById('vitamins') as HTMLParagraphElement;
-    const weightgainer = document.getElementById('weightgainer') as HTMLParagraphElement;
-    const joint = document.getElementById('joint') as HTMLParagraphElement;
-    const creatin = document.getElementById('creatin') as HTMLParagraphElement;
-    amino.style.color = 'white';
-    wheys.style.color = 'black';
-    vitamins.style.color = 'white';
-    weightgainer.style.color = 'white';
-    joint.style.color = 'white';
-    creatin.style.color = 'white';
-  }
-
-  handleAnimalWhey = async () => {
-    const description = document.getElementById('description') as HTMLSpanElement;
-    description.textContent = 'Aki kerüli a laktózt, vagy a tehéntejből származó fehérjét, annak tökéletes megoldást nyújt a marhahús fehérje. Ezek a porok leggyakrabban hidrolizált fehérjeporok formájában érhetőek el, jó felszívódású képességgel.';
-    const amino = document.getElementById('amino') as HTMLParagraphElement;
-    const wheys = document.getElementById('wheys') as HTMLParagraphElement;
-    const vitamins = document.getElementById('vitamins') as HTMLParagraphElement;
-    const weightgainer = document.getElementById('weightgainer') as HTMLParagraphElement;
-    const joint = document.getElementById('joint') as HTMLParagraphElement;
-    const creatin = document.getElementById('creatin') as HTMLParagraphElement;
-    amino.style.color = 'white';
-    wheys.style.color = 'black';
-    vitamins.style.color = 'white';
-    weightgainer.style.color = 'white';
-    joint.style.color = 'white';
-    creatin.style.color = 'white';
-  }
-
-  handleBCAA = async () => {
-    const description = document.getElementById('description') as HTMLSpanElement;
-    const amino = document.getElementById('amino') as HTMLParagraphElement;
-    const wheys = document.getElementById('wheys') as HTMLParagraphElement;
-    const vitamins = document.getElementById('vitamins') as HTMLParagraphElement;
-    const weightgainer = document.getElementById('weightgainer') as HTMLParagraphElement;
-    const joint = document.getElementById('joint') as HTMLParagraphElement;
-    const creatin = document.getElementById('creatin') as HTMLParagraphElement;
-    description.textContent = 'Ezek az aminosavak esszenciális amionosavak közé tartoznak, ami azt jelenti, hogy a szervezet nem tudja magától előállítani. Ezeket az aminosavakat fehérjévé alakítja át a szervezet, ami az izomszövet építőanyaga. A BCAA magukban is emészthetőek, emiatt fizikai aktivitás során szolgálhatnak energiaforrásként, ezzel lehetővé téve számunkra, hogy energia használat közben a szervezetünk ne az izomtömegünkhöz nyúljon hozzá.';
-    amino.style.color = 'black';
-    wheys.style.color = 'white';
-    vitamins.style.color = 'white';
-    weightgainer.style.color = 'white';
-    joint.style.color = 'white';
-    creatin.style.color = 'white';
-  }
-
-  handleLGlutamin = async () => {
-    const description = document.getElementById('description') as HTMLSpanElement;
-    description.textContent = 'A szervezetben legnagyobb arányban lévő aminosavak közé tartozik. Izomtömeget létrehozó fehérjék alapköve, ezentúl immunrendszer és a bélnyálkahártya egyes sejtjeinek energiaforrása. A szervezetünk képes maga is előállítani a glutamint, de előfordul, hogy az előállítás mennyisége nem elegendő pl.: nehéz fizikai tevékenységnél, vagy stresszes időszakban. ';
-    const amino = document.getElementById('amino') as HTMLParagraphElement;
-    const wheys = document.getElementById('wheys') as HTMLParagraphElement;
-    const vitamins = document.getElementById('vitamins') as HTMLParagraphElement;
-    const weightgainer = document.getElementById('weightgainer') as HTMLParagraphElement;
-    const joint = document.getElementById('joint') as HTMLParagraphElement;
-    const creatin = document.getElementById('creatin') as HTMLParagraphElement;
-    amino.style.color = 'black';
-    wheys.style.color = 'white';
-    vitamins.style.color = 'white';
-    weightgainer.style.color = 'white';
-    joint.style.color = 'white';
-    creatin.style.color = 'white';
-  }
-
-  handleEAA = async () => {
-    const description = document.getElementById('description') as HTMLSpanElement;
-    description.textContent = 'Az EAA az izomtömeg regenerációjában és növekedésében játszik szerepet, emellett a hormonok, enzimek, és más vegyületek termelésének alapját képezi. A szervezet nem képes önmagam előállítani ezt, ezért csak táplálékkal, és táplálékkiegészítővel vagyunk képesek bejuttatni szervezetünkbe. ';
-    const amino = document.getElementById('amino') as HTMLParagraphElement;
-    const wheys = document.getElementById('wheys') as HTMLParagraphElement;
-    const vitamins = document.getElementById('vitamins') as HTMLParagraphElement;
-    const weightgainer = document.getElementById('weightgainer') as HTMLParagraphElement;
-    const joint = document.getElementById('joint') as HTMLParagraphElement;
-    const creatin = document.getElementById('creatin') as HTMLParagraphElement;
-    amino.style.color = 'black';
-    wheys.style.color = 'white';
-    vitamins.style.color = 'white';
-    weightgainer.style.color = 'white';
-    joint.style.color = 'white';
-    creatin.style.color = 'white';
-  }
-
-  handleArginin = async () => {
-    const description = document.getElementById('description') as HTMLSpanElement;
-    description.textContent = 'Kitágítja az ereket, ezáltal szabályozza az izmok vérellátását. Elősegíti az izmok oxigén és tápanyag ellátását edzés közben. Az arginin a kreatin alapvető építőeleme. Továbbá segít a természetes méregtelenítésben, késleltetheti a teljesítménycsökkenést. A szervezet képes maga is előállítani, de betegség vagy nehéz fizikai aktivitás során megnőhet a test igénye, emiatt fontos a külsőleges alkalmazás is. ';
-    const amino = document.getElementById('amino') as HTMLParagraphElement;
-    const wheys = document.getElementById('wheys') as HTMLParagraphElement;
-    const vitamins = document.getElementById('vitamins') as HTMLParagraphElement;
-    const weightgainer = document.getElementById('weightgainer') as HTMLParagraphElement;
-    const joint = document.getElementById('joint') as HTMLParagraphElement;
-    const creatin = document.getElementById('creatin') as HTMLParagraphElement;
-    amino.style.color = 'black';
-    wheys.style.color = 'white';
-    vitamins.style.color = 'white';
-    weightgainer.style.color = 'white';
-    joint.style.color = 'white';
-    creatin.style.color = 'white';
-  }
-
-  handleCreatin = async () => {
-    const description = document.getElementById('description') as HTMLSpanElement;
-    description.textContent = 'Kreatinok közül a monohidrát a legismertebb. A monohidrát társaihoz hasonlóan elősegíti az ATIP újra termelődését, ami gyors energiaforrásként ismert, ezáltal képes növelni a fizikai teljesítményt, elősegítheti a robbanékonyságot. A kreatin leginkább vázizomokban tárolódik. Vízzel épül be, emiatt fontos a sok folyadékbevitel. Napi 3gr kreatin bevitel ajánlott az eredmény érdekében.';
-    const amino = document.getElementById('amino') as HTMLParagraphElement;
-    const wheys = document.getElementById('wheys') as HTMLParagraphElement;
-    const vitamins = document.getElementById('vitamins') as HTMLParagraphElement;
-    const weightgainer = document.getElementById('weightgainer') as HTMLParagraphElement;
-    const joint = document.getElementById('joint') as HTMLParagraphElement;
-    const creatin = document.getElementById('creatin') as HTMLParagraphElement;
-    amino.style.color = 'white';
-    wheys.style.color = 'white';
-    vitamins.style.color = 'white';
-    weightgainer.style.color = 'white';
-    joint.style.color = 'white';
-    creatin.style.color = 'black';
-  }
-
-  handleWeightGainer = async () => {
-    const description = document.getElementById('description') as HTMLSpanElement;
-    description.textContent = 'A tömegnövelő szerek főképp szénhidrátban, kretainban a leggazdagabbak, de természetesen fehérje is van bennük. Tömegnövelő által extra kalória mennyiséget vihetünk be. Ajánlott nehéz fizikai munkát végzők számára, ektomorf (nehezen hízó vékony testalkatú) embereknek, és azoknak akik gyorsítani kívánják a regenerációt, vagy tömeget szeretnének növelni.';
-    const amino = document.getElementById('amino') as HTMLParagraphElement;
-    const wheys = document.getElementById('wheys') as HTMLParagraphElement;
-    const vitamins = document.getElementById('vitamins') as HTMLParagraphElement;
-    const weightgainer = document.getElementById('weightgainer') as HTMLParagraphElement;
-    const joint = document.getElementById('joint') as HTMLParagraphElement;
-    const creatin = document.getElementById('creatin') as HTMLParagraphElement;
-    amino.style.color = 'white';
-    wheys.style.color = 'white';
-    vitamins.style.color = 'white';
-    weightgainer.style.color = 'black';
-    joint.style.color = 'white';
-    creatin.style.color = 'white';
-  }
-
-  handleVitaminMulti = async () => {
-    const description = document.getElementById('description') as HTMLSpanElement;
-    description.textContent = 'Komplex táplálékkiegészítő kategória. A legtöbb esetben szervezetünk nem képes ezeket az anyagokat kellő mennyiségben előállítani, ezért fontos a rendszeres pótlásuk. Általában négy kategória létezik: Nőknek (pl.: hialuron savval, cinkkel kiegészítve) , Férfiaknak (pl.: emésztőenzimekkel, nootropikus anyokkal kiegészítve), sima multivitamin, 3 évnél idősebb gyermekek számára (rágótabletta formában, gyümölcsös ízben). A legtöbb esetben 8-15 vitamin tartalmaznak egyszerre, kevesebb mennyiségben.';
-    const amino = document.getElementById('amino') as HTMLParagraphElement;
-    const wheys = document.getElementById('wheys') as HTMLParagraphElement;
-    const vitamins = document.getElementById('vitamins') as HTMLParagraphElement;
-    const weightgainer = document.getElementById('weightgainer') as HTMLParagraphElement;
-    const joint = document.getElementById('joint') as HTMLParagraphElement;
-    const creatin = document.getElementById('creatin') as HTMLParagraphElement;
-    amino.style.color = 'white';
-    wheys.style.color = 'white';
-    vitamins.style.color = 'black';
-    weightgainer.style.color = 'white';
-    joint.style.color = 'white';
-    creatin.style.color = 'white';
-  }
-
-  handleVitaminA = async () => {
-    const description = document.getElementById('description') as HTMLSpanElement;
-    description.textContent = 'Zsírban oldodó vitamin, táplálékon keresztül nyert zsírhoz kötődnek. Az A-vitamin a sejtek specializálódásában játszik szerepet, és a vasanyagcserében is. Emellett hozzájárul a nyálkahártyák egészségéhez, valamint bőr és látás megfelelő állapotához.';
-    const amino = document.getElementById('amino') as HTMLParagraphElement;
-    const wheys = document.getElementById('wheys') as HTMLParagraphElement;
-    const vitamins = document.getElementById('vitamins') as HTMLParagraphElement;
-    const weightgainer = document.getElementById('weightgainer') as HTMLParagraphElement;
-    const joint = document.getElementById('joint') as HTMLParagraphElement;
-    const creatin = document.getElementById('creatin') as HTMLParagraphElement;
-    amino.style.color = 'white';
-    wheys.style.color = 'white';
-    vitamins.style.color = 'black';
-    weightgainer.style.color = 'white';
-    joint.style.color = 'white';
-    creatin.style.color = 'white';
-  }
-
-  handleVitaminB = async () => {
-    const description = document.getElementById('description') as HTMLSpanElement;
-    description.textContent = 'Ide tartoznak a B1, B2, B3, B5, B6, B7, B9, B12 vitaminok, melyek könnyen felszívódnak szervezetünkben. B1: Energia előállításához szükséges, illetve az idegrendszert támogatja. B2: Közérzetünkért felelős, illetve a megfelelő vasanyagcseréért, és csökkenti a fáradtság érzetet. B3: megfelelő anyagcserét biztosítja, csökkenti a fáradtság, és a kimerültség érzetet. B5: csökkenti a fáradtság, és a kimerültség érzetet, illetve segít az optimális szellemi teljesítményben. B6: Hozzájárul a hormonális aktivitás szabályozásához, megfelelő immunfunkciókhoz, csökkenti a fáradtság, és a kimerültség érzetet. B7: Részt vesz a mentális jóllét, és az idegrendszer támogatásában. B9: Különösen a terhes nőknek fontos a magzat fejlődési és növekedési szakaszban. B12: Hozzájárul a megfelelő mentális egészség megőrzéséhez és az idegrendszer működéséhez.';
-    const amino = document.getElementById('amino') as HTMLParagraphElement;
-    const wheys = document.getElementById('wheys') as HTMLParagraphElement;
-    const vitamins = document.getElementById('vitamins') as HTMLParagraphElement;
-    const weightgainer = document.getElementById('weightgainer') as HTMLParagraphElement;
-    const joint = document.getElementById('joint') as HTMLParagraphElement;
-    const creatin = document.getElementById('creatin') as HTMLParagraphElement;
-    amino.style.color = 'white';
-    wheys.style.color = 'white';
-    vitamins.style.color = 'black';
-    weightgainer.style.color = 'white';
-    joint.style.color = 'white';
-    creatin.style.color = 'white';
-  }
-
-  handleVitaminC = async () => {
-    const description = document.getElementById('description') as HTMLSpanElement;
-    description.textContent = 'A C vitamin vízben oldodó vitaminok közé tartozik, melyek az emberi szervezetben látják el funkciójukat. Többlet esetén a szervezet űríti ezt a vitamint. A C vitamin hatással van az immunrendszerre, idegrendszerre, és az elmére. Részt vesz a stresszel szembeni védelemben, és a fáradtáság csökkenésében.';
-    const amino = document.getElementById('amino') as HTMLParagraphElement;
-    const wheys = document.getElementById('wheys') as HTMLParagraphElement;
-    const vitamins = document.getElementById('vitamins') as HTMLParagraphElement;
-    const weightgainer = document.getElementById('weightgainer') as HTMLParagraphElement;
-    const joint = document.getElementById('joint') as HTMLParagraphElement;
-    const creatin = document.getElementById('creatin') as HTMLParagraphElement;
-    amino.style.color = 'white';
-    wheys.style.color = 'white';
-    vitamins.style.color = 'black';
-    weightgainer.style.color = 'white';
-    joint.style.color = 'white';
-    creatin.style.color = 'white';
-  }
-
-  handleVitaminD = async () => {
-    const description = document.getElementById('description') as HTMLSpanElement;
-    description.textContent = 'A D vitaminnak két fő formája van, ergokalciferol, és kolekaciferol. A D vitamin főleg állati eredetű, az egyetlen kivétel összetevőjében a kolekarciferol mely zuzmóbol készül. A D vitamin feladata, a sejt osztódás, és ezenkívül az immunitás megfelelő működése. Segít az egészséges fogakat, csontokat, izmokat fenntartani. ';
-    const amino = document.getElementById('amino') as HTMLParagraphElement;
-    const wheys = document.getElementById('wheys') as HTMLParagraphElement;
-    const vitamins = document.getElementById('vitamins') as HTMLParagraphElement;
-    const weightgainer = document.getElementById('weightgainer') as HTMLParagraphElement;
-    const joint = document.getElementById('joint') as HTMLParagraphElement;
-    const creatin = document.getElementById('creatin') as HTMLParagraphElement;
-    amino.style.color = 'white';
-    wheys.style.color = 'white';
-    vitamins.style.color = 'black';
-    weightgainer.style.color = 'white';
-    joint.style.color = 'white';
-    creatin.style.color = 'white';
-  }
-
-  handleVitaminE = async () => {
-    const description = document.getElementById('description') as HTMLSpanElement;
-    description.textContent = '8 vegyületet foglal magába, 4 tokoferolt és 4 tokotrienolt. Zsírban oldodó vitamin, emaitt bélfalon jobban szívódik fel. Feladata, hogy megvédje a sejteket az ocidatív stressztől és a szabad gyököktől.';
-    const amino = document.getElementById('amino') as HTMLParagraphElement;
-    const wheys = document.getElementById('wheys') as HTMLParagraphElement;
-    const vitamins = document.getElementById('vitamins') as HTMLParagraphElement;
-    const weightgainer = document.getElementById('weightgainer') as HTMLParagraphElement;
-    const joint = document.getElementById('joint') as HTMLParagraphElement;
-    const creatin = document.getElementById('creatin') as HTMLParagraphElement;
-    amino.style.color = 'white';
-    wheys.style.color = 'white';
-    vitamins.style.color = 'black';
-    weightgainer.style.color = 'white';
-    joint.style.color = 'white';
-    creatin.style.color = 'white';
-  }
-
-  handleCollagen= async () => {
-    const description = document.getElementById('description') as HTMLSpanElement;
-    description.textContent = 'Feladata az ízületek, porcok, csontok, ínak és más kötőszövetek egészségének támogatása. Általában állati szövetekből állítják elő, elsősorban tengeri állatokéból.';
-    const amino = document.getElementById('amino') as HTMLParagraphElement;
-    const wheys = document.getElementById('wheys') as HTMLParagraphElement;
-    const vitamins = document.getElementById('vitamins') as HTMLParagraphElement;
-    const weightgainer = document.getElementById('weightgainer') as HTMLParagraphElement;
-    const joint = document.getElementById('joint') as HTMLParagraphElement;
-    const creatin = document.getElementById('creatin') as HTMLParagraphElement;
-    amino.style.color = 'white';
-    wheys.style.color = 'white';
-    vitamins.style.color = 'white';
-    weightgainer.style.color = 'white';
-    joint.style.color = 'black';
-    creatin.style.color = 'white';
-  }
-
-  handleGlucosamine= async () => {
-    const description = document.getElementById('description') as HTMLSpanElement;
-    description.textContent = 'Elsősorban térdízület erősségének és ellenállásának, valamint a porcok rugalmasságának támogatása miatt ismert. Étrend-kiegészítőkben leggyakrabban glükozamin-szulfátként található meg, mivel hatékonyabban szívódik fel, mint a glükozamin-hidroklorid.';
-    const amino = document.getElementById('amino') as HTMLParagraphElement;
-    const wheys = document.getElementById('wheys') as HTMLParagraphElement;
-    const vitamins = document.getElementById('vitamins') as HTMLParagraphElement;
-    const weightgainer = document.getElementById('weightgainer') as HTMLParagraphElement;
-    const joint = document.getElementById('joint') as HTMLParagraphElement;
-    const creatin = document.getElementById('creatin') as HTMLParagraphElement;
-    amino.style.color = 'white';
-    wheys.style.color = 'white';
-    vitamins.style.color = 'white';
-    weightgainer.style.color = 'white';
-    joint.style.color = 'black';
-    creatin.style.color = 'white';
-  }
 
   render() {
     return <div className='mainContainer'>
@@ -514,47 +339,47 @@ export default class Main extends Component<{}, State> {
                 <div className='row'>
                   <div className='col-lg-4 leftSideEducators'>
                     <h4 className='dropdowntitle' id='wheys'>Fehérjék</h4>
-                      <div className='dropdownContent'>
-                        <p>Tejsavú fehérjék</p>
-                        <p>Fehérje izolátum</p>
-                        <p>Hidrolizált fehérjék</p>
-                        <p>Növényalapú fehérjék</p>
-                        <p>Állatifehérje</p>
-                      </div>
+                      {
+                        WheyEducators.map(e => <div className='dropdownContent'>
+                          <p onClick={() => this.setState({currentEducator: e})}>{e.descriptionTitle}</p>
+                        </div>)
+                      }
                     <h4 className='dropdowntitle' id='amino'>Aminosavak</h4>
-                    <div className='dropdownContent'>
-                      <p>BCAA</p>
-                      <p>L-Glutamin</p>
-                      <p>EAA</p>
-                      <p>Arginin</p>
-                    </div>
+                      {
+                        aminoEducators.map(e => <div className='dropdownContent'>
+                          <p onClick={() => this.setState({currentEducator: e})}>{e.descriptionTitle}</p>
+                        </div>)
+                      }
                     <h4 className='dropdowntitle' id='creatin'>Kreatin</h4>
-                    <div className='dropdownContent'>
-                      <p>Monohidrát</p>
-                      <p>Egyébb formái</p>
-                    </div>
+                      {
+                        creatinEducators.map(e => <div className='dropdownContent'>
+                          <p onClick={() => this.setState({currentEducator: e})}>{e.descriptionTitle}</p>
+                        </div>)
+                      }
                     <h4 className='dropdowntitle' id='weightgainer'>Tömegnövelő</h4>
-                    <div className='dropdownContent'>
-                      <p>Általánosság</p>
-                    </div>
+                      {
+                        weightGanerEducators.map(e => <div className='dropdownContent'>
+                          <p onClick={() => this.setState({currentEducator: e})}>{e.descriptionTitle}</p>
+                        </div>)
+                      }
                     <h4 className='dropdowntitle' id='vitamins'>Vitaminok</h4>
-                    <div className='dropdownContent'>
-                      <p>Multivitaminok</p>
-                      <p>A-vitamin</p>
-                      <p>B-vitamin</p>
-                      <p>C-vitamin</p>
-                      <p>D-vitamin</p>
-                      <p>E-vitamin</p>
-                    </div>
+                      {
+                        vitaminEducators.map(e => <div className='dropdownContent'>
+                          <p onClick={() => this.setState({currentEducator: e})}>{e.descriptionTitle}</p>
+                        </div>)
+                      }
                     <h4 className='dropdowntitle' id='joint'>Izületvédelem</h4>
-                    <div className='dropdownContent'>
-                      <p>Kollagén</p>
-                      <p>Glkükózamin</p>
-                    </div>
+                      {
+                        jointEducators.map(e => <div className='dropdownContent'>
+                          <p onClick={() => this.setState({currentEducator: e})}>{e.descriptionTitle}</p>
+                        </div>)
+                      }
+                      
+                    
                   </div>
                   <div className="col-lg-8 rightSideEducators">
                     <h3>Ismeretterjesztők</h3>
-                    <p id='description'>Válassz ki egy megismerni kívánt táplálékkiegészítőt</p>
+                    <p id='description'>{this.state.currentEducator.description}</p>
                   </div>
                 </div>
               </div>
