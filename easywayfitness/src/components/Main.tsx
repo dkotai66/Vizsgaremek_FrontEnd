@@ -3,7 +3,7 @@ import './Main.css';
 import { GoArrowUp } from "react-icons/go";//react-icons octions icons
 import { GoCheck } from "react-icons/go"; 
 import { GoThreeBars } from "react-icons/go"; 
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 interface VideoGalleryElement {
   videoSrc: string;
@@ -311,12 +311,12 @@ export default class Main extends Component<{}, State> {
             <nav>
             <span id='teamName'>EasyWay Fitness</span>
               <ul className='nav justify-content-center'>
-                <li><a href='#/'>Főoldal</a></li>
+                <li><NavLink to='/'>Főoldal</NavLink></li>
                 <li><a href='#ismeretterjesztok'>Ismeretterjesztők</a></li>
                 <li><a href='#gyakorlatok'>Gyakorlatok</a></li>
                 <li><a href='#calculator'>Kalkulátor</a></li>
               </ul>
-                <button id='registration'><Link to='/SignUpSignIn' id='signupsignin'>Regisztráció</Link></button>
+                <button id='registration'><NavLink to='/SignUpSignIn' id='signupsignin'>Regisztráció</NavLink></button>
             </nav>
           </header>
             
