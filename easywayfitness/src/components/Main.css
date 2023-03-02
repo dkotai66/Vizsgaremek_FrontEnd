@@ -100,14 +100,13 @@
   .educators {
     margin-top: 30rem;
     background-color: #8BCC58;
-    height: 45rem;
     border-radius: 40px;
-    padding-top: 2rem;
   }
   
   .educators h3 {
     text-align: center;
     padding-bottom: 5rem;
+    padding-top: .5rem;
   }
   
   .dropdowntitle {
@@ -119,19 +118,45 @@
   }
   
   .dropdownContent {
-    display: none;
-    position: absolute;
-    z-index: 1;
+    text-align: center;
   }
   
   .dropdownContent p:hover {
     text-decoration: underline;
+    cursor: pointer;
   }
   
-  .dropdownContent p::after {
-    display: none;
+  .leftSideEducators {
+    background-color: #332f2f;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    height: 45rem;
+    overflow-y: scroll;
+    padding: .5rem;
   }
-  
+
+  .rightSideEducators {
+    background-color: #8BCC58;
+    border-radius: 40px;
+    height: 45rem;
+    padding: .5rem;
+  }
+
+  #description {
+    text-align: center;
+    margin-top: 10rem;
+  }
+
+  .leftSideEducators::-webkit-scrollbar {
+    width: 5px;
+    background-color: none;
+  }
+
+  .leftSideEducators h4 {
+    padding-top: 2rem;
+    letter-spacing: .4rem;
+    color: #8BCC58;
+  }
   
   .dropdown:hover .dropdownContent {
     display: block;

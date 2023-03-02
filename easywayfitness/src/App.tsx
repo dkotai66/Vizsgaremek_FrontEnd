@@ -11,7 +11,6 @@ export default class App extends React.Component {
       <main>
         <Routes>
           <Route path='/' element={<Main />} />
-          <Route path='/SignUpSignIn' element={<SignUpSignIn />} />
         </Routes>
       </main>
     </div>
