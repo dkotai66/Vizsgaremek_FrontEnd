@@ -161,8 +161,8 @@ export default class Calculator extends Component<{}, State> {
                                         <label htmlFor="woman"><span>Nő</span></label>                                            
                                     </div>
                                 </div>
-                            <h4 id="birthDateTitle">Add meg a születésed</h4>
-                            <input type="date" id="dateInput" value={regAge} onChange={e=> this.setState({regAge: parseInt(e.currentTarget.value)})}/>  
+                            <h4 id="birthDateTitle">Add meg a korodat</h4>
+                            <input type="number" id="dateInput" value={regAge} onChange={e=> this.setState({regAge: parseInt(e.currentTarget.value)})}/>  
                             <div className="buttonContainer">
                                 <span className="nextpreviousBtn" onClick={this.handleSecondForm}>Következő</span>
                             </div>  

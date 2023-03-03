@@ -58,7 +58,7 @@ export default class SignUpSignIn extends Component<{}, State> {
             password: regPassword,
         };
 
-        let response = await fetch('http://localhost:3000/register', {
+        let response = await fetch('http://localhost:3000/user/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json; charset=UTF-8',
