@@ -305,119 +305,120 @@ export default class Main extends Component<{}, State> {
     }
 
   render() {
-    return <div className='mainContainer'>
-        <div className='container'>
-          <header>
-            <nav>
-            <span id='teamName'>EasyWay Fitness</span>
-              <ul className='nav justify-content-center'>
-                <li><NavLink to='/'>Főoldal</NavLink></li>
-                <li><a href='#ismeretterjesztok'>Ismeretterjesztők</a></li>
-                <li><a href='#gyakorlatok'>Gyakorlatok</a></li>
-                <li><a href='#calculator'>Kalkulátor</a></li>
-              </ul>
-                <button id='registration'><NavLink to='/SignUpSignIn' id='signupsignin'>Regisztráció</NavLink></button>
-            </nav>
-          </header>
-            
-            <main>
-              <div className='findTheWay'>
-                <div className='findTheWayContent'>
-                  <h2>Találd meg az utat</h2>
-                    <h2>A testi tökéletesség felé</h2>
-                    <hr />
-                    <span>Itt megtanulhatod az alapokat</span><br />
-                    <span>Segítünk az elindulásban</span><br />
-                    <button id='go'>Mehet</button>
+    return <div className="mainContainer"> 
+          <body>
+            <div className='container'>
+              <header>
+              <nav>
+              <span id='teamName'>EasyWay Fitness</span>
+                <ul className='nav justify-content-center'>
+                  <li><NavLink to='/'>Főoldal</NavLink></li>
+                  <li><a href='#ismeretterjesztok'>Ismeretterjesztők</a></li>
+                  <li><a href='#gyakorlatok'>Gyakorlatok</a></li>
+                  <li><NavLink to='/Calculator'>Kalkulátor</NavLink></li>
+                </ul>
+                  <button id='registration'><NavLink to='/SignUpSignIn' id='signupsignin'>Regisztráció</NavLink></button>
+              </nav>
+            </header>
+              
+              <main>
+                <div className='findTheWay'>
+                  <div className='findTheWayContent'>
+                    <h2>Találd meg az utat</h2>
+                      <h2>A testi tökéletesség felé</h2>
+                      <hr />
+                      <span>Itt megtanulhatod az alapokat</span><br />
+                      <span>Segítünk az elindulásban</span><br />
+                      <button id='go'>Mehet</button>
+                  </div>
+                  <div className='findTheWayImage'>
+                    <img src="./img/pullup.jpg" alt="pullupimage" id='pullupImage'/>
+                  </div>   
                 </div>
-                <div className='findTheWayImage'>
-                  <img src="./img/pullup.jpg" alt="pullupimage" id='pullupImage'/>
-                </div>   
-              </div>
 
-              <div className='container educators'>
-                <div className='row'>
-                  <div className='col-lg-4 leftSideEducators'>
-                    <h4 className='dropdowntitle' id='wheys'>Fehérjék</h4>
-                      {
-                        WheyEducators.map(e => <div className='dropdownContent'>
-                          <p onClick={() => this.setState({currentEducator: e})}>{e.descriptionTitle}</p>
-                        </div>)
-                      }
-                    <h4 className='dropdowntitle' id='amino'>Aminosavak</h4>
-                      {
-                        aminoEducators.map(e => <div className='dropdownContent'>
-                          <p onClick={() => this.setState({currentEducator: e})}>{e.descriptionTitle}</p>
-                        </div>)
-                      }
-                    <h4 className='dropdowntitle' id='creatin'>Kreatin</h4>
-                      {
-                        creatinEducators.map(e => <div className='dropdownContent'>
-                          <p onClick={() => this.setState({currentEducator: e})}>{e.descriptionTitle}</p>
-                        </div>)
-                      }
-                    <h4 className='dropdowntitle' id='weightgainer'>Tömegnövelő</h4>
-                      {
-                        weightGanerEducators.map(e => <div className='dropdownContent'>
-                          <p onClick={() => this.setState({currentEducator: e})}>{e.descriptionTitle}</p>
-                        </div>)
-                      }
-                    <h4 className='dropdowntitle' id='vitamins'>Vitaminok</h4>
-                      {
-                        vitaminEducators.map(e => <div className='dropdownContent'>
-                          <p onClick={() => this.setState({currentEducator: e})}>{e.descriptionTitle}</p>
-                        </div>)
-                      }
-                    <h4 className='dropdowntitle' id='joint'>Izületvédelem</h4>
-                      {
-                        jointEducators.map(e => <div className='dropdownContent'>
-                          <p onClick={() => this.setState({currentEducator: e})}>{e.descriptionTitle}</p>
-                        </div>)
-                      }
+                <div className='container educators'>
+                  <div className='row'>
+                    <div className='col-lg-4 leftSideEducators'>
+                      <h4 className='dropdowntitle' id='wheys'>Fehérjék</h4>
+                        {
+                          WheyEducators.map(e => <div className='dropdownContent'>
+                            <p onClick={() => this.setState({currentEducator: e})}>{e.descriptionTitle}</p>
+                          </div>)
+                        }
+                      <h4 className='dropdowntitle' id='amino'>Aminosavak</h4>
+                        {
+                          aminoEducators.map(e => <div className='dropdownContent'>
+                            <p onClick={() => this.setState({currentEducator: e})}>{e.descriptionTitle}</p>
+                          </div>)
+                        }
+                      <h4 className='dropdowntitle' id='creatin'>Kreatin</h4>
+                        {
+                          creatinEducators.map(e => <div className='dropdownContent'>
+                            <p onClick={() => this.setState({currentEducator: e})}>{e.descriptionTitle}</p>
+                          </div>)
+                        }
+                      <h4 className='dropdowntitle' id='weightgainer'>Tömegnövelő</h4>
+                        {
+                          weightGanerEducators.map(e => <div className='dropdownContent'>
+                            <p onClick={() => this.setState({currentEducator: e})}>{e.descriptionTitle}</p>
+                          </div>)
+                        }
+                      <h4 className='dropdowntitle' id='vitamins'>Vitaminok</h4>
+                        {
+                          vitaminEducators.map(e => <div className='dropdownContent'>
+                            <p onClick={() => this.setState({currentEducator: e})}>{e.descriptionTitle}</p>
+                          </div>)
+                        }
+                      <h4 className='dropdowntitle' id='joint'>Izületvédelem</h4>
+                        {
+                          jointEducators.map(e => <div className='dropdownContent'>
+                            <p onClick={() => this.setState({currentEducator: e})}>{e.descriptionTitle}</p>
+                          </div>)
+                        }
+                        
                       
-                    
-                  </div>
-                  <div className="col-lg-8 rightSideEducators">
-                    <h3>Ismeretterjesztők</h3>
-                    <p id='description'>{this.state.currentEducator.description}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className='container exercises'>
-              <h2>Gyakorlatok</h2>
-              <div className='row'>
-                <div className='col-lg-6 mainvideo'>
-                  <div className='video'>
-                    <video src={this.state.currentVideo.videoSrc} id='video' controls muted autoPlay></video>
-                    <h3 id='videoTitle'>{ this.state.currentVideo.videoTitle }</h3>
-                    <span id='excercisesDetails'>{ this.state.currentVideo.videoDetails }</span>
+                    </div>
+                    <div className="col-lg-8 rightSideEducators">
+                      <h3>Ismeretterjesztők</h3>
+                      <p id='description'>{this.state.currentEducator.description}</p>
+                    </div>
                   </div>
                 </div>
-                <div className='col-lg-6'>
-                  <div className='videoList'>
-                    <h3 className='exercisestitles'>Súlyzós Gyakorlatok</h3>
-                    {
-                      videoGallery.map(ge => <div className='vid'>
-                        <video src={ge.videoSrc} onClick={() => this.setState({ currentVideo: ge })} muted></video>
-                        <h4 className='videoTitle' onClick={() => this.setState({ currentVideo: ge })}>{ge.videoTitle}</h4>
-                      </div>)
-                    }
+
+                <div className='container exercises'>
+                <h2>Gyakorlatok</h2>
+                <div className='row'>
+                  <div className='col-lg-6 mainvideo'>
+                    <div className='video'>
+                      <video src={this.state.currentVideo.videoSrc} id='video' controls muted autoPlay></video>
+                      <h3 id='videoTitle'>{ this.state.currentVideo.videoTitle }</h3>
+                      <span id='excercisesDetails'>{ this.state.currentVideo.videoDetails }</span>
+                    </div>
+                  </div>
+                  <div className='col-lg-6'>
+                    <div className='videoList'>
+                      <h3 className='exercisestitles'>Súlyzós Gyakorlatok</h3>
+                      {
+                        videoGallery.map(ge => <div className='vid'>
+                          <video src={ge.videoSrc} onClick={() => this.setState({ currentVideo: ge })} muted></video>
+                          <h4 className='videoTitle' onClick={() => this.setState({ currentVideo: ge })}>{ge.videoTitle}</h4>
+                        </div>)
+                      }
+                    </div>
                   </div>
                 </div>
-              </div>
-              </div>
-            </main>
-
-          </div>
-
+                </div>
+              </main>
+              
           <a href="#" id='goUp'><GoArrowUp /></a>
 
+          </div>
+          </body>
           <footer>
-            <div className='footerContainer'>
-                <h3>EasyWay Fitness</h3>
-                <span>BMSZC Petrik Lajos Két tanítási Nyelvű Technikum</span><br />
-                <span>Vizsgaremek</span>
+            <div className='mainFooter'>
+              <h3>EasyWay Fitness</h3>
+              <span>BMSZC Petrik Lajos Két tanítási Nyelvű Technikum</span><br />
+              <span>Vizsgaremek</span>
             </div>
           </footer>
     </div>

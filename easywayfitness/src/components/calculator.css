@@ -1,9 +1,4 @@
-body {
-    color: white;
-    background-color: #1E1B1B;
-}
-
-h2 {
+#calculatorTitle {
     text-align: center;
     padding-top: 5rem;
 }
@@ -115,6 +110,7 @@ h2 {
 
 #bodyInformations input::placeholder {
     text-align: center;
+    color: grey;
 }
 
 #bodyInformations h4 {
@@ -152,6 +148,11 @@ h2 {
     border: none;
     padding: .2rem;
     text-align: center;
+}
+
+#otherInformations input::placeholder {
+    text-align: center;
+    color: grey
 }
 
 #otherInformations input:hover {

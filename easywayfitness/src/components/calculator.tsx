@@ -1,4 +1,5 @@
 import { Component, ReactNode } from "react";
+import { NavLink } from "react-router-dom";
 import './calculator.css'
 
 interface State {
@@ -132,9 +133,21 @@ export default class Calculator extends Component<{}, State> {
         const {regGender, regAge, regHeight, regWeight, regWeight_goal, regLook, regDiet_plan, regLifestyle, regWater_consume} = this.state;
 
         return <div>
-            <body>
-                <div className="container">
-                    <h2>EasyWay Fitness kérdőíve</h2>
+            <body className='mainContainer'>
+            <div className="container">
+            <header>
+                <nav>
+                <span id='teamName'>EasyWay Fitness</span>
+                <ul className='nav justify-content-center'>
+                    <li><NavLink to='/'>Főoldal</NavLink></li>
+                    <li><a href='#ismeretterjesztok'>Ismeretterjesztők</a></li>
+                    <li><a href='#gyakorlatok'>Gyakorlatok</a></li>
+                    <li><NavLink to='/Calculator'>Kalkulátor</NavLink></li>
+                </ul>
+                    <button id='registration'><NavLink to='/SignUpSignIn' id='signupsignin'>Regisztráció</NavLink></button>
+                </nav>
+            </header>
+                    <h2 id="calculatorTitle">EasyWay Fitness kérdőíve</h2>
                     <div className="formContainer">
                         <form id="personalInformations">
                             <h4 id="ageTitle">Add meg a nemed</h4>
@@ -228,16 +241,16 @@ export default class Calculator extends Component<{}, State> {
                             </div>   
                         </form>  
                     </div>
-                </div>
-
-                <footer>
-                    <div className='footerContainer'>
-                        <h3>EasyWay Fitness</h3>
-                        <span>BMSZC Petrik Lajos Két tanítási Nyelvű Technikum</span><br />
-                        <span>Vizsgaremek</span>
-                    </div>
-                </footer>
+                    
+                </div>               
             </body>
+            <footer>
+                <div className="footerContainer">
+                    <h3>EasyWay Fitness</h3>
+                    <span>BMSZC Petrik Lajos Két tanítási Nyelvű Technikum</span><br />
+                    <span>Vizsgaremek</span>
+                </div>
+            </footer>
         </div>
     }
    

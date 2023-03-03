@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { NavLink } from "react-router-dom";
 import './SignUpSignIn.css';
 
 interface State {
@@ -118,7 +119,20 @@ export default class SignUpSignIn extends Component<{}, State> {
         const { regEmail, regUsername, regName, regPassword} = this.state;
  
         return <div>      
-            <body>
+            <body className='mainContainer'>
+            <div className='container'>
+            <header>
+                <nav>
+                <span id='teamName'>EasyWay Fitness</span>
+                <ul className='nav justify-content-center'>
+                    <li><NavLink to='/'>Főoldal</NavLink></li>
+                    <li><a href='#ismeretterjesztok'>Ismeretterjesztők</a></li>
+                    <li><a href='#gyakorlatok'>Gyakorlatok</a></li>
+                    <li><NavLink to='/Calculator'>Kalkulátor</NavLink></li>
+                </ul>
+                    <button id='registration'><NavLink to='/SignUpSignIn' id='signupsignin'>Regisztráció</NavLink></button>
+                </nav>
+            </header>
                 <div className="container SignUpForm" id="SignUpForm">
                 <h2 id="teamName">EasyWay Fitness</h2>
                     <div className="col-lg-12">
@@ -161,14 +175,17 @@ export default class SignUpSignIn extends Component<{}, State> {
                     <button onClick={this.Close}>Ok</button>
                 </div>  
 
-                <footer>
-                    <div className='footerContainer'>
-                        <h3>EasyWay Fitness</h3>
-                        <span>BMSZC Petrik Lajos Két tanítási Nyelvű Technikum</span><br />
-                        <span>Vizsgaremek</span>
-                    </div>
-                </footer>           
-            </body>            
+                        
+            </div>
+            
+            </body>   
+            <footer>
+                <div className="footerContainer">
+                    <h3>EasyWay Fitness</h3>
+                    <span>BMSZC Petrik Lajos Két tanítási Nyelvű Technikum</span><br />
+                    <span>Vizsgaremek</span>
+                </div>
+            </footer>          
         </div>
     }
 }
