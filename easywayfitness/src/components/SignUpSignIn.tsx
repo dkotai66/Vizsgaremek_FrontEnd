@@ -30,18 +30,7 @@ export default class SignUpSignIn extends Component<{}, State> {
             users: [],
         }
     }
-
-    async usersLoad() {
-        let response = await fetch('http://localhost:3000/register');
-        let data = await response.json();
-        this.setState({
-            users: data,
-        })
-    }
-
-    componentDidMount() {
-        this.usersLoad();
-    }    
+    
 
     handlerRegister = async (e:any) => {
         const { regEmail, regUsername, regName, regPassword} = this.state;
@@ -58,13 +47,15 @@ export default class SignUpSignIn extends Component<{}, State> {
             password: regPassword,
         };
 
-        let response = await fetch('http://localhost:3000/register', {
+        let response = await fetch('http://localhost:3000/user', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json; charset=UTF-8',
             },
             body: JSON.stringify(data),
         });
+        
+        console.log(data);
 
         this.setState({
             regUsername: '',
@@ -72,7 +63,7 @@ export default class SignUpSignIn extends Component<{}, State> {
             regEmail: '',
             regPassword: '',
         });
-        await this.usersLoad();
+       
 
         const signUpForm = document.getElementById('SignUpForm') as HTMLDivElement;
         const popUp = document.getElementById('popUp') as HTMLDivElement;
