@@ -116,6 +116,8 @@ export default class Calculator extends Component<{}, State> {
             body: JSON.stringify(data),
         });
 
+        console.log(data)
+
         this.setState({
             regAge: 0,
             regGender: "",
@@ -153,11 +155,11 @@ export default class Calculator extends Component<{}, State> {
                             <h4 id="ageTitle">Add meg a nemed</h4>
                                 <div className="row">
                                     <div className="col-lg-6 genderContainer">
-                                        <input type="radio" name={'gender'} value={regGender} onChange={e=> this.setState({regGender: e.currentTarget.value})} className="genderButton" id="man" />
-                                        <label htmlFor="man"><span>Férfi</span></label>                                            
+                                        <input type="radio" name={'gender'} value={regGender} onChange={e=> this.setState({regGender: "férfi"})}  className="genderButton" id="man" />
+                                        <label htmlFor="man" ><span>Férfi</span></label>                                            
                                     </div>
                                     <div className="col-lg-6 genderContainer">
-                                        <input type="radio" name={'gender'} value={regGender} onChange={e=> this.setState({regGender: e.currentTarget.value})} className="genderButton" id="woman" />
+                                        <input type="radio" name={'gender'} value={regGender} onChange={e=> this.setState({regGender: "nő"})} className="genderButton" id="woman" />
                                         <label htmlFor="woman"><span>Nő</span></label>                                            
                                     </div>
                                 </div>
