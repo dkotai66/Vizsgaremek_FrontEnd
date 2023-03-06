@@ -5,6 +5,12 @@ import { GoCheck } from "react-icons/go";
 import { GoThreeBars } from "react-icons/go"; 
 import { Link, NavLink } from 'react-router-dom';
 
+interface WeightVideoGalleryElement {
+  videoSrc: string;
+  videoTitle: string;
+  videoDetails: string;
+}
+
 interface VideoGalleryElement {
   videoSrc: string;
   videoTitle: string;
@@ -46,7 +52,7 @@ interface currentEducatorElement {
   descriptionTitle: string;
 }
 
-const videoGallery: VideoGalleryElement[] = [
+const weightvideoGallery: WeightVideoGalleryElement[] = [
     {
         videoSrc: './video/fekvenyomas.mp4',
         videoTitle: 'Fekvenyomás',
@@ -72,26 +78,29 @@ const videoGallery: VideoGalleryElement[] = [
         videoTitle: 'Lehúzás mellhez',
         videoDetails: 'Fogd meg a rudat vállszélesen, akaszd be a combjaidat a párna alá, majd húzd le a rudat a szegycsontodig. A könyökök a törzs vonalát követik, lehúzásnál enyhén dőlj hátra. A fejed végig maradjon a gerinc vonalában. ',
     },
-    {
-        videoSrc: './video/fekvotamasz.mp4',
-        videoTitle: 'Fekvőtámasz',
-        videoDetails: 'Vedd fel a plank testtartást a földön, nyújtott karokkal. A tenyerek a válladdal egy vonalban legyenek. Nyomd le a vállaidat, minél távolabb a füledtől, a lapockáidat is le és hátra. A könyök 45 fokos szöget zár a testeddel, a tested legyen egyenes. Fújd ki a levegőt, ereszkedj le, és próbáld a padlóhoz érinteni a mellkasodat. Belégzés közben nyomd vissza magad a kezdő helyzetbe. ',
-    },
-    {
-        videoSrc: './video/huzodzkodas.mp4',
-        videoTitle: 'Húzódzkodás',
-        videoDetails: 'Ugorj fel a rúdra, vállszélességnél egy kicsit szélesebben ragadd meg a rudat, lógj kinyújtott végtagokkal. Szorítsd, és told lefelé a lapockádat, ahogy megfeszíted a hátad, a törzsed és a farizmod. Húzd fel magad addig amíg, az állad a rúd fölé nem ér. A könyököket tartsd a törzsed mellet, a derekad őrizze a természetes ívét. Húzásnál képzeljük el, mintha a rudat a mellkasunkhoz húznánk. Ereszkedj vissza kezdő pozícióba. ',
-    },
-    {
-        videoSrc: './video/guggolassulynelkul.mp4',
-        videoTitle: 'Guggolás súly nélkül',
-        videoDetails: 'Ugorj fel a rúdra, vállszélességnél egy kicsit szélesebben ragadd meg a rudat, lógj kinyújtott végtagokkal. Szorítsd, és told lefelé a lapockádat, ahogy megfeszíted a hátad, a törzsed és a farizmod. Húzd fel magad addig amíg, az állad a rúd fölé nem ér. A könyököket tartsd a törzsed mellet, a derekad őrizze a természetes ívét. Húzásnál képzeljük el, mintha a rudat a mellkasunkhoz húznánk. Ereszkedj vissza kezdő pozícióba. ',
-    },
-    {
-        videoSrc: './video/plank.mp4',
-        videoTitle: 'Plank',
-        videoDetails: 'Térdelj le, plankelj nyújtott karokkal. A tenyerek a válladdal egy vonalban legyenek.  Nyomd le a vállaidat, minél távolabb a füledtől, a lapockáidat is le és hátra. A könyök 45 fokos szöget zár a testeddel, a tested legyen egyenes. Feszítsd a törzset, és tartsd egyenesen a testet. Nyugodt a légzés, és tartsd mozdulatlanul a testedet, és tartsd ezt a pozíciót a kitűzött ideig. ',
-    },
+];
+
+const videoGallery: VideoGalleryElement[] = [
+  {
+      videoSrc: './video/fekvotamasz.mp4',
+      videoTitle: 'Fekvőtámasz',
+      videoDetails: 'Vedd fel a plank testtartást a földön, nyújtott karokkal. A tenyerek a válladdal egy vonalban legyenek. Nyomd le a vállaidat, minél távolabb a füledtől, a lapockáidat is le és hátra. A könyök 45 fokos szöget zár a testeddel, a tested legyen egyenes. Fújd ki a levegőt, ereszkedj le, és próbáld a padlóhoz érinteni a mellkasodat. Belégzés közben nyomd vissza magad a kezdő helyzetbe. ',
+  },
+  {
+      videoSrc: './video/huzodzkodas.mp4',
+      videoTitle: 'Húzódzkodás',
+      videoDetails: 'Ugorj fel a rúdra, vállszélességnél egy kicsit szélesebben ragadd meg a rudat, lógj kinyújtott végtagokkal. Szorítsd, és told lefelé a lapockádat, ahogy megfeszíted a hátad, a törzsed és a farizmod. Húzd fel magad addig amíg, az állad a rúd fölé nem ér. A könyököket tartsd a törzsed mellet, a derekad őrizze a természetes ívét. Húzásnál képzeljük el, mintha a rudat a mellkasunkhoz húznánk. Ereszkedj vissza kezdő pozícióba. ',
+  },
+  {
+      videoSrc: './video/guggolassulynelkul.mp4',
+      videoTitle: 'Guggolás súly nélkül',
+      videoDetails: 'Ugorj fel a rúdra, vállszélességnél egy kicsit szélesebben ragadd meg a rudat, lógj kinyújtott végtagokkal. Szorítsd, és told lefelé a lapockádat, ahogy megfeszíted a hátad, a törzsed és a farizmod. Húzd fel magad addig amíg, az állad a rúd fölé nem ér. A könyököket tartsd a törzsed mellet, a derekad őrizze a természetes ívét. Húzásnál képzeljük el, mintha a rudat a mellkasunkhoz húznánk. Ereszkedj vissza kezdő pozícióba. ',
+  },
+  {
+      videoSrc: './video/plank.mp4',
+      videoTitle: 'Plank',
+      videoDetails: 'Térdelj le, plankelj nyújtott karokkal. A tenyerek a válladdal egy vonalban legyenek.  Nyomd le a vállaidat, minél távolabb a füledtől, a lapockáidat is le és hátra. A könyök 45 fokos szöget zár a testeddel, a tested legyen egyenes. Feszítsd a törzset, és tartsd egyenesen a testet. Nyugodt a légzés, és tartsd mozdulatlanul a testedet, és tartsd ezt a pozíciót a kitűzött ideig. ',
+  },
 ];
 
 const WheyEducators: WheyEducatorsElement[] =[
@@ -398,6 +407,13 @@ export default class Main extends Component<{}, State> {
                   <div className='col-lg-6'>
                     <div className='videoList'>
                       <h3 className='exercisestitles'>Súlyzós Gyakorlatok</h3>
+                      {
+                        weightvideoGallery.map(ge => <div className='vid'>
+                          <video src={ge.videoSrc} onClick={() => this.setState({ currentVideo: ge })} muted></video>
+                          <h4 className='videoTitle' onClick={() => this.setState({ currentVideo: ge })}>{ge.videoTitle}</h4>
+                        </div>)
+                      }
+                      <h3 className='exercisestitles' id='exercisestitleWithoutWeight'>Saját testsúlyos Gyakorlatok</h3>
                       {
                         videoGallery.map(ge => <div className='vid'>
                           <video src={ge.videoSrc} onClick={() => this.setState({ currentVideo: ge })} muted></video>
