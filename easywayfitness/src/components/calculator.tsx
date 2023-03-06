@@ -155,11 +155,11 @@ export default class Calculator extends Component<{}, State> {
                             <h4 id="ageTitle">Add meg a nemed</h4>
                                 <div className="row">
                                     <div className="col-lg-6 genderContainer">
-                                        <input type="radio" name={'gender'} value={regGender} onChange={e=> this.setState({regGender: "férfi"})}  className="genderButton" id="man" />
+                                        <input type="radio" name={'gender'} value="Male" onChange={e=> this.setState({regGender: e.target.value})}  className="genderButton" id="man" />
                                         <label htmlFor="man" ><span>Férfi</span></label>                                            
                                     </div>
                                     <div className="col-lg-6 genderContainer">
-                                        <input type="radio" name={'gender'} value={regGender} onChange={e=> this.setState({regGender: "nő"})} className="genderButton" id="woman" />
+                                        <input type="radio" name={'gender'} value="Female" onChange={e=> this.setState({regGender: e.target.value})} className="genderButton" id="woman" />
                                         <label htmlFor="woman"><span>Nő</span></label>                                            
                                     </div>
                                 </div>
@@ -189,10 +189,10 @@ export default class Calculator extends Component<{}, State> {
                         </form>  
                         <form id="lifeStyleInformations">
                             <h4>Add meg a célodat</h4>
-                            <select name="goals" id="goals">
-                                <option value={regDiet_plan} onChange={e=> this.setState({regDiet_plan: e.currentTarget.value})}>Tömegnövelés</option>
-                                <option value={regDiet_plan} onChange={e=> this.setState({regDiet_plan: e.currentTarget.value})}>Fogyás</option>
-                                <option value={regDiet_plan} onChange={e=> this.setState({regDiet_plan: e.currentTarget.value})}>Szálkásítás</option>
+                            <select name="goals" id="goals" >
+                                <option value="weightGain" onChange={e=> this.setState({regDiet_plan: e.currentTarget.value})}>Tömegnövelés</option>
+                                <option value="weightLoss"onChange={e=> this.setState({regDiet_plan: e.currentTarget.value})} >Fogyás</option>
+                                <option value="thinning" onChange={e=> this.setState({regDiet_plan: e.currentTarget.value})}>Szálkásítás</option>
                             </select>
                             <h4>Add meg a testmozgás típusodat</h4>
                             <select name="activity" id="activity">
