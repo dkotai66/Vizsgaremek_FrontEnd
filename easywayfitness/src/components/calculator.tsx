@@ -12,6 +12,11 @@ interface State {
     regDiet_plan: string;
     regWeight_goal: number;
     regLook: string;
+    value: string;
+}
+
+interface lifeStyle {
+    option: string;
 }
 
 interface Form {
@@ -41,7 +46,12 @@ export default class Calculator extends Component<{}, State> {
             regDiet_plan: '',
             regWeight_goal: 0,
             regLook: '',
+            value:'',
         } 
+    }
+
+    handleChange = async (v:any) => {
+        this.setState({value: v.target.value})
     }
 
     handleFirstForm = async ()  => {
@@ -102,7 +112,7 @@ export default class Calculator extends Component<{}, State> {
             weight: regWeight,
             height: regHeight,
             water_consume: regWater_consume,
-            lifestle: regLifestyle,
+            lifestyle: regLifestyle,
             diet_plan: regDiet_plan,
             weight_goal: regWeight_goal,
             look: regLook,
@@ -189,24 +199,26 @@ export default class Calculator extends Component<{}, State> {
                         </form>  
                         <form id="lifeStyleInformations">
                             <h4>Add meg a célodat</h4>
-                            <select name="goals" id="goals" >
-                                <option value="weightGain" onChange={e=> this.setState({regDiet_plan: e.currentTarget.value})}>Tömegnövelés</option>
-                                <option value="weightLoss"onChange={e=> this.setState({regDiet_plan: e.currentTarget.value})} >Fogyás</option>
-                                <option value="thinning" onChange={e=> this.setState({regDiet_plan: e.currentTarget.value})}>Szálkásítás</option>
+                            <select name="goals" id="goals" onChange={e=> this.setState({regDiet_plan: e.currentTarget.value})} value={this.state.value}>
+                                <option value="weightGain" >---</option>
+                                <option value="weightGain" >Tömegnövelés</option>
+                                <option value="weightLoss" >Fogyás</option>
+                                <option value="thinning" >Szálkásítás</option>
                             </select>
-                            <h4>Add meg a testmozgás típusodat</h4>
-                            <select name="activity" id="activity">
-                                <option value={regLifestyle} onChange={e=> this.setState({regLifestyle: e.currentTarget.value})}>Mozgás mentes napok</option>
-                                <option value={regLifestyle} onChange={e=> this.setState({regLifestyle: e.currentTarget.value})}>Mérsékelt mozgású napok</option>
-                                <option value={regLifestyle} onChange={e=> this.setState({regLifestyle: e.currentTarget.value})}>Aktív napok</option>
-                                <option value={regLifestyle} onChange={e=> this.setState({regLifestyle: e.currentTarget.value})}>Nehéz fizikai aktivitású napok</option>
+                            <h4>Add meg a mennyit mozogsz</h4>
+                            <select name="activity" id="activity" onChange={e=> this.setState({regLifestyle: e.currentTarget.value})} value={this.state.value} >
+                                <option value="weightGain" >---</option>
+                                <option value="few" >Keveset</option>
+                                <option value="normal">Átlagos</option>
+                                <option value="lot">Sokat</option>
                             </select>  
                             <h4>Add meg a napi vízfogyasztásodat</h4>
-                            <select name="water" id="water">
-                                <option value={regWater_consume} onChange={e=> this.setState({regWater_consume: e.currentTarget.value})}>Kevesebb, mint 1 liter</option>
-                                <option value={regWater_consume} onChange={e=> this.setState({regWater_consume: e.currentTarget.value})}>1 - 2 liter</option>
-                                <option value={regWater_consume} onChange={e=> this.setState({regWater_consume: e.currentTarget.value})}>3 - 4 liter</option>
-                                <option value={regWater_consume} onChange={e=> this.setState({regWater_consume: e.currentTarget.value})}>Több, mint 4 liter</option>
+                            <select name="water" id="water" onChange={e=> this.setState({regWater_consume: e.currentTarget.value})} value={this.state.value}>
+                                <option value="weightGain" >---</option>
+                                <option value="lessThanOneLiter" >Kevesebb, mint 1 liter</option>
+                                <option value="1-2liter">1 - 2 liter</option>
+                                <option value="3-4liter">3 - 4 liter</option>
+                                <option value="moreThanFourLiter">Több, mint 4 liter</option>
                             </select> 
                             <div className="buttonContainer">
                                 <div className="row">
@@ -224,9 +236,9 @@ export default class Calculator extends Component<{}, State> {
                             <input type="number" id="dreamWeight" placeholder="kg"/>
                             <h4>Add meg a testtípusodat</h4>
                             <select name="bodyType" id="bodyType">
-                                <option value={regLook} onChange={e=> this.setState({regLook: e.currentTarget.value})}>Nehezen hízó</option>
-                                <option value={regLook} onChange={e=> this.setState({regLook: e.currentTarget.value})}>Normális</option>
-                                <option value={regLook} onChange={e=> this.setState({regLook: e.currentTarget.value})}>Nehezen fogyó</option>
+                                <option value="ectomorph" onChange={e=> this.setState({regLook: e.currentTarget.value})}>Nehezen hízó</option>
+                                <option value="mesomorph" onChange={e=> this.setState({regLook: e.currentTarget.value})}>Normális</option>
+                                <option value="endomorph" onChange={e=> this.setState({regLook: e.currentTarget.value})}>Nehezen fogyó</option>
                             </select>  
                             <br />
                             <h4>Kalkulálás után ezen az oldalon olvashatod egyből az eredményt</h4>
