@@ -1,4 +1,4 @@
-import { Component, ReactNode } from "react";
+import { Component, ReactNode, useState } from "react";
 import { NavLink } from "react-router-dom";
 import './calculator.css'
 
@@ -12,7 +12,6 @@ interface State {
     regDiet_plan: string;
     regWeight_goal: number;
     regLook: string;
-    value: string;
 }
 
 interface lifeStyle {
@@ -46,13 +45,9 @@ export default class Calculator extends Component<{}, State> {
             regDiet_plan: '',
             regWeight_goal: 0,
             regLook: '',
-            value:'',
         } 
     }
 
-    handleChange = async (v:any) => {
-        this.setState({value: v.target.value})
-    }
 
     handleFirstForm = async ()  => {
         const personalInformationsForm = document.getElementById('personalInformations') as HTMLFormElement;
@@ -103,6 +98,12 @@ export default class Calculator extends Component<{}, State> {
     }
 
     handleCalculating =  async (e:any) => {
+        const nothing = document.getElementsByClassName('nothing') as unknown as HTMLOptionElement; //nem működik még
+        if(nothing.selected) {
+            alert('válassz érvényes választ')
+            return;
+        }
+
         const {regGender, regAge, regHeight, regWeight, regWeight_goal, regLook, regDiet_plan, regLifestyle, regWater_consume} = this.state;
         e.preventDefault()
 
@@ -139,7 +140,11 @@ export default class Calculator extends Component<{}, State> {
             regWater_consume: "",
             regWeight_goal: 0,
         });
+
+        
     }
+
+  
 
     render() {
         const {regGender, regAge, regHeight, regWeight, regWeight_goal, regLook, regDiet_plan, regLifestyle, regWater_consume} = this.state;
@@ -199,31 +204,31 @@ export default class Calculator extends Component<{}, State> {
                         </form>  
                         <form id="lifeStyleInformations">
                             <h4>Add meg a célodat</h4>
-                            <select name="goals" id="goals" onChange={e=> this.setState({regDiet_plan: e.currentTarget.value})} value={this.state.value}>
-                                <option value="weightGain" >---</option>
-                                <option value="weightGain" >Tömegnövelés</option>
+                            <select name="goal" id="goals" onChange={a=> this.setState({regDiet_plan: a.currentTarget.value})} defaultValue="nothing">
+                                <option className="nothing" value="nothing" hidden>---</option>
+                                <option value="weightGain">Tömegnövelés</option>
                                 <option value="weightLoss" >Fogyás</option>
                                 <option value="thinning" >Szálkásítás</option>
                             </select>
                             <h4>Add meg a mennyit mozogsz</h4>
-                            <select name="activity" id="activity" onChange={e=> this.setState({regLifestyle: e.currentTarget.value})} value={this.state.value} >
-                                <option value="weightGain" >---</option>
-                                <option value="few" >Keveset</option>
-                                <option value="normal">Átlagos</option>
-                                <option value="lot">Sokat</option>
+                            <select name="activity" id="activity" onChange={b=> this.setState({regLifestyle: b.currentTarget.value})} defaultValue="nothing">
+                                <option className="nothing" value="nothing" hidden>---</option>
+                                <option value="fewActivity">Keveset</option>
+                                <option value="normalActivity">Átlagos</option>
+                                <option value="lotActivity">Sokat</option>
                             </select>  
                             <h4>Add meg a napi vízfogyasztásodat</h4>
-                            <select name="water" id="water" onChange={e=> this.setState({regWater_consume: e.currentTarget.value})} value={this.state.value}>
-                                <option value="weightGain" >---</option>
-                                <option value="lessThanOneLiter" >Kevesebb, mint 1 liter</option>
-                                <option value="1-2liter">1 - 2 liter</option>
-                                <option value="3-4liter">3 - 4 liter</option>
+                            <select name="water" id="water" onChange={c=> this.setState({regWater_consume: c.currentTarget.value})} defaultValue="nothing">
+                                <option className="nothing" value="nothing" hidden>---</option>
+                                <option value="lessThanOneLiter">Kevesebb, mint 1 liter</option>
+                                <option value="oneTwoliter">1 - 2 liter</option>
+                                <option value="threeFourliter">3 - 4 liter</option>
                                 <option value="moreThanFourLiter">Több, mint 4 liter</option>
                             </select> 
                             <div className="buttonContainer">
                                 <div className="row">
                                     <div className="col-lg-6">
-                                        <span className="nextpreviousBtn" id='previousBtn'onClick={this.handleSecondForm}>Előző</span>
+                                        <span className="nextpreviousBtn" id='previousBtn' onClick={this.handleSecondForm} >Előző</span>
                                     </div>
                                     <div className="col-lg-6">
                                         <span className="nextpreviousBtn" onClick={this.handleFourthForm}>Következő</span>
@@ -232,13 +237,12 @@ export default class Calculator extends Component<{}, State> {
                             </div>   
                         </form> 
                         <form id="otherInformations">
-                            <h4>Add meg az álomsúlyodat</h4>
-                            <input type="number" id="dreamWeight" placeholder="kg"/>
                             <h4>Add meg a testtípusodat</h4>
-                            <select name="bodyType" id="bodyType">
-                                <option value="ectomorph" onChange={e=> this.setState({regLook: e.currentTarget.value})}>Nehezen hízó</option>
-                                <option value="mesomorph" onChange={e=> this.setState({regLook: e.currentTarget.value})}>Normális</option>
-                                <option value="endomorph" onChange={e=> this.setState({regLook: e.currentTarget.value})}>Nehezen fogyó</option>
+                            <select name="bodyType" id="bodyType" onChange={e=> this.setState({regLook: e.currentTarget.value})} defaultValue="nothing">
+                                <option className="nothing" value="nothing" hidden>---</option>
+                                <option value="ectomorph" >Nehezen hízó</option>
+                                <option value="mesomorph" >Normális</option>
+                                <option value="endomorph" >Nehezen fogyó</option>
                             </select>  
                             <br />
                             <h4>Kalkulálás után ezen az oldalon olvashatod egyből az eredményt</h4>
