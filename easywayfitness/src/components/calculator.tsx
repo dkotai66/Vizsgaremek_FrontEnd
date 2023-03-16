@@ -103,6 +103,7 @@ export default class Calculator extends Component<{}, State> {
             alert('válassz érvényes választ')
             return;
         }
+        
 
         const {regGender, regAge, regHeight, regWeight, regWeight_goal, regLook, regDiet_plan, regLifestyle, regWater_consume} = this.state;
         e.preventDefault()
