@@ -62,22 +62,31 @@ export default class Caloria extends Component<{}, State> {
                     </header>
                     <div className="caloriaContainer"> 
                         <h2>Add meg mit ettél</h2>
-                        <select name="food" onChange={a=> this.setState({currentFood: this.state.etelek[parseInt(a.currentTarget.value)]})} defaultValue='nothing'>
+                        <select name="food" onChange={a=> this.setState({currentFood: this.state.etelek[parseInt(a.currentTarget.value)]})} defaultValue='nothing' id="foodSelector">
                             <option value="nothing" hidden>----</option>
                             {
                                 this.state.etelek.map((etel, index)=><option value={index}>{etel.name}</option>)
                             }
                         </select>
                         
-
+                    <div className="foodInformations">
                         <p>Az étel neve: {this.state.currentFood.name} </p>
-                        <p>Az étel kalória mennyisége: {this.state.currentFood.calorie} <small>Kiválaszott étel 100 grammjára vonatkozik</small></p>
-                        <p>Az étel fehérje mennyisége: {this.state.currentFood.protein} <small>Kiválaszott étel 100 grammjára vonatkozik</small></p>
-                        <p>Az étel szénhidrát mennyisége: {this.state.currentFood.carbohydrate} <small>Kiválaszott étel 100 grammjára vonatkozik</small></p>
-                        <p>Az étel zsír mennyisége: {this.state.currentFood.fat} <small>Kiválaszott étel 100 grammjára vonatkozik</small></p>
+                        <p>Az étel kalória mennyisége: {this.state.currentFood.calorie} kcal <small><br />(Kiválaszott étel 100 grammjára vonatkozik)</small></p>
+                        <p>Az étel fehérje mennyisége: {this.state.currentFood.protein} gr <small><br />(Kiválaszott étel 100 grammjára vonatkozik)</small></p>
+                        <p>Az étel szénhidrát mennyisége: {this.state.currentFood.carbohydrate} gr <small><br />(Kiválaszott étel 100 grammjára vonatkozik)</small></p>
+                        <p>Az étel zsír mennyisége: {this.state.currentFood.fat} <small><br /> gr (Kiválaszott étel 100 grammjára vonatkozik)</small></p>
+                    </div>
+                        
                     </div>
                 </div>
             </body>
+            <footer>
+            <div className='footerContainer'>
+              <h3>EasyWay Fitness</h3>
+              <span>BMSZC Petrik Lajos Két tanítási Nyelvű Technikum</span><br />
+              <span>Vizsgaremek</span>
+            </div>
+          </footer>
         </div>
     }
     
