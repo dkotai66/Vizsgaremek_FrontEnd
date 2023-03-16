@@ -157,8 +157,8 @@ export default class Calculator extends Component<{}, State> {
                 <span id='teamName'>EasyWay Fitness</span>
                 <ul className='nav justify-content-center'>
                     <li><NavLink to='/'>Főoldal</NavLink></li>
-                    <li><a href='#ismeretterjesztok'>Ismeretterjesztők</a></li>
-                    <li><a href='#gyakorlatok'>Gyakorlatok</a></li>
+                    <li><a href='#ismeretterjesztok'>Kalóriák</a></li>
+                    <li><a href='#gyakorlatok'>Naplózás</a></li>
                     <li><NavLink to='/Calculator'>Kalkulátor</NavLink></li>
                 </ul>
                     <button id='registration'><NavLink to='/SignUpSignIn' id='signupsignin'>Regisztráció</NavLink></button>
