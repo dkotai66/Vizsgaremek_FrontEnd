@@ -119,7 +119,7 @@ export default class Calculator extends Component<{}, State> {
             look: regLook,
         }
 
-        let response = await fetch('http://localhost:3000/calculator', {
+        let response = await fetch('http://localhost:3000/form', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json; charset=UTF-8',
