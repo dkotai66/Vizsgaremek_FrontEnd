@@ -12,6 +12,17 @@ interface State {
     regDiet_plan: string;
     regWeight_goal: number;
     regLook: string;
+    regResultKcal: any;
+    regResultProtein: any;
+    regResultCarbohydrate: any;
+    regResultFat: any;
+    regResultWorkout: any;
+    regResultWater: any;
+    regBMR : number;
+    regTMR: number;
+    regProtein: number;
+    regCarbohydrate: number;
+    regFat: number;
 }
 
 interface lifeStyle {
@@ -45,6 +56,17 @@ export default class Calculator extends Component<{}, State> {
             regDiet_plan: '',
             regWeight_goal: 0,
             regLook: '',
+            regResultKcal: '',
+            regResultCarbohydrate: '',
+            regResultFat: '',
+            regResultProtein: '',
+            regResultWater: '',
+            regResultWorkout: '',
+            regBMR : 0,
+            regTMR: 0,
+            regProtein: 0,
+            regCarbohydrate: 0,
+            regFat: 0,
         } 
     }
 
@@ -98,14 +120,8 @@ export default class Calculator extends Component<{}, State> {
     }
 
     handleCalculating =  async (e:any) => {
-        const nothing = document.getElementsByClassName('nothing') as unknown as HTMLOptionElement; //nem működik még
-        if(nothing.selected) {
-            alert('válassz érvényes választ')
-            return;
-        }
+        let {regGender, regAge, regHeight, regWeight, regWeight_goal, regLook, regDiet_plan, regLifestyle, regWater_consume, regResultKcal, regResultCarbohydrate, regResultFat, regResultProtein, regResultWater, regResultWorkout, regBMR, regTMR, regProtein, regCarbohydrate, regFat} = this.state;
         
-
-        const {regGender, regAge, regHeight, regWeight, regWeight_goal, regLook, regDiet_plan, regLifestyle, regWater_consume} = this.state;
         e.preventDefault()
 
         const data = {
@@ -120,7 +136,7 @@ export default class Calculator extends Component<{}, State> {
             look: regLook,
         }
 
-        let response = await fetch('http://localhost:3000/form', {
+        let response = await fetch('http://localhost:3000/calculator', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json; charset=UTF-8',
@@ -140,7 +156,51 @@ export default class Calculator extends Component<{}, State> {
             regLook: "",
             regWater_consume: "",
             regWeight_goal: 0,
+            regResultKcal: "",
+            regResultCarbohydrate: "",
+            regResultFat: "",
+            regResultProtein: "",
+            regResultWater: "",
+            regResultWorkout: "",
         });
+
+        //férfiaknál
+        //tömegnövelés = 70+(13.7*regWeight)+(5*regHeight)-(6.8*regAge)
+        //fogyás = 63.20+(13.7*regWeight)+(5*regHeight)-(6.8*regAge)
+        //súlymegtartás = 66.46+(13.7*regWeight)+(5*regHeight)-(6.8*regAge);
+        //fehérje igény = kilónként 2g
+        //szénhidrát igény = kilónként 4g
+        //zsír BMR 20%a
+
+        //nőknél
+        //szénhidrát igény = kilónként 2g
+
+        if(regGender == 'Male') {
+            if(regDiet_plan == 'weightGain') {
+                if(regLifestyle == 'fewActivity'){
+                    regBMR = 70+(13.7*regWeight)+(5*regHeight)-(6.8*regAge);
+                    regTMR = regBMR*1.2;
+                }
+                if(regLifestyle == 'normalActivity'){
+                    regBMR = 70+(13.7*regWeight)+(5*regHeight)-(6.8*regAge);
+                    regTMR = regBMR*1.4;
+                }
+                if(regLifestyle == 'lotActivity'){
+                    regBMR = 70+(13.7*regWeight)+(5*regHeight)-(6.8*regAge);
+                    regTMR = regBMR*2;
+                }
+                
+            }
+            if(regDiet_plan == 'weightLoss') {
+                regBMR = 63.20+(13.7*regWeight)+(5*regHeight)-(6.8*regAge);
+            }
+            if(regDiet_plan == 'thinning') {
+                regBMR = 66.20+(13.7*regWeight)+(5*regHeight)-(6.8*regAge);
+            }          
+            this.setState({regResultKcal: 'A kalória igényed: '  + regBMR  +  ' és ' + regTMR + ' között van'});
+            this.setState({regResultProtein: 'A fehérje igényed: '  + regWeight*2 + ' gr'});
+            this.setState({regResultFat: 'A zsír igényed: '  + regBMR*0.2 + ' gr'});
+        }
 
         
     }
@@ -148,7 +208,7 @@ export default class Calculator extends Component<{}, State> {
   
 
     render() {
-        const {regGender, regAge, regHeight, regWeight, regWeight_goal, regLook, regDiet_plan, regLifestyle, regWater_consume} = this.state;
+        const {regGender, regAge, regHeight, regWeight, regWeight_goal, regLook, regDiet_plan, regLifestyle, regWater_consume, regResultKcal, regResultCarbohydrate, regResultFat, regResultProtein, regResultWater, regResultWorkout, regBMR, regTMR, regProtein, regCarbohydrate, regFat} = this.state;
 
         return <div>
             <body className='mainContainer'>
@@ -204,6 +264,7 @@ export default class Calculator extends Component<{}, State> {
                             </div>   
                         </form>  
                         <form id="lifeStyleInformations">
+                            
                             <h4>Add meg a célodat</h4>
                             <select name="goal" id="goals" onChange={a=> this.setState({regDiet_plan: a.currentTarget.value})} defaultValue="nothing">
                                 <option className="nothing" value="nothing" hidden>---</option>
@@ -261,6 +322,14 @@ export default class Calculator extends Component<{}, State> {
                         </form>  
                     </div>
                     
+                    <div className="resultForm">
+                        <p>{regResultKcal}</p>
+                        <p>{regResultCarbohydrate}</p>
+                        <p>{regResultFat}</p>
+                        <p>{regResultProtein}</p>
+                        <p>{regResultWater}</p>
+                        <p>{regResultWorkout}</p>
+                    </div>
                 </div>               
             </body>
             <footer>
