@@ -164,47 +164,173 @@ export default class Calculator extends Component<{}, State> {
             regResultWorkout: "",
         });
 
-        //férfiaknál
-        //tömegnövelés = 70+(13.7*regWeight)+(5*regHeight)-(6.8*regAge)
-        //fogyás = 63.20+(13.7*regWeight)+(5*regHeight)-(6.8*regAge)
-        //súlymegtartás = 66.46+(13.7*regWeight)+(5*regHeight)-(6.8*regAge);
-        //fehérje igény = kilónként 2g
-        //szénhidrát igény = kilónként 4g
-        //zsír BMR 20%a
-
-        //nőknél
-        //szénhidrát igény = kilónként 2g
-
         if(regGender == 'Male') {
             if(regDiet_plan == 'weightGain') {
                 if(regLifestyle == 'fewActivity'){
-                    regBMR = 70+(13.7*regWeight)+(5*regHeight)-(6.8*regAge);
-                    regTMR = regBMR*1.2;
+                    regBMR = Math.round(70+(13.7*regWeight)+(5*regHeight)-(6.8*regAge));
+                    regTMR = Math.round(regBMR*1.2);
                 }
                 if(regLifestyle == 'normalActivity'){
-                    regBMR = 70+(13.7*regWeight)+(5*regHeight)-(6.8*regAge);
-                    regTMR = regBMR*1.4;
+                    regBMR = Math.round(70+(13.7*regWeight)+(5*regHeight)-(6.8*regAge));
+                    regTMR = Math.round(regBMR*1.4);
                 }
                 if(regLifestyle == 'lotActivity'){
-                    regBMR = 70+(13.7*regWeight)+(5*regHeight)-(6.8*regAge);
-                    regTMR = regBMR*2;
-                }
-                
+                    regBMR = Math.round(70+(13.7*regWeight)+(5*regHeight)-(6.8*regAge));
+                    regTMR = Math.round(regBMR*2);
+                }  
             }
+            
             if(regDiet_plan == 'weightLoss') {
-                regBMR = 63.20+(13.7*regWeight)+(5*regHeight)-(6.8*regAge);
+                if(regLifestyle == 'fewActivity'){
+                    regBMR = Math.round(63.20+(13.7*regWeight)+(5*regHeight)-(6.8*regAge));
+                    regTMR = Math.round(regBMR*1.2);
+                }
+                if(regLifestyle == 'normalActivity'){
+                    regBMR = Math.round(63.20+(13.7*regWeight)+(5*regHeight)-(6.8*regAge));
+                    regTMR = Math.round(regBMR*1.4);
+                }
+                if(regLifestyle == 'lotActivity'){
+                    regBMR = Math.round(63.20+(13.7*regWeight)+(5*regHeight)-(6.8*regAge));
+                    regTMR = Math.round(regBMR*2);
+                } 
             }
             if(regDiet_plan == 'thinning') {
-                regBMR = 66.20+(13.7*regWeight)+(5*regHeight)-(6.8*regAge);
-            }          
-            this.setState({regResultKcal: 'A kalória igényed: '  + regBMR  +  ' és ' + regTMR + ' között van'});
+                if(regLifestyle == 'fewActivity'){
+                    regBMR = Math.round(66+(13.7*regWeight)+(5*regHeight)-(6.8*regAge));
+                    regTMR = Math.round(regBMR*1.2);
+                }
+                if(regLifestyle == 'normalActivity'){
+                    regBMR = Math.round(66+(13.7*regWeight)+(5*regHeight)-(6.8*regAge));
+                    regTMR = Math.round(regBMR*1.4);
+                }
+                if(regLifestyle == 'lotActivity'){
+                    regBMR = Math.round(66+(13.7*regWeight)+(5*regHeight)-(6.8*regAge));
+                    regTMR = Math.round(regBMR*2);
+                } 
+            }       
+            if(regWater_consume == 'lessThanOneLiter') {
+                regResultWater = 'Fogyassz több vizet, férfiaknál napi 2.5l a minimum';
+            }
+            if(regWater_consume == 'oneTwoliter') {
+                regResultWater = 'Fogyassz több vizet, férfiaknál napi 2.5l a minimum';
+            }
+            if(regWater_consume == 'threeFourliter') {
+                regResultWater = 'A vízfogyasztásod ideális';
+            }
+            if(regWater_consume == 'moreThanFourLiter') {
+                regResultWater = 'A vízfogyasztásod kicsivel több az ideálisnál';
+            }     
             this.setState({regResultProtein: 'A fehérje igényed: '  + regWeight*2 + ' gr'});
+            this.setState({regResultCarbohydrate: 'A szénhidrát igényed: '  + regWeight*4 + ' gr'});
             this.setState({regResultFat: 'A zsír igényed: '  + regBMR*0.2 + ' gr'});
         }
 
-        
+        if(regGender == 'Female') {
+            if(regDiet_plan == 'weightGain') {
+                if(regLifestyle == 'fewActivity'){
+                    regBMR = Math.round(57+(13.7*regWeight)+(5*regHeight)-(6.8*regAge));
+                    regTMR = Math.round(regBMR*1.2);
+                }
+                if(regLifestyle == 'normalActivity'){
+                    regBMR = Math.round(57+(13.7*regWeight)+(5*regHeight)-(6.8*regAge));
+                    regTMR = Math.round(regBMR*1.4);
+                }
+                if(regLifestyle == 'lotActivity'){
+                    regBMR = 60+(13.7*regWeight)+(5*regHeight)-(6.8*regAge);
+                    regTMR = Math.round(regBMR*2);
+                }  
+            }
+            
+            if(regDiet_plan == 'weightLoss') {
+                if(regLifestyle == 'fewActivity'){
+                    regBMR = Math.round(50.20+(13.7*regWeight)+(5*regHeight)-(6.8*regAge));
+                    regTMR = Math.round(regBMR*1.2);
+                }
+                if(regLifestyle == 'normalActivity'){
+                    regBMR = Math.round(50.20+(13.7*regWeight)+(5*regHeight)-(6.8*regAge));
+                    regTMR = Math.round(regBMR*1.4);
+                }
+                if(regLifestyle == 'lotActivity'){
+                    regBMR = Math.round(50.20+(13.7*regWeight)+(5*regHeight)-(6.8*regAge));
+                    regTMR = Math.round(regBMR*2);
+                } 
+            }
+            if(regDiet_plan == 'thinning') {
+                if(regLifestyle == 'fewActivity'){
+                    regBMR = Math.round(50.20+(13.7*regWeight)+(5*regHeight)-(6.8*regAge));
+                    regTMR = Math.round(regBMR*1.2);
+                }
+                if(regLifestyle == 'normalActivity'){
+                    regBMR = Math.round(50.20+(13.7*regWeight)+(5*regHeight)-(6.8*regAge));
+                    regTMR = regBMR*1.4;
+                }
+                if(regLifestyle == 'lotActivity'){
+                    regBMR = Math.round(50.20+(13.7*regWeight)+(5*regHeight)-(6.8*regAge));
+                    regTMR = Math.round(regBMR*2);
+                } 
+            }       
+            if(regWater_consume == 'lessThanOneLiter') {
+                regResultWater = 'Fogyassz több vizet, nőknél napi 2l a minimum';
+            }
+            if(regWater_consume == 'oneTwoliter') {
+                regResultWater = 'A vízfogyasztásod 2 liter esetén ideális';
+            }
+            if(regWater_consume == 'threeFourliter') {
+                regResultWater = 'A vízfogyasztásod kicsivel több az ideálisnál';
+            }
+            if(regWater_consume == 'moreThanFourLiter') {
+                regResultWater = 'A vízfogyasztásod kicsivel több az ideálisnál';
+            }     
+            this.setState({regResultProtein: 'A fehérje igényed: '  + regWeight*1.5 + ' gr'});
+            this.setState({regResultCarbohydrate: 'A szénhidrát igényed: '  + regWeight*2 + ' gr'});
+            this.setState({regResultFat: 'A zsír igényed: '  + regBMR*0.4 + ' gr'});
+        }
+
+        if(regLook == 'ectomorph' && regDiet_plan == 'weightGain') {
+            regResultWorkout = 'Nehéz súlyzós edzés javasolt, kevés ismétlés számmal';
+        }
+        if(regLook == 'mesomorph') {
+            regResultWorkout = 'Átlagos, testsúlyos, vagy súlyzós edzést is választhatsz';
+        }
+        if(regLook == 'endomorph' && regDiet_plan == 'weightLoss' || regDiet_plan == 'thinning') {
+            regResultWorkout = 'Saját testsúlyos, illetve kis súlyokkal való sok ismétlés edzés javasolt';
+        }
+
+        if(regDiet_plan == 'weightGain' && regWeight > regWeight_goal ) {
+            alert('Tömeg növelést választottál, de az aktuális súlyod nagyobb mint az álomsúlyod')
+            return;
+        }
+        if(regDiet_plan == 'weightLoss' && regWeight < regWeight_goal ) {
+            alert('Fogyást választottál, de az aktuális súlyod kevesebb mint az álomsúlyod')
+            return;
+        }
+        if(regAge < 16 ) {
+            alert('Sajnáljuk, de csak 16, és 16 éven felülieknek lett kitalálva kalkulátorunk')
+            return;
+        }
+        if(regAge > 70 ) {
+            alert('Sajnáljuk, de csak 70, és 70 éven alattiaknak lett kitalálva kalkulátorunk')
+            return;
+        }
+        if(regWeight<30 || regWeight>255) {
+            alert('Sajnáljuk, az általad megadott testsúlyra nem alkalmas kalkulátorunk')
+            return;
+        }
+        if(regHeight<140 || regHeight>210) {
+            alert('Sajnáljuk, az általad megadott testmagasságra nem alkalmas kalkulátorunk')
+            return;
+        }
+        if(regLook=='nothing') {
+            alert('válasz érvényes választ ')
+            return;
+        }
+
+        this.setState({regResultKcal: 'A kalória igényed: '  + regBMR  +  ' és ' + regTMR + ' között van'});
+        this.setState({regResultWater: regResultWater});
+        this.setState({regResultWorkout: regResultWorkout});
     }
 
+    
   
 
     render() {
@@ -263,8 +389,7 @@ export default class Calculator extends Component<{}, State> {
                                 </div>
                             </div>   
                         </form>  
-                        <form id="lifeStyleInformations">
-                            
+                        <form id="lifeStyleInformations"> 
                             <h4>Add meg a célodat</h4>
                             <select name="goal" id="goals" onChange={a=> this.setState({regDiet_plan: a.currentTarget.value})} defaultValue="nothing">
                                 <option className="nothing" value="nothing" hidden>---</option>
@@ -307,7 +432,14 @@ export default class Calculator extends Component<{}, State> {
                                 <option value="endomorph" >Nehezen fogyó</option>
                             </select>  
                             <br />
-                            <h4>Kalkulálás után ezen az oldalon olvashatod egyből az eredményt</h4>
+                            <div className="resultForm">
+                                <p>{regResultKcal}</p>
+                                <p>{regResultCarbohydrate}</p>
+                                <p>{regResultFat}</p>
+                                <p>{regResultProtein}</p>
+                                <p>{regResultWater}</p>
+                                <p>{regResultWorkout}</p>
+                            </div>
                             <br />
                             <div className="buttonContainer">
                                 <div className="row">
@@ -321,16 +453,7 @@ export default class Calculator extends Component<{}, State> {
                             </div>   
                         </form>  
                     </div>
-                    
-                    <div className="resultForm">
-                        <p>{regResultKcal}</p>
-                        <p>{regResultCarbohydrate}</p>
-                        <p>{regResultFat}</p>
-                        <p>{regResultProtein}</p>
-                        <p>{regResultWater}</p>
-                        <p>{regResultWorkout}</p>
-                    </div>
-                </div>               
+                </div>                             
             </body>
             <footer>
                 <div className="footerContainer">
