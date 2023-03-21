@@ -17,6 +17,7 @@
 .SignUpSignInButton {
     width: 220px;
     margin: 35px auto;
+    margin-bottom: 0;
     position: relative;
     border-radius: 30px;
     background-color:#1E1B1B;

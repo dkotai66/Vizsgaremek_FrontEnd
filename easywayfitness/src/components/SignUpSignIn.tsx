@@ -7,6 +7,7 @@ interface State {
     regName: string;
     regEmail: string;
     regPassword: string;
+    regPasswordAgain: string;
     users: Users[];
 }
 
@@ -27,16 +28,21 @@ export default class SignUpSignIn extends Component<{}, State> {
             regName: '',
             regEmail: '',
             regPassword: '',
+            regPasswordAgain: '',
             users: [],
         }
     }
     
 
     handlerRegister = async (e:any) => {
-        const { regEmail, regUsername, regName, regPassword} = this.state;
+        const { regEmail, regUsername, regName, regPassword, regPasswordAgain} = this.state;
         e.preventDefault()
         if(regEmail === '' || regUsername === '' || regName === '' || regPassword === ''){
             alert('Hiba, egyik mező sem lehet üres!')
+            return;
+        }
+        if(regPassword !== regPasswordAgain) {
+            alert('a két jelszó nem egyezik')
             return;
         }
 
@@ -63,6 +69,7 @@ export default class SignUpSignIn extends Component<{}, State> {
             regName: '',
             regEmail: '',
             regPassword: '',
+            regPasswordAgain: '',
         });
        
 
@@ -108,7 +115,7 @@ export default class SignUpSignIn extends Component<{}, State> {
     }
    
     render(){
-        const { regEmail, regUsername, regName, regPassword} = this.state;
+        const { regEmail, regUsername, regName, regPassword, regPasswordAgain} = this.state;
  
         return <div>      
             <body className='mainContainer'>
@@ -154,6 +161,8 @@ export default class SignUpSignIn extends Component<{}, State> {
                                     <input type="text" name="name" className="inputField" value={regName} onChange={e=> this.setState({regName: e.currentTarget.value})} placeholder="Teljes név" required /> <br />
                                     <label htmlFor="user_password"></label>
                                     <input type="password" name="user_password" className="inputField" value={regPassword} onChange={e=> this.setState({regPassword: e.currentTarget.value})} placeholder="jelszó" required /><br />
+                                    <label htmlFor="user_passwordAgain"></label>
+                                    <input type="password" name="user_passwordAgain" className="inputField" value={regPasswordAgain} onChange={e=> this.setState({regPasswordAgain: e.currentTarget.value})} placeholder="jelszó megint" required /><br />
                                 </div>
                                 <button className="btn btn-success" onClick={this.handlerRegister}>Regisztráció</button>
                             </form>
