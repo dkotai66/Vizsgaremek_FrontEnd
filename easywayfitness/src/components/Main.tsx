@@ -334,7 +334,7 @@ export default class Main extends Component<{}, State> {
                   </div>   
                 </div>
 
-                <div className='container educators'>
+                <div className='educators'>
                   <div className='row'>
                     <div className='col-lg-4 leftSideEducators'>
                       <h4 className='dropdowntitle' id='wheys'>Fehérjék</h4>
@@ -383,7 +383,7 @@ export default class Main extends Component<{}, State> {
                   </div>
                 </div>
 
-                <div className='container exercises'>
+                <div className='exercises'>
                 <h2>Gyakorlatok</h2>
                 <div className='row'>
                   <div className='col-lg-6 mainvideo'>
