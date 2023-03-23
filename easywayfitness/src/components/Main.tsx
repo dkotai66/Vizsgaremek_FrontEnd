@@ -4,6 +4,7 @@ import { GoArrowUp } from "react-icons/go";//react-icons octions icons
 import { GoCheck } from "react-icons/go"; 
 import { GoThreeBars } from "react-icons/go"; 
 import { Link, NavLink } from 'react-router-dom';
+import Header from './header';
 
 interface WeightVideoGalleryElement {
   videoSrc: string;
@@ -317,19 +318,7 @@ export default class Main extends Component<{}, State> {
     return <div className="mainContainer"> 
           <body>
             <div className='container'>
-              <header>
-              <nav>
-              <span id='teamName'>EasyWay Fitness</span>
-                <ul className='nav justify-content-center'>
-                  <li><NavLink to='/'>Főoldal</NavLink></li>
-                  <li><NavLink to='/FoodCaloria'>Kalóriák</NavLink></li>
-                  <li><a href='#gyakorlatok'>Naplózás</a></li>
-                  <li><NavLink to='/Calculator'>Kalkulátor</NavLink></li>
-                </ul>
-                  <button id='registration'><NavLink to='/SignUpSignIn' id='signupsignin'>Regisztráció</NavLink></button>
-              </nav>
-            </header>
-              
+            <Header />      
               <main>
                 <div className='findTheWay'>
                   <div className='findTheWayContent'>

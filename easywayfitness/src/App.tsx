@@ -6,7 +6,9 @@ import Caloria from './components/Caloria';
 import Main from './components/Main';
 import SignUpSignIn from './components/SignUpSignIn';
 
+
 export default class App extends React.Component {
+
   render() {
     return <div>
       <main>

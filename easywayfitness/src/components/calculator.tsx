@@ -1,6 +1,7 @@
 import { Component, ReactNode, useState } from "react";
 import { NavLink } from "react-router-dom";
 import './calculator.css'
+import Header from "./header";
 
 interface State {
     regGender: string;
@@ -339,18 +340,7 @@ export default class Calculator extends Component<{}, State> {
         return <div>
             <body className='mainContainer'>
             <div className="container">
-            <header>
-                <nav>
-                <span id='teamName'>EasyWay Fitness</span>
-                <ul className='nav justify-content-center'>
-                    <li><NavLink to='/'>Főoldal</NavLink></li>
-                    <li><NavLink to='/FoodCaloria'>Kalóriák</NavLink></li>
-                    <li><a href='#gyakorlatok'>Naplózás</a></li>
-                    <li><NavLink to='/Calculator'>Kalkulátor</NavLink></li>
-                </ul>
-                    <button id='registration'><NavLink to='/SignUpSignIn' id='signupsignin'>Regisztráció</NavLink></button>
-                </nav>
-            </header>
+            <Header />
                     <h2 id="calculatorTitle">EasyWay Fitness kérdőíve</h2>
                     <div className="formContainer">
                         <form id="personalInformations">
