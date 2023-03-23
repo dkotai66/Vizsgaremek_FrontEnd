@@ -116,4 +116,7 @@ input::placeholder {
     padding-top: 1rem;
 }
 
-
+.SignedIn {
+    margin-top: 10rem;
+    text-align: center;
+}

@@ -208,10 +208,9 @@ export default class SignUpSignIn extends Component<{}, State> {
                         </div>     
                     </div>
                 :
-                    <div>
-                        <h2>be vagy jelentkezve</h2>
+                    <div className="SignedIn">
+                        <h5>Jelenleg be vagy jelentkezve</h5>
                         <br />
-                        <h3>Jelentkezz ki</h3>
                         <button className="btn btn-success" onClick={this.handlerLogOut}>Kijelentkezés</button>
                     </div>
                     

@@ -120,6 +120,10 @@ export default class Calculator extends Component<{}, State> {
         otherInformationsFrom.style.display = "block";
     }
 
+    handlerNewDatas = async () => {
+        window.location.reload();
+    }
+
     handleCalculating =  async (e:any) => {
         let {regGender, regAge, regHeight, regWeight, regWeight_goal, regLook, regDiet_plan, regLifestyle, regWater_consume, regResultKcal, regResultCarbohydrate, regResultFat, regResultProtein, regResultWater, regResultWorkout, regBMR, regTMR, regProtein, regCarbohydrate, regFat} = this.state;
         
@@ -434,13 +438,14 @@ export default class Calculator extends Component<{}, State> {
                             <div className="buttonContainer">
                                 <div className="row">
                                     <div className="col-lg-6">
-                                        <span className="nextpreviousBtn" id='previousBtn'onClick={this.handleThirdForm}>Előző</span>
+                                        <span className="nextpreviousBtn" id='previousBtn'onClick={this.handlerNewDatas}>új adatok</span>
                                     </div>
                                     <div className="col-lg-6">
                                         <button id="calculateBtn" onClick={this.handleCalculating}>Kalkulál</button>
                                     </div>
                                 </div>
                             </div>   
+                            
                         </form>  
                     </div>
                 </div>                             
