@@ -9,6 +9,11 @@ interface State {
     regPassword: string;
     regPasswordAgain: string;
     users: Users[];
+    login: boolean;
+    token: string;
+    username: string;
+    password: string;
+    store: any;
 }
 
 interface Users {
@@ -30,7 +35,48 @@ export default class SignUpSignIn extends Component<{}, State> {
             regPassword: '',
             regPasswordAgain: '',
             users: [],
+            login: false,
+            token: '',
+            username: '',
+            password: '',
+            store: null,
         }
+    }
+
+    componentDidMount() {
+        let store = JSON.parse(localStorage.getItem('login') || '{}');
+        this.setState({store:store})
+        if(store && store.login){
+            this.setState({login: true})
+        }
+    }
+
+    handlerLogin = async (e:any) => {
+        e.preventDefault()
+        const {token, login} = this.state;
+        let response = await fetch('http://localhost:3000/Auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+            },
+            body: JSON.stringify(this.state),
+        }).then((resp) => {
+            resp.json().then((result) => {
+                console.log("result", result);
+                localStorage.setItem('login', JSON.stringify({
+                    login: true,
+                    token:result.token,
+                }))
+                this.setState({
+                    login: true,
+                })
+            })
+        });
+    }
+
+    handlerLogOut = async (e:any) => {
+        localStorage.clear();
+        window.location.reload();
     }
     
 
@@ -45,6 +91,7 @@ export default class SignUpSignIn extends Component<{}, State> {
             alert('a két jelszó nem egyezik')
             return;
         }
+        
 
         const data = {
             name: regName,
@@ -115,7 +162,7 @@ export default class SignUpSignIn extends Component<{}, State> {
     }
    
     render(){
-        const { regEmail, regUsername, regName, regPassword, regPasswordAgain} = this.state;
+        const { regEmail, regUsername, regName, regPassword, regPasswordAgain, username, password} = this.state;
  
         return <div>      
             <body className='mainContainer'>
@@ -134,6 +181,7 @@ export default class SignUpSignIn extends Component<{}, State> {
             </header>
                 <div className="container SignUpForm" id="SignUpForm">
                 <h2 id="teamName">EasyWay Fitness</h2>
+                {!this.state.login?
                     <div className="col-lg-12">
                         <div className="container">
                             <div className="SignUpSignInButton">
@@ -142,14 +190,15 @@ export default class SignUpSignIn extends Component<{}, State> {
                                 <button className="toggleButton" id="logButton" onClick={this.Login}>Belépés</button>
                             </div>
                             <br />
+                            
                             <form id="login" className="inputGroup" method="post">
                                 <div className="container inputs">
-                                    <label htmlFor="user_email"></label>
-                                    <input type="text" name="user_eamil" className="inputField" value={regEmail} onChange={e=> this.setState({regEmail: e.currentTarget.value})} placeholder="Email" required /> <br />
+                                    <label htmlFor="user_name"></label>
+                                    <input type="text" name="user_name" className="inputField" value={username} onChange={e=> this.setState({username: e.currentTarget.value})} placeholder="Felhasználónév" required /> <br />
                                     <label htmlFor="user_password"></label>
-                                    <input type="password" name="user_password" className="inputField" value={regPassword} onChange={e=> this.setState({regPassword: e.currentTarget.value})} placeholder="jelszó" required /><br />
+                                    <input type="password" name="user_password" className="inputField" value={password} onChange={e=> this.setState({password: e.currentTarget.value})} placeholder="jelszó" required /><br />
                                 </div>
-                                <button className="btn btn-success" onClick={this.handlerRegister}>Belépés</button>
+                                <button className="btn btn-success" onClick={this.handlerLogin}>Belépés</button>
                             </form>
                             <form id="register" className="inputGroup" method="post">
                                 <div className="container inputs">
@@ -168,6 +217,16 @@ export default class SignUpSignIn extends Component<{}, State> {
                             </form>
                         </div>     
                     </div>
+                :
+                    <div>
+                        <h2>be vagy jelentkezve</h2>
+                        <br />
+                        <h3>Jelentkezz ki</h3>
+                        <button className="btn btn-success" onClick={this.handlerLogOut}>Kijelentkezés</button>
+                    </div>
+                    
+                }       
+                    
                 </div>
                 <div className="succesPopup" id="popUp">
                     <h2>Sikeres regisztráció!</h2>
