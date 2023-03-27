@@ -1,0 +1,22 @@
+/*#hambuger {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+
+    ul {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+    }
+
+    #registration {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+}
+*/

@@ -2,7 +2,7 @@
   background-color: #1E1B1B;
  }
  
- #registration {
+#registration {
     margin-top: 0.3rem;
     padding: 10px;
     background: #8BCC58;
@@ -10,7 +10,7 @@
     border-radius: 20px;
     cursor: pointer;
     color: white;
-  }
+}
   
   #signupsignin {
     text-decoration: none;

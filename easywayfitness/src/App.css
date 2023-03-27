@@ -20,9 +20,6 @@
 
 #teamName {
     font-size: 1.6rem;
-}
-
-#teamName {
     text-align: center;
     color: white;
 }
@@ -56,3 +53,4 @@ li a:hover {
     color: #8BCC58;
     transition: 0.8s;
 }
+
