@@ -320,18 +320,23 @@ export default class Main extends Component<{}, State> {
             <div className='container'>
             <Header />      
               <main>
-                <div className='findTheWay'>
-                  <div className='findTheWayContent'>
-                    <h2>Találd meg az utat</h2>
-                      <h2>A testi tökéletesség felé</h2>
-                      <hr />
-                      <span>Itt megtanulhatod az alapokat</span><br />
-                      <span>Segítünk az elindulásban</span><br />
-                      <button id='go'>Mehet</button>
+                <div className='container findTheWay'>
+                  <div className='row'>
+                    <div className='col-lg-6 findTheWayContent'>
+                      <h2>Találd meg az utat</h2>
+                        <h2>A testi tökéletesség felé</h2>
+                        <div className='hr'>
+                          <hr />
+                        </div>                       
+                        <span>Itt megtanulhatod az alapokat</span><br />
+                        <span>Segítünk az elindulásban</span><br />
+                    </div>
+                    <div className='col-lg-6 findTheWayImage'>
+                      <img src="./img/pullup.jpg" alt="pullupimage" className='img-fluid' id='pullupImage'/>
+                    </div>   
                   </div>
-                  <div className='findTheWayImage'>
-                    <img src="./img/pullup.jpg" alt="pullupimage" id='pullupImage'/>
-                  </div>   
+                  
+                  
                 </div>
 
                 <div className='educators'>
@@ -372,9 +377,7 @@ export default class Main extends Component<{}, State> {
                           jointEducators.map(e => <div className='dropdownContent'>
                             <p onClick={() => this.setState({currentEducator: e})}>{e.descriptionTitle}</p>
                           </div>)
-                        }
-                        
-                      
+                        } 
                     </div>
                     <div className="col-lg-8 rightSideEducators">
                       <h3>Ismeretterjesztők</h3>
