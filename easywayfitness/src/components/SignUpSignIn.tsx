@@ -73,7 +73,12 @@ export default class SignUpSignIn extends Component<{}, State> {
                 })
                 if(this.state.username == '' || this.state.password == ''){
                     alert('egyik mező sem lehet üres')
-                    this.setState({login: false})
+                    localStorage.setItem('login', JSON.stringify({
+                        login: false,
+                    }))
+                    this.setState({
+                        login: false,
+                    })
                 }
             })
         });
@@ -84,7 +89,7 @@ export default class SignUpSignIn extends Component<{}, State> {
 
             headers: {
                 'Content-Type': 'application/json; charset=UTF-8',
-                Authorization: 'Bearer' + localStorage.getItem('token')
+                Authorization: 'Bearer' + localStorage.getItem('login')
             }
         })
         localStorage.clear();
