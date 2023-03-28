@@ -52,10 +52,10 @@ export default class SignUpSignIn extends Component<{}, State> {
         }
     }
 
-    handlerLogin = async (e:any) => {
+    handlerLogin = (e:any) => {
         e.preventDefault()
         const {token, login} = this.state;
-        let response = await fetch('http://localhost:3000/Auth/login', {
+        let response = fetch('http://localhost:3000/Auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json; charset=UTF-8',
@@ -63,11 +63,10 @@ export default class SignUpSignIn extends Component<{}, State> {
             body: JSON.stringify(this.state),
         }).then((resp) => {
             resp.json().then((result) => {
-                console.log("result", result);
-                localStorage.setItem('login', JSON.stringify({
-                    login: true,
-                    token:result.token,
-                }))
+                console.log("result", result.token);
+                console.log("result"+ result.token);
+                localStorage.setItem('token', result.token)
+                console.log(localStorage.getItem('token'));
                 this.setState({
                     login: true,
                 })
@@ -86,14 +85,15 @@ export default class SignUpSignIn extends Component<{}, State> {
 
     handlerLogOut = async (e:any) => {
         let response = await fetch('http://localhost:3000/Auth/logout', {
-
+            method : 'DELETE',
             headers: {
                 'Content-Type': 'application/json; charset=UTF-8',
-                Authorization: 'Bearer' + localStorage.getItem('login')
+                Authorization: 'Bearer ' + localStorage.getItem('token')
             }
         })
-        localStorage.clear();
-        window.location.reload();
+            localStorage.clear();
+            sessionStorage.clear();
+            //window.location.reload();
     }
     
 
