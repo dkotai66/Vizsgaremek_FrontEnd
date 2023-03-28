@@ -303,36 +303,42 @@ export default class Calculator extends Component<{}, State> {
 
         if(regDiet_plan == 'weightGain' && regWeight > regWeight_goal ) {
             alert('Tömeg növelést választottál, de az aktuális súlyod nagyobb mint az álomsúlyod')
-            return;
+            window.location.reload();
         }
         if(regDiet_plan == 'weightLoss' && regWeight < regWeight_goal ) {
             alert('Fogyást választottál, de az aktuális súlyod kevesebb mint az álomsúlyod')
-            return;
+            window.location.reload();
         }
         if(regAge < 16 ) {
             alert('Sajnáljuk, de csak 16, és 16 éven felülieknek lett kitalálva kalkulátorunk')
-            return;
+            window.location.reload();
         }
         if(regAge > 70 ) {
             alert('Sajnáljuk, de csak 70, és 70 éven alattiaknak lett kitalálva kalkulátorunk')
-            return;
+            window.location.reload();
         }
         if(regWeight<30 || regWeight>255) {
             alert('Sajnáljuk, az általad megadott testsúlyra nem alkalmas kalkulátorunk')
-            return;
+            window.location.reload();
         }
         if(regHeight<140 || regHeight>210) {
             alert('Sajnáljuk, az általad megadott testmagasságra nem alkalmas kalkulátorunk')
-            return;
+            window.location.reload();
         }
         if(regLook=='nothing') {
             alert('válasz érvényes választ ')
-            return;
+            window.location.reload();
         }
 
-        this.setState({regResultKcal: 'A kalória igényed: '  + regBMR  +  ' és ' + regTMR + ' között van'});
+        this.setState({regResultKcal: 'Az átlagos kalória igényed: ' + regTMR});
         this.setState({regResultWater: regResultWater});
         this.setState({regResultWorkout: regResultWorkout});
+        localStorage.clear();
+
+        const calculation = document.getElementById('calculateBtn') as HTMLButtonElement;
+        const newDatas = document.getElementById('newDatas') as HTMLButtonElement;
+        calculation.style.display = 'none';
+        newDatas.style.width = '100%';
     }
 
     
@@ -352,7 +358,7 @@ export default class Calculator extends Component<{}, State> {
                                 <div className="row">
                                     <div className="col-lg-6 genderContainer">
                                         <input type="radio" name={'gender'} value="Male" onChange={e=> this.setState({regGender: e.target.value})}  className="genderButton" id="man" />
-                                        <label htmlFor="man" ><span>Férfi</span></label>                                            
+                                        <label htmlFor="man"><span>Férfi</span></label>                                            
                                     </div>
                                     <div className="col-lg-6 genderContainer">
                                         <input type="radio" name={'gender'} value="Female" onChange={e=> this.setState({regGender: e.target.value})} className="genderButton" id="woman" />
@@ -437,8 +443,8 @@ export default class Calculator extends Component<{}, State> {
                             <br />
                             <div className="buttonContainer">
                                 <div className="row">
-                                    <div className="col-lg-6">
-                                        <span className="nextpreviousBtn" id='previousBtn'onClick={this.handlerNewDatas}>új adatok</span>
+                                    <div className="col-lg-6" id="newDatas">
+                                        <span className="nextpreviousBtn" onClick={this.handlerNewDatas}>új adatok</span>
                                     </div>
                                     <div className="col-lg-6">
                                         <button id="calculateBtn" onClick={this.handleCalculating}>Kalkulál</button>

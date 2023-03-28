@@ -77,7 +77,7 @@ export default class Record extends Component<{}, State>{
                                 <h2><i>Adatok</i></h2>
                                 <table className="table table-dark">
                                     <div>
-                                        {this.state.records.map(rekord => <tbody><tr/><td className="w-52 h-8 text-center"><th>Testsúly</th>{rekord.bodyWeight}</td><td className="w-52 h-8 text-center"><th>Edzés időtartalma</th>{rekord.workoutTime}</td><><th>Edzés időpontja</th> <tr/>{rekord.date}</></tbody>)}
+                                        {this.state.records.map(rekord => <tbody><tr/><td className="w-52 h-8 text-center"><th>Testsúly</th>{rekord.bodyWeight}</td><td className="w-52 h-8 text-center"><th>Edzés időtartalma</th><td>{rekord.workoutTime}</td></td><><th>Edzés időpontja</th> <tr/>{rekord.date}</></tbody>)}
                                     </div>
                                 </table>
                             </div>

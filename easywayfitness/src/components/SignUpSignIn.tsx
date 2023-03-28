@@ -71,11 +71,22 @@ export default class SignUpSignIn extends Component<{}, State> {
                 this.setState({
                     login: true,
                 })
+                if(this.state.username == '' || this.state.password == ''){
+                    alert('egyik mező sem lehet üres')
+                    this.setState({login: false})
+                }
             })
         });
     }
 
     handlerLogOut = async (e:any) => {
+        let response = await fetch('http://localhost:3000/Auth/logout', {
+
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+                Authorization: 'Bearer' + localStorage.getItem('token')
+            }
+        })
         localStorage.clear();
         window.location.reload();
     }
