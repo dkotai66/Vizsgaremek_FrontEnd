@@ -484,9 +484,11 @@ export default class Calculator extends Component<{}, State> {
             </div>
             <div id="loggedInPageFalse">
                 <h2>Jelentkezz be a folytatáshoz</h2>
+                <p>Ez a funkció csak regisztrált felhasználóknak elérhető</p>
+                <button id="loginButton"><NavLink id="navlinkSignIn" to='/SignUpSignIn'>Bejelentkezés</NavLink></button>
             </div>
                     
-                </div>                             
+            </div>                             
             </body>
             <footer>
                 <div className="footerContainer">
