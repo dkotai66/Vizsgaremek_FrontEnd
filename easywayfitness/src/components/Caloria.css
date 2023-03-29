@@ -25,3 +25,12 @@
 .foodInformations p {
     font-size: 1.1rem;
 }
+
+@media screen and (max-width: 768px) {
+    .caloriaContainer {
+        width: 100%;
+        
+    }
+
+
+}
