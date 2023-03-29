@@ -14,7 +14,6 @@ interface State {
     token: string;
     username: string;
     password: string;
-    store: any;
 }
 
 interface Users {
@@ -40,14 +39,13 @@ export default class SignUpSignIn extends Component<{}, State> {
             token: '',
             username: '',
             password: '',
-            store: null,
         }
     }
 
     componentDidMount() {
-        let store = JSON.parse(localStorage.getItem('login') || '{}');
-        this.setState({store:store})
-        if(store && store.login){
+        let tokenValue = localStorage.getItem('token') || '';
+        this.setState({token:tokenValue})
+        if(tokenValue !== ''){
             this.setState({login: true})
         }
     }
@@ -63,14 +61,12 @@ export default class SignUpSignIn extends Component<{}, State> {
             body: JSON.stringify(this.state),
         }).then((resp) => {
             resp.json().then((result) => {
-                console.log("result", result.token);
-                console.log("result"+ result.token);
                 localStorage.setItem('token', result.token)
                 console.log(localStorage.getItem('token'));
                 this.setState({
                     login: true,
                 })
-                if(this.state.username == '' || this.state.password == ''){
+                if(this.state.username === '' || this.state.password === ''){
                     alert('egyik mező sem lehet üres')
                     localStorage.setItem('login', JSON.stringify({
                         login: false,
@@ -93,7 +89,7 @@ export default class SignUpSignIn extends Component<{}, State> {
         })
             localStorage.clear();
             sessionStorage.clear();
-            //window.location.reload();
+            window.location.reload();
     }
     
 
@@ -228,10 +224,8 @@ export default class SignUpSignIn extends Component<{}, State> {
                         <h5>Jelenleg be vagy jelentkezve</h5>
                         <br />
                         <button className="btn btn-success" onClick={this.handlerLogOut}>Kijelentkezés</button>
-                    </div>
-                    
-                }       
-                    
+                    </div>                    
+                }                  
                 </div>
                 <div className="succesPopup" id="popUp">
                     <h2>Sikeres regisztráció!</h2>
