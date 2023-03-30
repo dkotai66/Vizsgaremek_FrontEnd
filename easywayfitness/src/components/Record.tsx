@@ -1,4 +1,5 @@
 import { Component, ReactNode } from "react";
+import { NavLink } from "react-router-dom";
 import Header from "./header";
 import './Record.css'
 
@@ -7,6 +8,8 @@ interface State {
     regBodyWeight: number;
     regWorkoutTime: number;
     regDate: Date;
+    login: boolean;
+    token: string;
 }
 
 interface Records {
@@ -25,6 +28,8 @@ export default class Record extends Component<{}, State>{
           regBodyWeight: 0,
           regWorkoutTime: 0,
           regDate: new Date(),
+          login: false,
+          token: ''
         }
     }
 
@@ -37,6 +42,20 @@ export default class Record extends Component<{}, State>{
     }
 
     componentDidMount(){
+        let loggedIn = document.getElementById('loggedInPage') as HTMLDivElement;
+        let loggedInFalse = document.getElementById('loggedInPageFalse') as HTMLDivElement;
+        let tokenValue = localStorage.getItem('token') || '';
+        this.setState({token:tokenValue})
+        console.log(tokenValue)
+        if(tokenValue !== ''){
+            this.setState({login: true})
+            loggedIn.style.display = 'block';
+            loggedInFalse.style.display = 'none';
+            
+        }else if(tokenValue === '') {
+            loggedIn.style.display = 'none';
+            loggedInFalse.style.display = 'block';
+        }
         this.rekordokBetoltese();
     }
 
@@ -71,7 +90,7 @@ export default class Record extends Component<{}, State>{
                 <div className="container">
                     <Header />
                     <main>
-                    <div className="records">
+                    <div className="records" id="loggedInPage">
                         <div className="row">
                             <div className="col-lg-6">
                                 <h2><i>Adatok</i></h2>
@@ -98,11 +117,22 @@ export default class Record extends Component<{}, State>{
                             </div>
                         </div>
                     </div>
-                    
+                    <div id="loggedInPageFalse">
+                        <h2>Jelentkezz be a folytatáshoz</h2>
+                        <p>Ez a funkció csak regisztrált felhasználóknak elérhető</p>
+                        <button id="loginButton"><NavLink id="navlinkSignIn" to='/SignUpSignIn'>Bejelentkezés</NavLink></button>
+                    </div>
                     
                     </main>
                 </div>
             </body>
+            <footer>
+                <div className="footerContainer">
+                    <h3>EasyWay Fitness</h3>
+                    <span>BMSZC Petrik Lajos Két tanítási Nyelvű Technikum</span><br />
+                    <span>Vizsgaremek</span>
+                </div>
+            </footer>
         </div>
     }
 }

@@ -4,3 +4,28 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+#loggedInPageFalse {
+    width: 400px;
+    border-radius: 2rem;
+    background-color: #8BCC58;
+    height: 300px;
+    padding: 5px;
+    margin-top: 5rem;
+    background-color: white;
+    color: black;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#loggedInPageFalse h2 {
+    margin-top: 1rem;
+}
+
+#loggedInPageFalse p {
+    margin-top: 1rem;
+}
