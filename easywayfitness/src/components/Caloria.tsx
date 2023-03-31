@@ -52,10 +52,10 @@ export default class Caloria extends Component<{}, State> {
                 <Header />
                     <div className="caloriaContainer"> 
                         <h2>Add meg mit ettél</h2>
-                        <select name="food" onChange={a=> this.setState({currentFood: this.state.etelek[parseInt(a.currentTarget.value)]})} defaultValue='nothing' id="foodSelector">
+                        <select name="food"  onChange={a=> this.setState({currentFood: this.state.etelek[parseInt(a.currentTarget.value)]})} defaultValue='nothing' id="foodSelector">
                             <option value="nothing" hidden>----</option>
                             {
-                                this.state.etelek.map((etel, index)=><option value={index}>{etel.name}</option>)
+                                this.state.etelek.map((etel, index)=><option id="foodValue" value={index}>{etel.name}</option>)
                             }
                         </select>
                         

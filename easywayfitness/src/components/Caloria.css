@@ -26,11 +26,128 @@
     font-size: 1.1rem;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 760px) and (min-width: 300px ){
     .caloriaContainer {
         width: 100%;
-        
+        position: relative;
+        margin-top: 110%;
+        margin-bottom: -5rem;
     }
 
+    .footerContainer {
+        position: relative;
+    }
+}
 
+@media screen and (max-width:820px ) and (min-width: 768px ) {
+    .caloriaContainer {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width:1020px ) and (min-width: 821px ) {
+    .caloriaContainer {
+        width: 100%;
+        position: relative;
+        margin-top: 80%;
+    }
+
+    .footerContainer {
+        position: absolute;
+    }
+}
+
+@media screen and (max-width: 882px ) and (min-width: 776px) {
+    .caloriaContainer {
+        width: 100%;
+        position: relative;
+        margin-top: 80%;
+    }
+
+    .footerContainer {
+        position: relative;
+    }
+}
+
+@media screen and (max-width: 1000px ) and (min-width: 800px){
+    .caloriaContainer {
+        width: 100%;
+        position: relative;
+        margin-top: 80%;
+    }
+
+    .footerContainer {
+        position: relative;
+    }
+}
+
+@media screen and (max-width: 800px) and (min-width: 739px){
+    .caloriaContainer {
+        width: 100%;
+        position: relative;
+        margin-top: 80%;
+    }
+
+    .footerContainer {
+        position: relative;
+    }
+}
+
+@media screen and (max-width:820px ) and (min-width: 769px ){
+    .caloriaContainer {
+        width: 100%;
+        position: relative;
+        margin-top: 80%;
+    }
+
+    .footerContainer {
+        position: absolute;
+    }
+}
+
+@media screen and (max-width:720px ) and (min-width: 540px ) {
+    .caloriaContainer {
+        width: 100%;
+        position: relative;
+        margin-top: 80%;
+    }
+}
+
+@media screen and (max-width: 359px ) and (min-width: 280px ){
+    .caloriaContainer {
+        width: 100%;
+        position: relative;
+        margin-top: 180%;
+        height: 100%;
+    }
+
+    .footerContainer {
+        position: relative;
+    }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 1000px){
+    .caloriaContainer {
+        width: 50%;
+        position: relative;
+        margin-top: 40%;
+        padding-top: .5rem;
+    }
+
+    .footerContainer {
+        position: relative;
+    }
+}
+
+@media screen and (min-width: 2000px) {
+    .caloriaContainer {
+        width: 50%;
+        position: relative;
+        margin-top: 30%;
+        padding-top: .5rem;
+    }
+
+    .footerContainer {
+        position: relative;
+    }
 }
