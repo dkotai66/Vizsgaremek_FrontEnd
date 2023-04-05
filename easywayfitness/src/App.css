@@ -14,7 +14,7 @@
     bottom: 0;
     width: 100%;
     background-color: #332f2f;
-    padding: 1.2rem;
+    padding: .2rem;
     color: white;
 }
 
@@ -54,3 +54,28 @@ li a:hover {
     transition: 0.8s;
 }
 
+#loggedInPageFalse {
+    width: auto;
+    border-radius: 2rem;
+    background-color: #8BCC58;
+    height: auto;
+    padding: 5px;
+    margin-top: 5rem;
+    background-color: white;
+    color: black;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 15px;
+}
+
+#loggedInPageFalse h2 {
+    margin-top: 1rem;
+}
+
+#loggedInPageFalse p {
+    margin-top: 1rem;
+}
