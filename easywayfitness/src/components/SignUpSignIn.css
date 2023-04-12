@@ -1,19 +1,5 @@
 
 
-.SignUpForm {
-    width: 400px;
-    border-radius: 2rem;
-    height: 500px;
-    padding: 5px;
-    margin-top: 5rem;
-    background-color: #8BCC58;
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
 .SignUpSignInButton {
     width: 220px;
     margin: 35px auto;
@@ -120,3 +106,5 @@ input::placeholder {
     margin-top: 10rem;
     text-align: center;
 }
+
+
