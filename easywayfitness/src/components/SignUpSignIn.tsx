@@ -98,11 +98,19 @@ export default class SignUpSignIn extends Component<{}, State> {
         e.preventDefault()
         if(regEmail === '' || regUsername === '' || regName === '' || regPassword === ''){
             alert('Hiba, egyik mező sem lehet üres!')
-            return;
+            window.location.reload();
         }
         if(regPassword !== regPasswordAgain) {
-            alert('a két jelszó nem egyezik')
-            return;
+            alert('a két jelszó nem egyezik');
+            window.location.reload();
+        }
+        if(regUsername.length <5) {
+            alert('a felhasználónév nem lehet rövidebb 5 karakternél');
+            window.location.reload();
+        }
+        if(regName.includes(' ')) {
+            alert('hibás név formátum');
+            window.location.reload();
         }
         
 
