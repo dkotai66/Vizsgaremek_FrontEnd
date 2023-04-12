@@ -147,7 +147,8 @@ export default class Calculator extends Component<{}, State> {
 
     handleCalculating =  async (e:any) => {
         let {regGender, regAge, regHeight, regWeight, regWeight_goal, regLook, regDiet_plan, regLifestyle, regWater_consume, regResultKcal, regResultCarbohydrate, regResultFat, regResultProtein, regResultWater, regResultWorkout, regBMR, regTMR, regProtein, regCarbohydrate, regFat} = this.state;
-        
+        let validate = true;
+
         e.preventDefault()
 
         const data = {
@@ -324,43 +325,46 @@ export default class Calculator extends Component<{}, State> {
 
         if(regDiet_plan === 'weightGain' && regWeight > regWeight_goal ) {
             alert('Tömeg növelést választottál, de az aktuális súlyod nagyobb mint az álomsúlyod')
+            validate = false;
             window.location.reload();
         }
         if(regDiet_plan === 'weightLoss' && regWeight < regWeight_goal ) {
             alert('Fogyást választottál, de az aktuális súlyod kevesebb mint az álomsúlyod')
+            validate = false;
             window.location.reload();
         }
         if(regAge < 16 ) {
             alert('Sajnáljuk, de csak 16, és 16 éven felülieknek lett kitalálva kalkulátorunk')
+            validate = false;
             window.location.reload();
         }
         if(regAge > 70 ) {
             alert('Sajnáljuk, de csak 70, és 70 éven alattiaknak lett kitalálva kalkulátorunk')
+            validate = false;
             window.location.reload();
         }
         if(regWeight<30 || regWeight>255) {
             alert('Sajnáljuk, az általad megadott testsúlyra nem alkalmas kalkulátorunk')
+            validate = false;
             window.location.reload();
         }
         if(regHeight<140 || regHeight>210) {
             alert('Sajnáljuk, az általad megadott testmagasságra nem alkalmas kalkulátorunk')
+            validate = false;
             window.location.reload();
         }
-        if(regLook==='nothing') {
-            alert('válasz érvényes választ ')
+        if(regLook==='' || regDiet_plan ==='' || regGender ==='' || regWater_consume ==='' || regLifestyle ==='') {
+            alert('válassz érvényes választ ')
+            validate = false;
             window.location.reload();
         }
 
-        if(this.state.login === true) {
-            alert('folytathatod')
-        }else {
-            alert('jelentkezzbe')
+        if(validate===true) {
+            this.setState({regResultKcal: 'Az átlagos kalória igényed: ' + regTMR});
+            this.setState({regResultWater: regResultWater});
+            this.setState({regResultWorkout: regResultWorkout});
         }
-
-        this.setState({regResultKcal: 'Az átlagos kalória igényed: ' + regTMR});
-        this.setState({regResultWater: regResultWater});
-        this.setState({regResultWorkout: regResultWorkout});
-        localStorage.clear();
+        
 
         const calculation = document.getElementById('calculateBtn') as HTMLButtonElement;
         const newDatas = document.getElementById('newDatas') as HTMLButtonElement;

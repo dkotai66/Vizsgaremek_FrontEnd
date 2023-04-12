@@ -151,7 +151,7 @@ export default class SignUpSignIn extends Component<{}, State> {
         const signUpForm = document.getElementById('SignUpForm') as HTMLDivElement;
         const popUp = document.getElementById('popUp') as HTMLDivElement;
         
-        if(validation == true) {
+        if(validation === true) {
             signUpForm.style.display = 'none';
             popUp.style.display = 'block'; 
         }
