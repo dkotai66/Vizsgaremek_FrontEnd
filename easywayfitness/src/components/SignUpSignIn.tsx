@@ -60,22 +60,24 @@ export default class SignUpSignIn extends Component<{}, State> {
             },
             body: JSON.stringify(this.state),
         }).then((resp) => {
-            resp.json().then((result) => {
-                localStorage.setItem('token', result.token)
-                console.log(localStorage.getItem('token'));
+            if (!resp.ok) {
+                alert('hibás felhasználónév vagy jelszó');
+                window.location.reload();
                 this.setState({
-                    login: true,
+                    login: false,
                 })
-                if(this.state.username === '' || this.state.password === ''){
-                    alert('egyik mező sem lehet üres')
-                    localStorage.setItem('login', JSON.stringify({
-                        login: false,
-                    }))
+                console.log("asd")
+            }
+            else{
+                resp.json().then((result) => {
+                    console.log('sda')
+                    localStorage.setItem('token', result.token)
+                    console.log(localStorage.getItem('token'));
                     this.setState({
-                        login: false,
+                        login: true,
                     })
-                }
-            })
+                })
+            } 
         });
     }
 
@@ -94,22 +96,27 @@ export default class SignUpSignIn extends Component<{}, State> {
     
 
     handlerRegister = async (e:any) => {
+        let validation = true;
         const { regEmail, regUsername, regName, regPassword, regPasswordAgain} = this.state;
         e.preventDefault()
         if(regEmail === '' || regUsername === '' || regName === '' || regPassword === ''){
             alert('Hiba, egyik mező sem lehet üres!')
+            validation = false;
             window.location.reload();
         }
         if(regPassword !== regPasswordAgain) {
             alert('a két jelszó nem egyezik');
+            validation = false;
             window.location.reload();
         }
         if(regUsername.length <5) {
             alert('a felhasználónév nem lehet rövidebb 5 karakternél');
+            validation = false;
             window.location.reload();
         }
-        if(regName.includes(' ')) {
-            alert('hibás név formátum');
+        if(regPassword.length<8) {
+            alert('a jelszó nem lehet rövidebb 8 karakternél');
+            validation = false;
             window.location.reload();
         }
         
@@ -144,8 +151,11 @@ export default class SignUpSignIn extends Component<{}, State> {
         const signUpForm = document.getElementById('SignUpForm') as HTMLDivElement;
         const popUp = document.getElementById('popUp') as HTMLDivElement;
         
-        signUpForm.style.display = 'none';
-        popUp.style.display = 'block';
+        if(validation == true) {
+            signUpForm.style.display = 'none';
+            popUp.style.display = 'block'; 
+        }
+        
     };
 
     Registration = async () => {
