@@ -246,10 +246,8 @@ export default class Calculator extends Component<{}, State> {
             }
             if(regWater_consume === 'moreThanFourLiter') {
                 regResultWater = 'A vízfogyasztásod kicsivel több az ideálisnál';
-            }     
-            this.setState({regResultProtein: 'A fehérje igényed: '  + regWeight*2 + ' gr'});
-            this.setState({regResultCarbohydrate: 'A szénhidrát igényed: '  + regWeight*4 + ' gr'});
-            this.setState({regResultFat: 'A zsír igényed: '  + regBMR*0.2 + ' gr'});
+            }    
+            
         }
 
         if(regGender === 'Female') {
@@ -308,9 +306,6 @@ export default class Calculator extends Component<{}, State> {
             if(regWater_consume === 'moreThanFourLiter') {
                 regResultWater = 'A vízfogyasztásod kicsivel több az ideálisnál';
             }     
-            this.setState({regResultProtein: 'A fehérje igényed: '  + regWeight*1.5 + ' gr'});
-            this.setState({regResultCarbohydrate: 'A szénhidrát igényed: '  + regWeight*2 + ' gr'});
-            this.setState({regResultFat: 'A zsír igényed: '  + regBMR*0.4 + ' gr'});
         }
 
         if(regLook === 'ectomorph' && regDiet_plan === 'weightGain') {
@@ -323,13 +318,13 @@ export default class Calculator extends Component<{}, State> {
             regResultWorkout = 'Saját testsúlyos, illetve kis súlyokkal való sok ismétlés edzés javasolt';
         }
 
-        if(regDiet_plan === 'weightGain' && regWeight > regWeight_goal ) {
-            alert('Tömeg növelést választottál, de az aktuális súlyod nagyobb mint az álomsúlyod')
+        if(regDiet_plan === 'weightGain' && regWeight >= regWeight_goal ) {
+            alert('Tömeg növelést választottál, de az aktuális súlyod nagyobb mint az álomsúlyod, vagy egyenlő azzal')
             validate = false;
             window.location.reload();
         }
-        if(regDiet_plan === 'weightLoss' && regWeight < regWeight_goal ) {
-            alert('Fogyást választottál, de az aktuális súlyod kevesebb mint az álomsúlyod')
+        if(regDiet_plan === 'weightLoss' && regWeight <= regWeight_goal ) {
+            alert('Fogyást választottál, de az aktuális súlyod kevesebb mint az álomsúlyod, vagy egyenlő azzal')
             validate = false;
             window.location.reload();
         }
@@ -360,9 +355,19 @@ export default class Calculator extends Component<{}, State> {
         }
 
         if(validate===true) {
-            this.setState({regResultKcal: 'Az átlagos kalória igényed: ' + regTMR});
+            this.setState({regResultKcal: 'Az átlagos kalória igényed: ' + regTMR + ' kcal'});
             this.setState({regResultWater: regResultWater});
             this.setState({regResultWorkout: regResultWorkout});
+            if(regGender === 'Male') {
+                this.setState({regResultProtein: 'A fehérje igényed: '  + Math.round(regWeight*2) + ' gr'});
+                this.setState({regResultCarbohydrate: 'A szénhidrát igényed: '  + Math.round(regWeight*4) + ' gr'});
+                this.setState({regResultFat: 'A zsír igényed: '  + Math.round(regBMR*0.2) + ' gr'}); 
+            } 
+            else if(regGender === 'Female') {
+                this.setState({regResultProtein: 'A fehérje igényed: '  + Math.round(regWeight*1.5) + ' gr'});
+                this.setState({regResultCarbohydrate: 'A szénhidrát igényed: '  + Math.round(regWeight*2) + ' gr'});
+                this.setState({regResultFat: 'A zsír igényed: '  + Math.round(regBMR*0.4) + ' gr'});
+            }
         }
         
 
