@@ -395,11 +395,11 @@ export default class Calculator extends Component<{}, State> {
                                 <div className="row">
                                     <div className="col-lg-6 genderContainer">
                                         <input type="radio" name={'gender'} value="Male" onChange={e=> this.setState({regGender: e.target.value})}  className="genderButton" id="man" />
-                                        <label htmlFor="man"><span>Férfi</span></label>                                            
+                                        <label htmlFor="man" className="genderValue"><span>Férfi</span></label>                                            
                                     </div>
                                     <div className="col-lg-6 genderContainer">
                                         <input type="radio" name={'gender'} value="Female" onChange={e=> this.setState({regGender: e.target.value})} className="genderButton" id="woman" />
-                                        <label htmlFor="woman"><span>Nő</span></label>                                            
+                                        <label htmlFor="woman"  className="genderValue"><span>Nő</span></label>                                            
                                     </div>
                                 </div>
                             <h4 id="birthDateTitle">Add meg a korodat</h4>
