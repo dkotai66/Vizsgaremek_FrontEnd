@@ -17,6 +17,7 @@ interface Records {
     bodyWeight: number;
     workoutTime: number;
     date: Date;
+    user: number;
 }
 
 export default class Record extends Component<{}, State>{
@@ -34,11 +35,18 @@ export default class Record extends Component<{}, State>{
     }
 
     async rekordokBetoltese() {
-        let response = await fetch('http://localhost:3000/records');
+        let response = await fetch('http://localhost:3000/records', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json; charset=UTF-8',
+                Authorization: 'Bearer ' + localStorage.getItem('token')
+            }
+        });
         let data = await response.json() as Records[];
         this.setState({
             records: data,
         })
+        console.log(data);
     }
 
     componentDidMount(){
