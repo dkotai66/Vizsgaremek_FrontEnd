@@ -89,6 +89,19 @@ export default class Record extends Component<{}, State>{
             regDate: new Date(),
         });
 
+        if(this.state.regBodyWeight < 30) {
+            alert('Sajnáljuk, de 30 kiló alatt nem naplózhatsz ')
+        }
+        if(this.state.regBodyWeight > 255) {
+            alert('Sajnáljuk, de 255 kiló felett nem naplózhatsz ')
+        }
+        if(this.state.regWorkoutTime < 5) {
+            alert('Sajnáljuk, de 5 perc edzés idő alatt nem naplózhatsz ')
+        }
+        if(this.state.regWorkoutTime > 60) {
+            alert('Sajnáljuk, de 60 perc felett nem naplózhatsz ')
+        }
+
         await this.rekordokBetoltese();
     }
 
