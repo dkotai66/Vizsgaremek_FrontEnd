@@ -9,20 +9,12 @@ interface State {
     regEmail: string;
     regPassword: string;
     regPasswordAgain: string;
-    users: Users[];
     login: boolean;
     token: string;
     username: string;
     password: string;
 }
 
-interface Users {
-    id: number;
-    name: string;
-    username: string;
-    email: string;
-    password: string;
-}
 
 export default class SignUpSignIn extends Component<{}, State> {
     constructor(props: {}){
@@ -34,7 +26,6 @@ export default class SignUpSignIn extends Component<{}, State> {
             regEmail: '',
             regPassword: '',
             regPasswordAgain: '',
-            users: [],
             login: false,
             token: '',
             username: '',
