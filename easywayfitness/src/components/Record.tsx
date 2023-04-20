@@ -119,10 +119,10 @@ export default class Record extends Component<{}, State>{
                             <form action="post">
                                 <div className="row">
                                     <div className="form-group col-lg-6">
-                                        <span>Testsúly: <input type="number" required value={this.state.regBodyWeight} onChange={e=> this.setState({regBodyWeight: parseInt(e.currentTarget.value)})}></input></span>
+                                        <span>Testsúly: <input type="number" className="recordFormInput" required value={this.state.regBodyWeight} onChange={e=> this.setState({regBodyWeight: parseInt(e.currentTarget.value)})}></input></span>
                                     </div>
                                     <div className="form-group col-lg-6">
-                                        <span>Edzés idő: <input type="number" required value={this.state.regWorkoutTime} onChange={e=> this.setState({regWorkoutTime: parseInt(e.currentTarget.value)})}></input></span>
+                                        <span>Edzés idő: <input type="number" className="recordFormInput" required value={this.state.regWorkoutTime} onChange={e=> this.setState({regWorkoutTime: parseInt(e.currentTarget.value)})}></input></span>
                                     </div>
                                 </div>
                                 <br />
@@ -132,7 +132,7 @@ export default class Record extends Component<{}, State>{
                                 <h2><i>Adatok</i></h2>
                                 <table className="table table-dark dataTable">
                                     <div>
-                                        {this.state.records.map(rekord => <tbody><tr/><th>Testsúly</th><td className="w-52 h-8 text-center">{rekord.bodyWeight}</td><br /><th>Edzés időtartalma</th><td className="w-52 h-8 text-center">{rekord.workoutTime}</td><><th>Edzés időpontja</th><td className="w-52 h-8 text-center">{rekord.date.toString()}</td> </></tbody>)}
+                                        {this.state.records.map(rekord => <tbody><tr/><th>Testsúly</th><td className="w-52 h-8 text-center">{rekord.bodyWeight} kg</td><br /><th>Edzés időtartalma</th><td className="w-52 h-8 text-center">{rekord.workoutTime} perc</td><><th>Edzés időpontja</th><td className="w-52 h-8 text-center">{rekord.date.toString()}</td> </></tbody>)}
                                     </div>
                                 </table>
                             </div>
