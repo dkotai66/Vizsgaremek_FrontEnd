@@ -3,7 +3,30 @@ import { NavLink } from "react-router-dom";
 import { GoThreeBars } from "react-icons/go"; 
 import "./header.css"
 
-export default class Header extends Component {
+interface State {
+    login: boolean;
+    token: string;
+}
+
+export default class Header extends Component<{}, State> {
+    constructor(props: {}) {
+        super(props);
+
+        this.state = {
+            login: false,
+            token: '',
+        }
+    }
+
+    componentDidMount(){
+        let tokenValue = localStorage.getItem('token') || '';
+        let signupsignin = document.getElementById('signupsignin') as HTMLDivElement;
+        this.setState({token:tokenValue})
+        if(tokenValue !== ''){
+            this.setState({login: true})
+            signupsignin.textContent = 'Kijelentkezés'
+        }
+    }
 
     render() {
         return <div>
@@ -21,7 +44,7 @@ export default class Header extends Component {
                         <li className="nav-item"><NavLink to='/Record' className="nav-link">Naplózás</NavLink></li>
                         <li className="nav-item"><NavLink to='/Calculator' className="nav-link">Kalkulátor</NavLink></li>
                     </ul>
-                    <button className="nav-item" id='registration'><NavLink to='/SignUpSignIn' className="nav-link" id='signupsignin'>Regisztráció</NavLink></button>
+                    <button className="nav-item" id='registration'><div id="loginlogout"><NavLink to='/SignUpSignIn' className="nav-link" id='signupsignin'>Regisztráció</NavLink></div></button>
                     </div>
                 </nav>
             </header>
