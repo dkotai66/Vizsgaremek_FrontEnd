@@ -129,9 +129,3 @@ input::placeholder {
     }
 }
 
-@media screen and (min-width:1024px ) {
-    .footerContainer {
-    position: relative;
-    margin-top: 10%;
-}
-}
