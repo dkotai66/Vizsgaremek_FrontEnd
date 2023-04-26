@@ -84,7 +84,6 @@ export default class SignUpSignIn extends Component<{}, State> {
             window.location.reload();
     }
     
-
     handlerRegister = async (e:any) => {
         let validation = true;
         const { regEmail, regUsername, regName, regPassword, regPasswordAgain} = this.state;
@@ -136,8 +135,7 @@ export default class SignUpSignIn extends Component<{}, State> {
                 alert('hibás regisztráció!');
             }
         });
-        
-        
+               
         console.log(data);
 
         this.setState({
@@ -146,12 +144,7 @@ export default class SignUpSignIn extends Component<{}, State> {
             regEmail: '',
             regPassword: '',
             regPasswordAgain: '',
-        });
-       
-        
-        
-        
-        
+        });       
     };
 
     Registration = async () => {
