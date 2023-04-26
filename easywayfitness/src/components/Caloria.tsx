@@ -1,5 +1,4 @@
-import { Component, ReactNode } from "react";
-import { NavLink } from "react-router-dom";
+import { Component} from "react";
 import './Caloria.css'
 import Header from "./header";
 
