@@ -88,6 +88,8 @@ export default class SignUpSignIn extends Component<{}, State> {
     handlerRegister = async (e:any) => {
         let validation = true;
         const { regEmail, regUsername, regName, regPassword, regPasswordAgain} = this.state;
+        const signUpForm = document.getElementById('SignUpForm') as HTMLDivElement;
+        const popUp = document.getElementById('popUp') as HTMLDivElement;
         e.preventDefault()
         if(regEmail === '' || regUsername === '' || regName === '' || regPassword === ''){
             alert('Hiba, egyik mező sem lehet üres!')
@@ -123,7 +125,18 @@ export default class SignUpSignIn extends Component<{}, State> {
                 'Content-Type': 'application/json; charset=UTF-8',
             },
             body: JSON.stringify(data),
+        }).then((response) => {
+            if(response.ok){
+                if(validation === true) {
+                    signUpForm.style.display = 'none';
+                    popUp.style.display = 'block'; 
+                }      
+            }
+            else{
+                alert('hibás regisztráció!');
+            }
         });
+        
         
         console.log(data);
 
@@ -135,13 +148,10 @@ export default class SignUpSignIn extends Component<{}, State> {
             regPasswordAgain: '',
         });
        
-        const signUpForm = document.getElementById('SignUpForm') as HTMLDivElement;
-        const popUp = document.getElementById('popUp') as HTMLDivElement;
         
-        if(validation === true) {
-            signUpForm.style.display = 'none';
-            popUp.style.display = 'block'; 
-        }      
+        
+        
+        
     };
 
     Registration = async () => {
