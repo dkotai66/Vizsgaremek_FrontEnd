@@ -15,7 +15,6 @@ interface State {
     password: string;
 }
 
-
 export default class SignUpSignIn extends Component<{}, State> {
     constructor(props: {}){
         super(props)
@@ -112,14 +111,12 @@ export default class SignUpSignIn extends Component<{}, State> {
             window.location.reload();
         }
         
-
         const data = {
             name: regName,
             email: regEmail,
             username: regUsername,
             password: regPassword,
         };
-
 
         let response = await fetch('http://localhost:3000/user', {
             method: 'POST',
@@ -139,15 +136,13 @@ export default class SignUpSignIn extends Component<{}, State> {
             regPasswordAgain: '',
         });
        
-
         const signUpForm = document.getElementById('SignUpForm') as HTMLDivElement;
         const popUp = document.getElementById('popUp') as HTMLDivElement;
         
         if(validation === true) {
             signUpForm.style.display = 'none';
             popUp.style.display = 'block'; 
-        }
-        
+        }      
     };
 
     Registration = async () => {
@@ -178,8 +173,7 @@ export default class SignUpSignIn extends Component<{}, State> {
 
     Close = async () => {
         const signUpForm = document.getElementById('SignUpForm') as HTMLDivElement;
-        const popUp = document.getElementById('popUp') as HTMLDivElement;
-        
+        const popUp = document.getElementById('popUp') as HTMLDivElement;    
         signUpForm.style.display = 'block';
         popUp.style.display = 'none';
     }
@@ -201,6 +195,7 @@ export default class SignUpSignIn extends Component<{}, State> {
                                 <button className="toggleButton" id="regButton" onClick={this.Registration}>Regisztráció</button>
                                 <button className="toggleButton" id="logButton" onClick={this.Login}>Belépés</button>
                             </div>
+
                             <br />
                             
                             <form id="login" className="inputGroup" method="post">
@@ -242,9 +237,7 @@ export default class SignUpSignIn extends Component<{}, State> {
                     <span>Az adataid sikeresen bekerültek a rendszerbe.</span> <br />
                     <span>Mostmár beléphetsz a fiókoddal az oldalra.</span>
                     <button onClick={this.Close}>Ok</button>
-                </div>  
-
-                        
+                </div>                       
             </div>
             
             </body>   

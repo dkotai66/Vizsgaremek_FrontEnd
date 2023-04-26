@@ -1,7 +1,5 @@
 import { Component} from "react";
 import { NavLink } from "react-router-dom";
-import { GoThreeBars } from "react-icons/go"; 
-import "./header.css"
 
 interface State {
     login: boolean;

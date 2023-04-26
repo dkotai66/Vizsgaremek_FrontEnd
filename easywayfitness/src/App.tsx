@@ -7,7 +7,6 @@ import Main from './components/Main';
 import Record from './components/Record';
 import SignUpSignIn from './components/SignUpSignIn';
 
-
 export default class App extends React.Component {
 
   render() {

@@ -1,9 +1,6 @@
 import { Component } from 'react';
 import './Main.css';
 import { GoArrowUp } from "react-icons/go";//react-icons octions icons
-import { GoCheck } from "react-icons/go"; 
-import { GoThreeBars } from "react-icons/go"; 
-import { Link, NavLink } from 'react-router-dom';
 import Header from './header';
 
 interface WeightVideoGalleryElement {
@@ -285,7 +282,6 @@ const currentEducator: currentEducatorElement[] =[
   },
 ]
 
-
 interface State {
     currentVideo: VideoGalleryElement;
     currentEducator: currentEducatorElement;
@@ -334,9 +330,7 @@ export default class Main extends Component<{}, State> {
                     <div className='col-lg-6 findTheWayImage'>
                       <img src="./img/pullup.jpg" alt="pullupimage" className='img-fluid' id='pullupImage'/>
                     </div>   
-                  </div>
-                  
-                  
+                  </div>                 
                 </div>
 
                 <div className='educators'>

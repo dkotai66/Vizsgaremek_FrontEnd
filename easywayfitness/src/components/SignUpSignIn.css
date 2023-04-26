@@ -1,5 +1,3 @@
-
-
 .SignUpSignInButton {
     width: 220px;
     margin: 35px auto;
@@ -106,7 +104,6 @@ input::placeholder {
     margin-top: 10rem;
     text-align: center;
 }
-
 
 @media (max-width: 760px) and (min-width: 300px ){
     .succesPopup {

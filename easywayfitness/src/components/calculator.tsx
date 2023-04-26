@@ -1,4 +1,4 @@
-import { Component, ReactNode, useState } from "react";
+import { Component} from "react";
 import { NavLink } from "react-router-dom";
 import './calculator.css'
 import Header from "./header";
@@ -26,23 +26,6 @@ interface State {
     regFat: number;
     login: boolean;
     token: string;
-}
-
-interface lifeStyle {
-    option: string;
-}
-
-interface Form {
-    id: number;
-    gender: string;
-    height: number;
-    weight: number;
-    age: number;
-    water_consume: string;
-    lifestyle: string;
-    diet_plan: string;
-    weight_goal: number;
-    look: string;
 }
 
 export default class Calculator extends Component<{}, State> {
@@ -146,7 +129,7 @@ export default class Calculator extends Component<{}, State> {
     }
 
     handleCalculating =  async (e:any) => {
-        let {regGender, regAge, regHeight, regWeight, regWeight_goal, regLook, regDiet_plan, regLifestyle, regWater_consume, regResultKcal, regResultCarbohydrate, regResultFat, regResultProtein, regResultWater, regResultWorkout, regBMR, regTMR, regProtein, regCarbohydrate, regFat} = this.state;
+        let {regGender, regAge, regHeight, regWeight, regWeight_goal, regLook, regDiet_plan, regLifestyle, regWater_consume, regResultWater, regResultWorkout, regBMR, regTMR} = this.state;
         let validate = true;
 
         e.preventDefault()
@@ -381,7 +364,7 @@ export default class Calculator extends Component<{}, State> {
   
 
     render() {
-        const {regGender, regAge, regHeight, regWeight, regWeight_goal, regLook, regDiet_plan, regLifestyle, regWater_consume, regResultKcal, regResultCarbohydrate, regResultFat, regResultProtein, regResultWater, regResultWorkout, regBMR, regTMR, regProtein, regCarbohydrate, regFat} = this.state;
+        const {regAge, regHeight, regWeight, regWeight_goal, regResultKcal, regResultCarbohydrate, regResultFat, regResultProtein, regResultWater, regResultWorkout} = this.state;
 
         return <div>
             <body className='mainContainer'>

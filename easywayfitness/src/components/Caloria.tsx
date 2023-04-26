@@ -59,14 +59,13 @@ export default class Caloria extends Component<{}, State> {
                             }
                         </select>
                         
-                    <div className="foodInformations">
-                        <p>Az étel neve: {this.state.currentFood.name} </p>
-                        <p>Az étel kalória mennyisége: {this.state.currentFood.calorie} kcal <small><br />(Kiválaszott étel 100 grammjára vonatkozik)</small></p>
-                        <p>Az étel fehérje mennyisége: {this.state.currentFood.protein} gr <small><br />(Kiválaszott étel 100 grammjára vonatkozik)</small></p>
-                        <p>Az étel szénhidrát mennyisége: {this.state.currentFood.carbohydrate} gr <small><br />(Kiválaszott étel 100 grammjára vonatkozik)</small></p>
-                        <p>Az étel zsír mennyisége: {this.state.currentFood.fat} <small><br /> gr (Kiválaszott étel 100 grammjára vonatkozik)</small></p>
-                    </div>
-                        
+                        <div className="foodInformations">
+                            <p>Az étel neve: {this.state.currentFood.name} </p>
+                            <p>Az étel kalória mennyisége: {this.state.currentFood.calorie} kcal <small><br />(Kiválaszott étel 100 grammjára vonatkozik)</small></p>
+                            <p>Az étel fehérje mennyisége: {this.state.currentFood.protein} gr <small><br />(Kiválaszott étel 100 grammjára vonatkozik)</small></p>
+                            <p>Az étel szénhidrát mennyisége: {this.state.currentFood.carbohydrate} gr <small><br />(Kiválaszott étel 100 grammjára vonatkozik)</small></p>
+                            <p>Az étel zsír mennyisége: {this.state.currentFood.fat} <small><br /> gr (Kiválaszott étel 100 grammjára vonatkozik)</small></p>
+                        </div>   
                     </div>
                 </div>
             </body>
@@ -79,5 +78,4 @@ export default class Caloria extends Component<{}, State> {
           </footer>
         </div>
     }
-    
 }
