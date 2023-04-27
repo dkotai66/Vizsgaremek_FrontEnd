@@ -55,11 +55,9 @@ export default class SignUpSignIn extends Component<{}, State> {
                 this.setState({
                     login: false,
                 })
-                console.log("asd")
             }
             else{
                 resp.json().then((result) => {
-                    console.log('sda')
                     localStorage.setItem('token', result.token)
                     localStorage.setItem('userid', result.userid)
                     console.log(localStorage.getItem('token'));

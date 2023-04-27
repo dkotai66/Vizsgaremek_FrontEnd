@@ -48,7 +48,6 @@ export default class Record extends Component<{}, State>{
         this.setState({
             records: data,
         })
-        console.log(data);
     }
 
     componentDidMount(){
@@ -56,7 +55,6 @@ export default class Record extends Component<{}, State>{
         let loggedInFalse = document.getElementById('loggedInPageFalse') as HTMLDivElement;
         let tokenValue = localStorage.getItem('token') || '';
         this.setState({token:tokenValue})
-        console.log(tokenValue)
         if(tokenValue !== ''){
             this.setState({login: true})
             loggedIn.style.display = 'block';
