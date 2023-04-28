@@ -312,17 +312,22 @@ export default class Calculator extends Component<{}, State> {
             window.location.reload();
         }
         if(regAge < 16 ) {
-            alert('Sajnáljuk, de csak 16, és 16 éven felülieknek lett kitalálva kalkulátorunk')
+            alert('Sajnáljuk, de csak 15 éven felülieknek lett kitalálva kalkulátorunk')
             validate = false;
             window.location.reload();
         }
         if(regAge > 70 ) {
-            alert('Sajnáljuk, de csak 70, és 70 éven alattiaknak lett kitalálva kalkulátorunk')
+            alert('Sajnáljuk, de csak 71 éven alattiaknak lett kitalálva kalkulátorunk')
             validate = false;
             window.location.reload();
         }
         if(regWeight<30 || regWeight>255) {
             alert('Sajnáljuk, az általad megadott testsúlyra nem alkalmas kalkulátorunk')
+            validate = false;
+            window.location.reload();
+        }
+        if(regWeight_goal < 40 || regWeight_goal > 130){
+            alert('Sajnáljuk, az általad megadott álom testsúlyra nem alkalmas kalkulátorunk')
             validate = false;
             window.location.reload();
         }
